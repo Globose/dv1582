@@ -171,19 +171,17 @@ class PlayRoom:
         else:
             print("{}: {}".format("Winner", self._winners[0].get_name()))
 
-
 if __name__ == "__main__":
-    while True:
-        room = PlayRoom()
-        room.set_game(ShipOfFoolsGame())
-        room.add_player(Player("Nora"))
-        room.add_player(Player("Selman"))
-        room.reset_scores()
+    room = PlayRoom()
+    room.set_game(ShipOfFoolsGame())
+    room.add_player(Player("Nora"))
+    room.add_player(Player("Selman"))
+    room.reset_scores()
+    room.print_scores()
+    while not room.game_finished():
+        room.play_round()
         room.print_scores()
-        while not room.game_finished():
-            room.play_round()
-            room.print_scores()
 
-        room.print_scores()
-        room.print_winner()
-        break
+    room.print_scores()
+    room.print_winner()
+
