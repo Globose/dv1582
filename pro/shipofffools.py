@@ -135,7 +135,6 @@ class PlayRoom:
 
     def play_round(self):
         for player in self._players:
-            print(player.get_name(), " turn")
             player.play_turn(self._game)
 
     def print_scores(self):
@@ -170,6 +169,7 @@ class PlayRoom:
                 print(player.get_name())
         else:
             print("{}: {}".format("Winner", self._winners[0].get_name()))
+
 
 if __name__ == "__main__":
     room = PlayRoom()
