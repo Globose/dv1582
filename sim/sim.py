@@ -3,6 +3,7 @@ from random import randrange
 
 class World:    
     def __init__(self):
+        self._day = 0
         self._barracks = []
         self._storages = []
         self._barns = []
@@ -19,7 +20,8 @@ class World:
         f1 = Field(b1, b1, ba1)
         fa1 = Factory(b1,b1,s1)
         
-        b1.add_worker(Worker())
+        for _ in range(10000):
+            b1.add_worker(Worker())
         self._barracks.append(b1)
         self._storages.append(s1)
         self._barns.append(ba1)
@@ -39,6 +41,10 @@ class World:
 
     def Simulate(self):
         while not self._sim_finished():
+            self._day += 1
+            
+            print()
+            print("Day", self._day)
             f: Factory
             for f in self._factories:
                 f.work()
@@ -58,6 +64,7 @@ class World:
             b:Barrack
             for b in self._barracks:
                 print(b)
+            break
 
 
 class Worker:
@@ -140,7 +147,8 @@ class Barrack:
     
     def add_worker(self, worker:Worker):
         """Send a worker to the barrack"""
-        self._workers.append(worker)
+        if worker.get_vitality() > 0:
+            self._workers.append(worker)
     
     def is_empty(self) -> bool:
         """Returns true if barrack is empty"""
@@ -169,10 +177,9 @@ class Field:
 
         print("Creating food")
         worker = self._barrack_in.get_worker()
-        print(self._barrack_in.is_empty(), "?")
         worker.change_vitality(-10)
-        if worker.get_vitality() > 0:
-            self._barrack_out.add_worker(worker)
+
+        self._barrack_out.add_worker(worker)
         self._barn_out.add_food(Food(1))
 
 
@@ -191,9 +198,7 @@ class DiningHall:
         worker = self._barrack_in.get_worker()
         food = self._barn_in.get_food()
         worker.change_vitality(10*food.get_quality())
-        
-        if worker.get_vitality() > 0:
-            self._barrack_out.add_worker(worker)
+        self._barrack_out.add_worker(worker)
 
 
 class Home:
@@ -222,8 +227,7 @@ class Factory:
         worker = self._barrack_in.get_worker()
         worker.change_vitality(-10)
         self._storage_out.add_product(Product())
-        if worker.get_vitality() > 0:
-            self._barrack_out.add_worker(worker)
+        self._barrack_out.add_worker(worker)
 
 
     
