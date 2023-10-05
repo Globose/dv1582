@@ -111,7 +111,6 @@ class Field:
         self._barn_out = barn_out
 
     def farm(self):
-        """Farming"""
         if self._barrack_in.is_empty():
             return
 
@@ -129,7 +128,6 @@ class DiningHall:
         self._barn_in = barn_in
 
     def eat(self):
-        """Eating"""
         if self._barrack_in.is_empty() or self._barn_in.is_empty():
             return
         worker = self._barrack_in.get_worker()
@@ -155,7 +153,6 @@ class Factory:
         self._storage_out = storage_out
 
     def work(self):
-        """Work"""
         if self._barrack_in.is_empty():
             return
         worker = self._barrack_in.get_worker()
