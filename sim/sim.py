@@ -1,13 +1,16 @@
 from collections import deque
 from random import randrange
 
-class Token:
+
+class Resource:
     def __init__(self):
-        pass
+        """Resource Constructor"""
     
     
-class Worker(Token):
+class Worker(Resource):
     def __init__(self):
+        """Initializes the Worker with _vitality = 100"""
+        super().__init__()
         self._vitality = 100
     
     def get_vitality(self) -> int:
@@ -24,8 +27,9 @@ class Worker(Token):
             self._vitality = 0
 
 
-class Food(Token):
+class Food(Resource):
     def __init__ (self, quality:float):
+        super().__init__()
         self._quality = quality
 
     def get_quality(self) -> float:
@@ -33,25 +37,27 @@ class Food(Token):
         return self._quality
 
 
-class Product(Token):
+class Product(Resource):
     """Product"""
+    def __init__(self):
+        super().__init__()
 
 
 class Place:
     def __init__(self):
-        self._tokens = deque()
+        self._Resources = deque()
     
-    def add(self, token: Token):
-        self._tokens.append(token)
+    def add(self, Resource: Resource):
+        self._Resources.append(Resource)
     
-    def get(self) -> Token:
-        """Returns one token, returns None if empty"""
-        if len(self._tokens) > 0:
-            return self._tokens.popleft()
+    def get(self) -> Resource:
+        """Returns one Resource, returns None if empty"""
+        if len(self._Resources) > 0:
+            return self._Resources.popleft()
     
     def is_empty(self) -> bool:
         """Returns true if place is empty"""
-        return len(self._tokens) == 0
+        return len(self._Resources) == 0
 
 
 class Barn(Place):
@@ -59,38 +65,39 @@ class Barn(Place):
         super().__init__()
 
     def __str__(self) -> str:
-        return f"Barn ({len(self._tokens)})"
+        return f"Barn ({len(self._Resources)})"
 
         
 class Storage(Place):
     def __init__(self):
         super().__init__()
-    
+
     def get(self) -> Product:
         """Returns a product"""
-        if len(self._tokens) > 0:
-            return self._tokens.pop()
+        if len(self._Resources) > 0:
+            return self._Resources.pop()
 
     def __str__(self) -> str:
-        return f"storage ({len(self._tokens)})"
+        return f"storage ({len(self._Resources)})"
 
 
 class Barrack(Place):
     def __init__(self):
         super().__init__()
-    
+
     def add(self, worker:Worker):
         """Add a worker to the barrack"""
         if worker.get_vitality() > 0:
-            self._tokens.append(worker)
+            self._Resources.append(worker)
     
     def __str__(self) -> str:
-        result = f"Barrack ({len(self._tokens)})"
+        result = f"Barrack ({len(self._Resources)})"
         
-        w: Worker
-        for w in self._tokens:
-            result += f"\n Worker: {w.get_vitality()}"
+        # w: Worker
+        # for w in self._Resources:
+        #     result += f"\n Worker: {w.get_vitality()}"
         return result
+
 
 class Transition:
     def __init__(self, barrack_in, barrack_out):
@@ -188,7 +195,6 @@ class World:
         for _ in range(workers_size):
             self._barracks[randrange(len(self._barracks))].add(Worker())
 
-
     def _sim_finished(self):
         b: Barrack
         for b in self._barracks:
@@ -203,6 +209,8 @@ class World:
             
             print()
             print("Day", self._day)
+
+
             f: Factory
             for f in self._factories:
                 f.act()
@@ -223,8 +231,7 @@ class World:
             for b in self._barracks:
                 print(b)    
     
-            break
 
 if __name__=='__main__':
-    w1 = World(10, 10, 10, 10, 3, 3, 3,200)
+    w1 = World(1, 1, 1, 1, 1, 1, 1,1)
     w1.Simulate()
