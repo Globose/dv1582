@@ -1,72 +1,1224 @@
-2023-10-19 17:24:28,585 - INFO - Program started
-2023-10-19 17:24:28,585 - INFO - Added barracks (1), storages (1), barns (1)
-2023-10-19 17:24:28,585 - DEBUG - Connecting transition (<class '__main__.DiningHall'>) to barracks (0x2de5027a070)(0x2de5027a070) and place ([<__main__.Barn object at 0x000002DE5027A130>])(0x2de50206dc0)
-2023-10-19 17:24:28,585 - DEBUG - Connecting transition (<class '__main__.Home'>) to barracks (0x2de5027a070)(0x2de5027a070) and place ([<__main__.Storage object at 0x000002DE5027A0D0>])(0x2de50257d80)
-2023-10-19 17:24:28,585 - DEBUG - Connecting transition (<class '__main__.Field'>) to barracks (0x2de5027a070)(0x2de5027a070) and place ([<__main__.Barn object at 0x000002DE5027A130>])(0x2de50206dc0)
-2023-10-19 17:24:28,585 - DEBUG - Connecting transition (<class '__main__.Factory'>) to barracks (0x2de5027a070)(0x2de5027a070) and place ([<__main__.Storage object at 0x000002DE5027A0D0>])(0x2de50257d80)
-2023-10-19 17:24:28,585 - DEBUG - Connecting transition (<class '__main__.Factory'>) to barracks (0x2de5027a070)(0x2de5027a070) and place ([<__main__.Storage object at 0x000002DE5027A0D0>])(0x2de50257d80)
-2023-10-19 17:24:28,585 - DEBUG - Barrack 0x2de5027a070, worker (0x2de5027a370) returned
-2023-10-19 17:24:28,585 - DEBUG - Barrack 0x2de5027a070, worker (0x2de5027a3d0) returned
-2023-10-19 17:24:28,585 - INFO - Added dining halls (1), homes (1), fields (1), factories (2), workers (2)
-2023-10-19 17:24:28,585 - INFO - New day (1)
-2023-10-19 17:24:28,585 - DEBUG - Dininghall 0x2de5027a190: barrack (False) or barn (True) empty
-2023-10-19 17:24:28,585 - DEBUG - Home 0x2de5027a1f0, storage empty
-2023-10-19 17:24:28,585 - DEBUG - Field 0x2de5027a250 requesting 1 worker (barrack 0x2de5027a070)
-2023-10-19 17:24:28,585 - DEBUG - Place (Barrack (1) (0x2de5027a070)) sends resource (0x2de5027a370)
-2023-10-19 17:24:28,585 - DEBUG - Field 0x2de5027a250, worker (0x2de5027a370) harmed (100 -> 70)
-2023-10-19 17:24:28,585 - DEBUG - Barrack 0x2de5027a070, worker (0x2de5027a370) returned
-2023-10-19 17:24:28,585 - DEBUG - Factory (0x2de5027a2b0) requesting 1 worker (barrack 0x2de5027a070)
-2023-10-19 17:24:28,585 - DEBUG - Place (Barrack (1) (0x2de5027a070)) sends resource (0x2de5027a3d0)
-2023-10-19 17:24:28,585 - DEBUG - Factory 0x2de5027a2b0: product created, worker (0x2de5027a3d0), harmed (100 -> 78)
-2023-10-19 17:24:28,585 - DEBUG - Barrack 0x2de5027a070, worker (0x2de5027a3d0) returned
-2023-10-19 17:24:28,585 - DEBUG - Factory (0x2de5027a310) requesting 1 worker (barrack 0x2de5027a070)
-2023-10-19 17:24:28,585 - DEBUG - Place (Barrack (1) (0x2de5027a070)) sends resource (0x2de5027a370)
-2023-10-19 17:24:28,585 - DEBUG - Factory 0x2de5027a310: product created, worker (0x2de5027a370), harmed (70 -> 19)
-2023-10-19 17:24:28,585 - DEBUG - Barrack 0x2de5027a070, worker (0x2de5027a370) returned
-2023-10-19 17:24:28,585 - INFO - New day (2)
-2023-10-19 17:24:28,585 - DEBUG - Dininghall 0x2de5027a190 requesting 1 worker (barrack 0x2de5027a070) and 1 food (barn 0x2de5027a130)
-2023-10-19 17:24:28,585 - DEBUG - Place (Barrack (1) (0x2de5027a070)) sends resource (0x2de5027a3d0)
-2023-10-19 17:24:28,590 - DEBUG - Place (Barn (0)) sends resource (0x2de5027a490)
-2023-10-19 17:24:28,590 - DEBUG - Dininghall 0x2de5027a190: Food quality (1), worker (0x2de5027a3d0), health (78 -> 100)
-2023-10-19 17:24:28,590 - DEBUG - Barrack 0x2de5027a070, worker (0x2de5027a3d0) returned
-2023-10-19 17:24:28,590 - DEBUG - Home 0x2de5027a1f0 requesting one worker (barrack 0x2de5027a070) and 1 product (storage 0x2de5027a0d0)
-2023-10-19 17:24:28,590 - DEBUG - Place (Barrack (1) (0x2de5027a070)) sends resource (0x2de5027a370)
-2023-10-19 17:24:28,590 - DEBUG - Storage 0x2de5027a0d0 sends one product
-2023-10-19 17:24:28,590 - DEBUG - Home 0x2de5027a1f0: worker resting (0x2de5027a370), 19 -> 24
-2023-10-19 17:24:28,590 - DEBUG - Barrack 0x2de5027a070, worker (0x2de5027a370) returned
-2023-10-19 17:24:28,590 - DEBUG - Field 0x2de5027a250 requesting 1 worker (barrack 0x2de5027a070)
-2023-10-19 17:24:28,590 - DEBUG - Place (Barrack (1) (0x2de5027a070)) sends resource (0x2de5027a3d0)
-2023-10-19 17:24:28,590 - DEBUG - Field 0x2de5027a250, worker (0x2de5027a3d0) harmed (100 -> 100)
-2023-10-19 17:24:28,590 - DEBUG - Barrack 0x2de5027a070, worker (0x2de5027a3d0) returned
-2023-10-19 17:24:28,590 - DEBUG - Factory (0x2de5027a2b0) requesting 1 worker (barrack 0x2de5027a070)
-2023-10-19 17:24:28,590 - DEBUG - Place (Barrack (1) (0x2de5027a070)) sends resource (0x2de5027a370)
-2023-10-19 17:24:28,590 - DEBUG - Factory 0x2de5027a2b0: product created, worker (0x2de5027a370), harmed (24 -> 0)
-2023-10-19 17:24:28,590 - DEBUG - Barrack 0x2de5027a070, worker (0x2de5027a370) dead
-2023-10-19 17:24:28,590 - DEBUG - Factory (0x2de5027a310) requesting 1 worker (barrack 0x2de5027a070)
-2023-10-19 17:24:28,590 - DEBUG - Place (Barrack (0) (0x2de5027a070)) sends resource (0x2de5027a3d0)
-2023-10-19 17:24:28,590 - DEBUG - Factory 0x2de5027a310: product created, worker (0x2de5027a3d0), harmed (100 -> 72)
-2023-10-19 17:24:28,590 - DEBUG - Barrack 0x2de5027a070, worker (0x2de5027a3d0) returned
-2023-10-19 17:24:28,590 - INFO - New day (3)
-2023-10-19 17:24:28,590 - DEBUG - Dininghall 0x2de5027a190 requesting 1 worker (barrack 0x2de5027a070) and 1 food (barn 0x2de5027a130)
-2023-10-19 17:24:28,590 - DEBUG - Place (Barrack (0) (0x2de5027a070)) sends resource (0x2de5027a3d0)
-2023-10-19 17:24:28,590 - DEBUG - Place (Barn (0)) sends resource (0x2de5027a520)
-2023-10-19 17:24:28,593 - DEBUG - Dininghall 0x2de5027a190: Food quality (1), worker (0x2de5027a3d0), health (72 -> 100)
-2023-10-19 17:24:28,593 - DEBUG - Barrack 0x2de5027a070, worker (0x2de5027a3d0) returned
-2023-10-19 17:24:28,593 - DEBUG - Home 0x2de5027a1f0 requesting one worker (barrack 0x2de5027a070) and 1 product (storage 0x2de5027a0d0)
-2023-10-19 17:24:28,593 - DEBUG - Place (Barrack (0) (0x2de5027a070)) sends resource (0x2de5027a3d0)
-2023-10-19 17:24:28,593 - DEBUG - Storage 0x2de5027a0d0 sends one product
-2023-10-19 17:24:28,593 - DEBUG - Home 0x2de5027a1f0: worker resting (0x2de5027a3d0), 100 -> 100
-2023-10-19 17:24:28,593 - DEBUG - Barrack 0x2de5027a070, worker (0x2de5027a3d0) returned
-2023-10-19 17:24:28,593 - DEBUG - Field 0x2de5027a250 requesting 1 worker (barrack 0x2de5027a070)
-2023-10-19 17:24:28,593 - DEBUG - Place (Barrack (0) (0x2de5027a070)) sends resource (0x2de5027a3d0)
-2023-10-19 17:24:28,593 - DEBUG - Field 0x2de5027a250, worker (0x2de5027a3d0) harmed (100 -> 100)
-2023-10-19 17:24:28,593 - DEBUG - Barrack 0x2de5027a070, worker (0x2de5027a3d0) returned
-2023-10-19 17:24:28,593 - DEBUG - Factory (0x2de5027a2b0) requesting 1 worker (barrack 0x2de5027a070)
-2023-10-19 17:24:28,593 - DEBUG - Place (Barrack (0) (0x2de5027a070)) sends resource (0x2de5027a3d0)
-2023-10-19 17:24:28,593 - DEBUG - Factory 0x2de5027a2b0: product created, worker (0x2de5027a3d0), harmed (100 -> 80)
-2023-10-19 17:24:28,593 - DEBUG - Barrack 0x2de5027a070, worker (0x2de5027a3d0) returned
-2023-10-19 17:24:28,593 - DEBUG - Factory (0x2de5027a310) requesting 1 worker (barrack 0x2de5027a070)
-2023-10-19 17:24:28,593 - DEBUG - Place (Barrack (0) (0x2de5027a070)) sends resource (0x2de5027a3d0)
-2023-10-19 17:24:28,593 - DEBUG - Factory 0x2de5027a310: product created, worker (0x2de5027a3d0), harmed (80 -> 0)
-2023-10-19 17:24:28,593 - DEBUG - Barrack 0x2de5027a070, worker (0x2de5027a3d0) dead
-2023-10-19 17:24:28,593 - INFO - Program ended
+2023-10-19 18:39:31,938 - INFO - Program started
+2023-10-19 18:39:31,938 - INFO - Added barracks (1), storages (1), barns (1)
+2023-10-19 18:39:31,938 - DEBUG - Connecting DiningHall[0x2244a456700] to Barrack[0, 0x2244a456850], Barrack[0, 0x2244a456850], Barn[0, 0x2244a456640]
+2023-10-19 18:39:31,938 - DEBUG - Connecting Home[0x2244a456880] to Barrack[0, 0x2244a456850], Barrack[0, 0x2244a456850], Storage[0, 0x2244a456670]
+2023-10-19 18:39:31,938 - DEBUG - Connecting Field[0x2244a4568b0] to Barrack[0, 0x2244a456850], Barrack[0, 0x2244a456850], Barn[0, 0x2244a456640]
+2023-10-19 18:39:31,938 - DEBUG - Connecting Field[0x2244a4569a0] to Barrack[0, 0x2244a456850], Barrack[0, 0x2244a456850], Barn[0, 0x2244a456640]
+2023-10-19 18:39:31,938 - DEBUG - Connecting Field[0x2244a456a00] to Barrack[0, 0x2244a456850], Barrack[0, 0x2244a456850], Barn[0, 0x2244a456640]
+2023-10-19 18:39:31,938 - DEBUG - Connecting Field[0x2244a456a60] to Barrack[0, 0x2244a456850], Barrack[0, 0x2244a456850], Barn[0, 0x2244a456640]
+2023-10-19 18:39:31,938 - DEBUG - Connecting Factory[0x2244a456ac0] to Barrack[0, 0x2244a456850], Barrack[0, 0x2244a456850], Storage[0, 0x2244a456670]
+2023-10-19 18:39:31,938 - DEBUG - Connecting Factory[0x2244a456b20] to Barrack[0, 0x2244a456850], Barrack[0, 0x2244a456850], Storage[0, 0x2244a456670]
+2023-10-19 18:39:31,938 - DEBUG - Connecting Factory[0x2244a456b80] to Barrack[0, 0x2244a456850], Barrack[0, 0x2244a456850], Storage[0, 0x2244a456670]
+2023-10-19 18:39:31,938 - DEBUG - Connecting Factory[0x2244a456be0] to Barrack[0, 0x2244a456850], Barrack[0, 0x2244a456850], Storage[0, 0x2244a456670]
+2023-10-19 18:39:31,938 - DEBUG - Connecting Factory[0x2244a456c40] to Barrack[0, 0x2244a456850], Barrack[0, 0x2244a456850], Storage[0, 0x2244a456670]
+2023-10-19 18:39:31,938 - DEBUG - Barrack[1, 0x2244a456850], Worker [0x2244a456ca0, 100] returned
+2023-10-19 18:39:31,938 - DEBUG - Barrack[2, 0x2244a456850], Worker [0x2244a456d00, 100] returned
+2023-10-19 18:39:31,938 - DEBUG - Barrack[3, 0x2244a456850], Worker [0x2244a456d60, 100] returned
+2023-10-19 18:39:31,938 - DEBUG - Barrack[4, 0x2244a456850], Worker [0x2244a456dc0, 100] returned
+2023-10-19 18:39:31,938 - DEBUG - Barrack[5, 0x2244a456850], Worker [0x2244a456e20, 100] returned
+2023-10-19 18:39:31,938 - DEBUG - Barrack[6, 0x2244a456850], Worker [0x2244a456e80, 100] returned
+2023-10-19 18:39:31,938 - DEBUG - Barrack[7, 0x2244a456850], Worker [0x2244a456ee0, 100] returned
+2023-10-19 18:39:31,938 - DEBUG - Barrack[8, 0x2244a456850], Worker [0x2244a456f40, 100] returned
+2023-10-19 18:39:31,938 - DEBUG - Barrack[9, 0x2244a456850], Worker [0x2244a456fa0, 100] returned
+2023-10-19 18:39:31,938 - DEBUG - Barrack[10, 0x2244a456850], Worker [0x2244a470040, 100] returned
+2023-10-19 18:39:31,938 - DEBUG - Barrack[11, 0x2244a456850], Worker [0x2244a4700a0, 100] returned
+2023-10-19 18:39:31,938 - DEBUG - Barrack[12, 0x2244a456850], Worker [0x2244a470100, 100] returned
+2023-10-19 18:39:31,938 - DEBUG - Barrack[13, 0x2244a456850], Worker [0x2244a470160, 100] returned
+2023-10-19 18:39:31,938 - DEBUG - Barrack[14, 0x2244a456850], Worker [0x2244a4701c0, 100] returned
+2023-10-19 18:39:31,938 - DEBUG - Barrack[15, 0x2244a456850], Worker [0x2244a470220, 100] returned
+2023-10-19 18:39:31,938 - DEBUG - Barrack[16, 0x2244a456850], Worker [0x2244a470280, 100] returned
+2023-10-19 18:39:31,938 - DEBUG - Barrack[17, 0x2244a456850], Worker [0x2244a4702e0, 100] returned
+2023-10-19 18:39:31,938 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a470340, 100] returned
+2023-10-19 18:39:31,938 - DEBUG - Barrack[19, 0x2244a456850], Worker [0x2244a4703a0, 100] returned
+2023-10-19 18:39:31,938 - DEBUG - Barrack[20, 0x2244a456850], Worker [0x2244a470400, 100] returned
+2023-10-19 18:39:31,938 - INFO - Added dining halls (1), homes (1), fields (4), factories (5), workers (20)
+2023-10-19 18:39:31,938 - INFO - New day (1)
+2023-10-19 18:39:31,938 - DEBUG - DiningHall[0x2244a456700]: Barrack[20, 0x2244a456850] or Barn[0, 0x2244a456640] is empty
+2023-10-19 18:39:31,938 - DEBUG - Home[0x2244a456880], storage empty Storage[0, 0x2244a456670]
+2023-10-19 18:39:31,938 - DEBUG - Field[0x2244a4568b0] requesting 1 from Barrack[20, 0x2244a456850]
+2023-10-19 18:39:31,938 - DEBUG - Barrack[19, 0x2244a456850] sends one Worker [0x2244a456ca0, 100]
+2023-10-19 18:39:31,938 - DEBUG - Field[0x2244a4568b0] sent food to Barn[0, 0x2244a456640], Worker [0x2244a456ca0, 58] harmed -42
+2023-10-19 18:39:31,938 - DEBUG - Barrack[20, 0x2244a456850], Worker [0x2244a456ca0, 58] returned
+2023-10-19 18:39:31,938 - DEBUG - Barn[1, 0x2244a456640], one Food [0x2244a4704c0] added
+2023-10-19 18:39:31,938 - DEBUG - Field[0x2244a4569a0] requesting 1 from Barrack[20, 0x2244a456850]
+2023-10-19 18:39:31,938 - DEBUG - Barrack[19, 0x2244a456850] sends one Worker [0x2244a456d00, 100]
+2023-10-19 18:39:31,938 - DEBUG - Field[0x2244a4569a0] sent food to Barn[1, 0x2244a456640], Worker [0x2244a456d00, 100] harmed 0
+2023-10-19 18:39:31,938 - DEBUG - Barrack[20, 0x2244a456850], Worker [0x2244a456d00, 100] returned
+2023-10-19 18:39:31,938 - DEBUG - Barn[2, 0x2244a456640], one Food [0x2244a470520] added
+2023-10-19 18:39:31,938 - DEBUG - Field[0x2244a456a00] requesting 1 from Barrack[20, 0x2244a456850]
+2023-10-19 18:39:31,938 - DEBUG - Barrack[19, 0x2244a456850] sends one Worker [0x2244a456d60, 100]
+2023-10-19 18:39:31,938 - DEBUG - Field[0x2244a456a00] sent food to Barn[2, 0x2244a456640], Worker [0x2244a456d60, 100] harmed 0
+2023-10-19 18:39:31,938 - DEBUG - Barrack[20, 0x2244a456850], Worker [0x2244a456d60, 100] returned
+2023-10-19 18:39:31,938 - DEBUG - Barn[3, 0x2244a456640], one Food [0x2244a470580] added
+2023-10-19 18:39:31,938 - DEBUG - Field[0x2244a456a60] requesting 1 from Barrack[20, 0x2244a456850]
+2023-10-19 18:39:31,938 - DEBUG - Barrack[19, 0x2244a456850] sends one Worker [0x2244a456dc0, 100]
+2023-10-19 18:39:31,938 - DEBUG - Field[0x2244a456a60] sent food to Barn[3, 0x2244a456640], Worker [0x2244a456dc0, 100] harmed 0
+2023-10-19 18:39:31,938 - DEBUG - Barrack[20, 0x2244a456850], Worker [0x2244a456dc0, 100] returned
+2023-10-19 18:39:31,938 - DEBUG - Barn[4, 0x2244a456640], one Food [0x2244a4705e0] added
+2023-10-19 18:39:31,938 - DEBUG - Factory (Factory[0x2244a456ac0]) requesting 1 worker (barrack Barrack[20, 0x2244a456850])
+2023-10-19 18:39:31,938 - DEBUG - Barrack[19, 0x2244a456850] sends one Worker [0x2244a456e20, 100]
+2023-10-19 18:39:31,938 - DEBUG - Factory[0x2244a456ac0]: product created (sent to: Storage[0, 0x2244a456670]), Worker [0x2244a456e20, 67] harmed -33
+2023-10-19 18:39:31,938 - DEBUG - Storage[1, 0x2244a456670], one Product [0x2244a470640] added
+2023-10-19 18:39:31,938 - DEBUG - Barrack[20, 0x2244a456850], Worker [0x2244a456e20, 67] returned
+2023-10-19 18:39:31,938 - DEBUG - Factory (Factory[0x2244a456b20]) requesting 1 worker (barrack Barrack[20, 0x2244a456850])
+2023-10-19 18:39:31,938 - DEBUG - Barrack[19, 0x2244a456850] sends one Worker [0x2244a456e80, 100]
+2023-10-19 18:39:31,938 - DEBUG - Factory[0x2244a456b20]: product created (sent to: Storage[1, 0x2244a456670]), Worker [0x2244a456e80, 54] harmed -46
+2023-10-19 18:39:31,938 - DEBUG - Storage[2, 0x2244a456670], one Product [0x2244a470670] added
+2023-10-19 18:39:31,938 - DEBUG - Barrack[20, 0x2244a456850], Worker [0x2244a456e80, 54] returned
+2023-10-19 18:39:31,938 - DEBUG - Factory (Factory[0x2244a456b80]) requesting 1 worker (barrack Barrack[20, 0x2244a456850])
+2023-10-19 18:39:31,938 - DEBUG - Barrack[19, 0x2244a456850] sends one Worker [0x2244a456ee0, 100]
+2023-10-19 18:39:31,938 - DEBUG - Factory[0x2244a456b80]: product created (sent to: Storage[2, 0x2244a456670]), Worker [0x2244a456ee0, 16] harmed -84
+2023-10-19 18:39:31,938 - DEBUG - Storage[3, 0x2244a456670], one Product [0x2244a4706a0] added
+2023-10-19 18:39:31,938 - DEBUG - Barrack[20, 0x2244a456850], Worker [0x2244a456ee0, 16] returned
+2023-10-19 18:39:31,938 - DEBUG - Factory (Factory[0x2244a456be0]) requesting 1 worker (barrack Barrack[20, 0x2244a456850])
+2023-10-19 18:39:31,938 - DEBUG - Barrack[19, 0x2244a456850] sends one Worker [0x2244a456f40, 100]
+2023-10-19 18:39:31,938 - DEBUG - Factory[0x2244a456be0]: product created (sent to: Storage[3, 0x2244a456670]), Worker [0x2244a456f40, 82] harmed -18
+2023-10-19 18:39:31,938 - DEBUG - Storage[4, 0x2244a456670], one Product [0x2244a4706d0] added
+2023-10-19 18:39:31,938 - DEBUG - Barrack[20, 0x2244a456850], Worker [0x2244a456f40, 82] returned
+2023-10-19 18:39:31,938 - DEBUG - Factory (Factory[0x2244a456c40]) requesting 1 worker (barrack Barrack[20, 0x2244a456850])
+2023-10-19 18:39:31,938 - DEBUG - Barrack[19, 0x2244a456850] sends one Worker [0x2244a456fa0, 100]
+2023-10-19 18:39:31,938 - DEBUG - Factory[0x2244a456c40]: product created (sent to: Storage[4, 0x2244a456670]), Worker [0x2244a456fa0, 12] harmed -88
+2023-10-19 18:39:31,938 - DEBUG - Storage[5, 0x2244a456670], one Product [0x2244a470700] added
+2023-10-19 18:39:31,938 - DEBUG - Barrack[20, 0x2244a456850], Worker [0x2244a456fa0, 12] returned
+2023-10-19 18:39:31,938 - INFO - New day (2)
+2023-10-19 18:39:31,938 - DEBUG - DiningHall[0x2244a456700] requesting 1 from Barrack[20, 0x2244a456850], 1 from Barn[4, 0x2244a456640]
+2023-10-19 18:39:31,938 - DEBUG - Barrack[19, 0x2244a456850] sends one Worker [0x2244a470040, 100]
+2023-10-19 18:39:31,938 - DEBUG - Barn[3, 0x2244a456640] sends one Food [0x2244a4704c0]
+2023-10-19 18:39:31,938 - DEBUG - DiningHall[0x2244a456700]: Food [0x2244a4704c0], Worker [0x2244a470040, 100], plus 33
+2023-10-19 18:39:31,948 - DEBUG - Barrack[20, 0x2244a456850], Worker [0x2244a470040, 100] returned
+2023-10-19 18:39:31,948 - DEBUG - Home[0x2244a456880] requesting 2 from Barrack[20, 0x2244a456850] and 1 from Storage[5, 0x2244a456670]
+2023-10-19 18:39:31,948 - DEBUG - Barrack[19, 0x2244a456850] sends one Worker [0x2244a4700a0, 100]
+2023-10-19 18:39:31,948 - DEBUG - Barrack[18, 0x2244a456850] sends one Worker [0x2244a470100, 100]
+2023-10-19 18:39:31,948 - DEBUG - Storage[5, 0x2244a456670] sends one product
+2023-10-19 18:39:31,948 - DEBUG - Home[0x2244a456880]: new Worker [0x2244a4700a0, 100] + Worker [0x2244a470100, 100] -> Worker [0x2244a470700, 100]
+2023-10-19 18:39:31,948 - DEBUG - Barrack[19, 0x2244a456850], Worker [0x2244a4700a0, 100] returned
+2023-10-19 18:39:31,948 - DEBUG - Barrack[20, 0x2244a456850], Worker [0x2244a470100, 100] returned
+2023-10-19 18:39:31,948 - DEBUG - Barrack[21, 0x2244a456850], Worker [0x2244a470700, 100] returned
+2023-10-19 18:39:31,948 - DEBUG - Field[0x2244a4568b0] requesting 1 from Barrack[21, 0x2244a456850]
+2023-10-19 18:39:31,948 - DEBUG - Barrack[20, 0x2244a456850] sends one Worker [0x2244a470160, 100]
+2023-10-19 18:39:31,948 - DEBUG - Field[0x2244a4568b0] sent food to Barn[3, 0x2244a456640], Worker [0x2244a470160, 100] harmed 0
+2023-10-19 18:39:31,948 - DEBUG - Barrack[21, 0x2244a456850], Worker [0x2244a470160, 100] returned
+2023-10-19 18:39:31,948 - DEBUG - Barn[4, 0x2244a456640], one Food [0x2244a4704f0] added
+2023-10-19 18:39:31,948 - DEBUG - Field[0x2244a4569a0] requesting 1 from Barrack[21, 0x2244a456850]
+2023-10-19 18:39:31,948 - DEBUG - Barrack[20, 0x2244a456850] sends one Worker [0x2244a4701c0, 100]
+2023-10-19 18:39:31,948 - DEBUG - Field[0x2244a4569a0] sent food to Barn[4, 0x2244a456640], Worker [0x2244a4701c0, 100] harmed 0
+2023-10-19 18:39:31,948 - DEBUG - Barrack[21, 0x2244a456850], Worker [0x2244a4701c0, 100] returned
+2023-10-19 18:39:31,948 - DEBUG - Barn[5, 0x2244a456640], one Food [0x2244a470760] added
+2023-10-19 18:39:31,948 - DEBUG - Field[0x2244a456a00] requesting 1 from Barrack[21, 0x2244a456850]
+2023-10-19 18:39:31,948 - DEBUG - Barrack[20, 0x2244a456850] sends one Worker [0x2244a470220, 100]
+2023-10-19 18:39:31,948 - DEBUG - Field[0x2244a456a00] sent food to Barn[5, 0x2244a456640], Worker [0x2244a470220, 61] harmed -39
+2023-10-19 18:39:31,948 - DEBUG - Barrack[21, 0x2244a456850], Worker [0x2244a470220, 61] returned
+2023-10-19 18:39:31,948 - DEBUG - Barn[6, 0x2244a456640], one Food [0x2244a4707c0] added
+2023-10-19 18:39:31,948 - DEBUG - Field[0x2244a456a60] requesting 1 from Barrack[21, 0x2244a456850]
+2023-10-19 18:39:31,948 - DEBUG - Barrack[20, 0x2244a456850] sends one Worker [0x2244a470280, 100]
+2023-10-19 18:39:31,948 - DEBUG - Field[0x2244a456a60] sent food to Barn[6, 0x2244a456640], Worker [0x2244a470280, 100] harmed 0
+2023-10-19 18:39:31,948 - DEBUG - Barrack[21, 0x2244a456850], Worker [0x2244a470280, 100] returned
+2023-10-19 18:39:31,948 - DEBUG - Barn[7, 0x2244a456640], one Food [0x2244a470820] added
+2023-10-19 18:39:31,951 - DEBUG - Factory (Factory[0x2244a456ac0]) requesting 1 worker (barrack Barrack[21, 0x2244a456850])
+2023-10-19 18:39:31,951 - DEBUG - Barrack[20, 0x2244a456850] sends one Worker [0x2244a4702e0, 100]
+2023-10-19 18:39:31,951 - DEBUG - Factory[0x2244a456ac0]: product created (sent to: Storage[4, 0x2244a456670]), Worker [0x2244a4702e0, 78] harmed -22
+2023-10-19 18:39:31,951 - DEBUG - Storage[5, 0x2244a456670], one Product [0x2244a470880] added
+2023-10-19 18:39:31,951 - DEBUG - Barrack[21, 0x2244a456850], Worker [0x2244a4702e0, 78] returned
+2023-10-19 18:39:31,951 - DEBUG - Factory (Factory[0x2244a456b20]) requesting 1 worker (barrack Barrack[21, 0x2244a456850])
+2023-10-19 18:39:31,951 - DEBUG - Barrack[20, 0x2244a456850] sends one Worker [0x2244a470340, 100]
+2023-10-19 18:39:31,951 - DEBUG - Factory[0x2244a456b20]: product created (sent to: Storage[5, 0x2244a456670]), Worker [0x2244a470340, 42] harmed -58
+2023-10-19 18:39:31,951 - DEBUG - Storage[6, 0x2244a456670], one Product [0x2244a4708b0] added
+2023-10-19 18:39:31,951 - DEBUG - Barrack[21, 0x2244a456850], Worker [0x2244a470340, 42] returned
+2023-10-19 18:39:31,951 - DEBUG - Factory (Factory[0x2244a456b80]) requesting 1 worker (barrack Barrack[21, 0x2244a456850])
+2023-10-19 18:39:31,951 - DEBUG - Barrack[20, 0x2244a456850] sends one Worker [0x2244a4703a0, 100]
+2023-10-19 18:39:31,951 - DEBUG - Factory[0x2244a456b80]: product created (sent to: Storage[6, 0x2244a456670]), Worker [0x2244a4703a0, 92] harmed -8
+2023-10-19 18:39:31,951 - DEBUG - Storage[7, 0x2244a456670], one Product [0x2244a4708e0] added
+2023-10-19 18:39:31,951 - DEBUG - Barrack[21, 0x2244a456850], Worker [0x2244a4703a0, 92] returned
+2023-10-19 18:39:31,951 - DEBUG - Factory (Factory[0x2244a456be0]) requesting 1 worker (barrack Barrack[21, 0x2244a456850])
+2023-10-19 18:39:31,951 - DEBUG - Barrack[20, 0x2244a456850] sends one Worker [0x2244a470400, 100]
+2023-10-19 18:39:31,951 - DEBUG - Factory[0x2244a456be0]: product created (sent to: Storage[7, 0x2244a456670]), Worker [0x2244a470400, 87] harmed -13
+2023-10-19 18:39:31,951 - DEBUG - Storage[8, 0x2244a456670], one Product [0x2244a470910] added
+2023-10-19 18:39:31,951 - DEBUG - Barrack[21, 0x2244a456850], Worker [0x2244a470400, 87] returned
+2023-10-19 18:39:31,951 - DEBUG - Factory (Factory[0x2244a456c40]) requesting 1 worker (barrack Barrack[21, 0x2244a456850])
+2023-10-19 18:39:31,951 - DEBUG - Barrack[20, 0x2244a456850] sends one Worker [0x2244a456ca0, 58]
+2023-10-19 18:39:31,951 - DEBUG - Factory[0x2244a456c40]: product created (sent to: Storage[8, 0x2244a456670]), Worker [0x2244a456ca0, 0] harmed -96
+2023-10-19 18:39:31,951 - DEBUG - Storage[9, 0x2244a456670], one Product [0x2244a470940] added
+2023-10-19 18:39:31,951 - DEBUG - Barrack[20, 0x2244a456850], Worker [0x2244a456ca0, 0] dead
+2023-10-19 18:39:31,953 - INFO - New day (3)
+2023-10-19 18:39:31,954 - DEBUG - DiningHall[0x2244a456700] requesting 1 from Barrack[20, 0x2244a456850], 1 from Barn[7, 0x2244a456640]
+2023-10-19 18:39:31,954 - DEBUG - Barrack[19, 0x2244a456850] sends one Worker [0x2244a456d00, 100]
+2023-10-19 18:39:31,954 - DEBUG - Barn[6, 0x2244a456640] sends one Food [0x2244a470520]
+2023-10-19 18:39:31,954 - DEBUG - DiningHall[0x2244a456700]: Food [0x2244a470520], Worker [0x2244a456d00, 100], plus 33
+2023-10-19 18:39:31,954 - DEBUG - Barrack[20, 0x2244a456850], Worker [0x2244a456d00, 100] returned
+2023-10-19 18:39:31,954 - DEBUG - Home[0x2244a456880] requesting 1 from Barrack[20, 0x2244a456850], 1 from Storage[9, 0x2244a456670]
+2023-10-19 18:39:31,954 - DEBUG - Barrack[19, 0x2244a456850] sends one Worker [0x2244a456d60, 100]
+2023-10-19 18:39:31,954 - DEBUG - Storage[9, 0x2244a456670] sends one product
+2023-10-19 18:39:31,955 - DEBUG - Home[0x2244a456880]: Resting Worker [0x2244a456d60, 100], plus 14
+2023-10-19 18:39:31,955 - DEBUG - Barrack[20, 0x2244a456850], Worker [0x2244a456d60, 100] returned
+2023-10-19 18:39:31,955 - DEBUG - Field[0x2244a4568b0] requesting 1 from Barrack[20, 0x2244a456850]
+2023-10-19 18:39:31,955 - DEBUG - Barrack[19, 0x2244a456850] sends one Worker [0x2244a456dc0, 100]
+2023-10-19 18:39:31,955 - DEBUG - Field[0x2244a4568b0] sent food to Barn[6, 0x2244a456640], Worker [0x2244a456dc0, 56] harmed -44
+2023-10-19 18:39:31,955 - DEBUG - Barrack[20, 0x2244a456850], Worker [0x2244a456dc0, 56] returned
+2023-10-19 18:39:31,955 - DEBUG - Barn[7, 0x2244a456640], one Food [0x2244a456cd0] added
+2023-10-19 18:39:31,955 - DEBUG - Field[0x2244a4569a0] requesting 1 from Barrack[20, 0x2244a456850]
+2023-10-19 18:39:31,955 - DEBUG - Barrack[19, 0x2244a456850] sends one Worker [0x2244a456e20, 67]
+2023-10-19 18:39:31,955 - DEBUG - Field[0x2244a4569a0] sent food to Barn[7, 0x2244a456640], Worker [0x2244a456e20, 67] harmed 0
+2023-10-19 18:39:31,955 - DEBUG - Barrack[20, 0x2244a456850], Worker [0x2244a456e20, 67] returned
+2023-10-19 18:39:31,955 - DEBUG - Barn[8, 0x2244a456640], one Food [0x2244a470520] added
+2023-10-19 18:39:31,955 - DEBUG - Field[0x2244a456a00] requesting 1 from Barrack[20, 0x2244a456850]
+2023-10-19 18:39:31,956 - DEBUG - Barrack[19, 0x2244a456850] sends one Worker [0x2244a456e80, 54]
+2023-10-19 18:39:31,956 - DEBUG - Field[0x2244a456a00] sent food to Barn[8, 0x2244a456640], Worker [0x2244a456e80, 54] harmed 0
+2023-10-19 18:39:31,956 - DEBUG - Barrack[20, 0x2244a456850], Worker [0x2244a456e80, 54] returned
+2023-10-19 18:39:31,956 - DEBUG - Barn[9, 0x2244a456640], one Food [0x2244a470460] added
+2023-10-19 18:39:31,956 - DEBUG - Field[0x2244a456a60] requesting 1 from Barrack[20, 0x2244a456850]
+2023-10-19 18:39:31,956 - DEBUG - Barrack[19, 0x2244a456850] sends one Worker [0x2244a456ee0, 16]
+2023-10-19 18:39:31,956 - DEBUG - Field[0x2244a456a60] sent food to Barn[9, 0x2244a456640], Worker [0x2244a456ee0, 0] harmed -73
+2023-10-19 18:39:31,956 - DEBUG - Barrack[19, 0x2244a456850], Worker [0x2244a456ee0, 0] dead
+2023-10-19 18:39:31,956 - DEBUG - Barn[10, 0x2244a456640], one Food [0x2244a4709a0] added
+2023-10-19 18:39:31,956 - DEBUG - Factory (Factory[0x2244a456ac0]) requesting 1 worker (barrack Barrack[19, 0x2244a456850])
+2023-10-19 18:39:31,956 - DEBUG - Barrack[18, 0x2244a456850] sends one Worker [0x2244a456f40, 82]
+2023-10-19 18:39:31,956 - DEBUG - Factory[0x2244a456ac0]: product created (sent to: Storage[8, 0x2244a456670]), Worker [0x2244a456f40, 65] harmed -17
+2023-10-19 18:39:31,957 - DEBUG - Storage[9, 0x2244a456670], one Product [0x2244a456ee0] added
+2023-10-19 18:39:31,957 - DEBUG - Barrack[19, 0x2244a456850], Worker [0x2244a456f40, 65] returned
+2023-10-19 18:39:31,957 - DEBUG - Factory (Factory[0x2244a456b20]) requesting 1 worker (barrack Barrack[19, 0x2244a456850])
+2023-10-19 18:39:31,957 - DEBUG - Barrack[18, 0x2244a456850] sends one Worker [0x2244a456fa0, 12]
+2023-10-19 18:39:31,957 - DEBUG - Factory[0x2244a456b20]: product created (sent to: Storage[9, 0x2244a456670]), Worker [0x2244a456fa0, 0] harmed -84
+2023-10-19 18:39:31,957 - DEBUG - Storage[10, 0x2244a456670], one Product [0x2244a456f10] added
+2023-10-19 18:39:31,957 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a456fa0, 0] dead
+2023-10-19 18:39:31,957 - DEBUG - Factory (Factory[0x2244a456b80]) requesting 1 worker (barrack Barrack[18, 0x2244a456850])
+2023-10-19 18:39:31,958 - DEBUG - Barrack[17, 0x2244a456850] sends one Worker [0x2244a470040, 100]
+2023-10-19 18:39:31,958 - DEBUG - Factory[0x2244a456b80]: product created (sent to: Storage[10, 0x2244a456670]), Worker [0x2244a470040, 83] harmed -17
+2023-10-19 18:39:31,958 - DEBUG - Storage[11, 0x2244a456670], one Product [0x2244a456fa0] added
+2023-10-19 18:39:31,958 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a470040, 83] returned
+2023-10-19 18:39:31,958 - DEBUG - Factory (Factory[0x2244a456be0]) requesting 1 worker (barrack Barrack[18, 0x2244a456850])
+2023-10-19 18:39:31,958 - DEBUG - Barrack[17, 0x2244a456850] sends one Worker [0x2244a4700a0, 100]
+2023-10-19 18:39:31,958 - DEBUG - Factory[0x2244a456be0]: product created (sent to: Storage[11, 0x2244a456670]), Worker [0x2244a4700a0, 18] harmed -82
+2023-10-19 18:39:31,958 - DEBUG - Storage[12, 0x2244a456670], one Product [0x2244a456fd0] added
+2023-10-19 18:39:31,958 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a4700a0, 18] returned
+2023-10-19 18:39:31,958 - DEBUG - Factory (Factory[0x2244a456c40]) requesting 1 worker (barrack Barrack[18, 0x2244a456850])
+2023-10-19 18:39:31,958 - DEBUG - Barrack[17, 0x2244a456850] sends one Worker [0x2244a470100, 100]
+2023-10-19 18:39:31,958 - DEBUG - Factory[0x2244a456c40]: product created (sent to: Storage[12, 0x2244a456670]), Worker [0x2244a470100, 60] harmed -40
+2023-10-19 18:39:31,958 - DEBUG - Storage[13, 0x2244a456670], one Product [0x2244a470a00] added
+2023-10-19 18:39:31,958 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a470100, 60] returned
+2023-10-19 18:39:31,958 - INFO - New day (4)
+2023-10-19 18:39:31,958 - DEBUG - DiningHall[0x2244a456700] requesting 1 from Barrack[18, 0x2244a456850], 1 from Barn[10, 0x2244a456640]
+2023-10-19 18:39:31,959 - DEBUG - Barrack[17, 0x2244a456850] sends one Worker [0x2244a470700, 100]
+2023-10-19 18:39:31,959 - DEBUG - Barn[9, 0x2244a456640] sends one Food [0x2244a470580]
+2023-10-19 18:39:31,959 - DEBUG - DiningHall[0x2244a456700]: Food [0x2244a470580], Worker [0x2244a470700, 100], plus 33
+2023-10-19 18:39:31,959 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a470700, 100] returned
+2023-10-19 18:39:31,959 - DEBUG - Home[0x2244a456880] requesting 2 from Barrack[18, 0x2244a456850] and 1 from Storage[13, 0x2244a456670]
+2023-10-19 18:39:31,959 - DEBUG - Barrack[17, 0x2244a456850] sends one Worker [0x2244a470160, 100]
+2023-10-19 18:39:31,959 - DEBUG - Barrack[16, 0x2244a456850] sends one Worker [0x2244a4701c0, 100]
+2023-10-19 18:39:31,959 - DEBUG - Storage[13, 0x2244a456670] sends one product
+2023-10-19 18:39:31,959 - DEBUG - Home[0x2244a456880]: new Worker [0x2244a470160, 100] + Worker [0x2244a4701c0, 100] -> Worker [0x2244a470a00, 100]
+2023-10-19 18:39:31,959 - DEBUG - Barrack[17, 0x2244a456850], Worker [0x2244a470160, 100] returned
+2023-10-19 18:39:31,959 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a4701c0, 100] returned
+2023-10-19 18:39:31,959 - DEBUG - Barrack[19, 0x2244a456850], Worker [0x2244a470a00, 100] returned
+2023-10-19 18:39:31,959 - DEBUG - Field[0x2244a4568b0] requesting 1 from Barrack[19, 0x2244a456850]
+2023-10-19 18:39:31,959 - DEBUG - Barrack[18, 0x2244a456850] sends one Worker [0x2244a470220, 61]
+2023-10-19 18:39:31,959 - DEBUG - Field[0x2244a4568b0] sent food to Barn[9, 0x2244a456640], Worker [0x2244a470220, 0] harmed -70
+2023-10-19 18:39:31,959 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a470220, 0] dead
+2023-10-19 18:39:31,959 - DEBUG - Barn[10, 0x2244a456640], one Food [0x2244a4705b0] added
+2023-10-19 18:39:31,960 - DEBUG - Field[0x2244a4569a0] requesting 1 from Barrack[18, 0x2244a456850]
+2023-10-19 18:39:31,960 - DEBUG - Barrack[17, 0x2244a456850] sends one Worker [0x2244a470280, 100]
+2023-10-19 18:39:31,960 - DEBUG - Field[0x2244a4569a0] sent food to Barn[10, 0x2244a456640], Worker [0x2244a470280, 47] harmed -53
+2023-10-19 18:39:31,960 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a470280, 47] returned
+2023-10-19 18:39:31,960 - DEBUG - Barn[11, 0x2244a456640], one Food [0x2244a470220] added
+2023-10-19 18:39:31,960 - DEBUG - Field[0x2244a456a00] requesting 1 from Barrack[18, 0x2244a456850]
+2023-10-19 18:39:31,960 - DEBUG - Barrack[17, 0x2244a456850] sends one Worker [0x2244a4702e0, 78]
+2023-10-19 18:39:31,960 - DEBUG - Field[0x2244a456a00] sent food to Barn[11, 0x2244a456640], Worker [0x2244a4702e0, 78] harmed 0
+2023-10-19 18:39:31,960 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a4702e0, 78] returned
+2023-10-19 18:39:31,961 - DEBUG - Barn[12, 0x2244a456640], one Food [0x2244a470a60] added
+2023-10-19 18:39:31,961 - DEBUG - Field[0x2244a456a60] requesting 1 from Barrack[18, 0x2244a456850]
+2023-10-19 18:39:31,961 - DEBUG - Barrack[17, 0x2244a456850] sends one Worker [0x2244a470340, 42]
+2023-10-19 18:39:31,961 - DEBUG - Field[0x2244a456a60] sent food to Barn[12, 0x2244a456640], Worker [0x2244a470340, 42] harmed 0
+2023-10-19 18:39:31,961 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a470340, 42] returned
+2023-10-19 18:39:31,961 - DEBUG - Barn[13, 0x2244a456640], one Food [0x2244a470ac0] added
+2023-10-19 18:39:31,961 - DEBUG - Factory (Factory[0x2244a456ac0]) requesting 1 worker (barrack Barrack[18, 0x2244a456850])
+2023-10-19 18:39:31,961 - DEBUG - Barrack[17, 0x2244a456850] sends one Worker [0x2244a4703a0, 92]
+2023-10-19 18:39:31,961 - DEBUG - Factory[0x2244a456ac0]: product created (sent to: Storage[12, 0x2244a456670]), Worker [0x2244a4703a0, 75] harmed -17
+2023-10-19 18:39:31,961 - DEBUG - Storage[13, 0x2244a456670], one Product [0x2244a470b20] added
+2023-10-19 18:39:31,961 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a4703a0, 75] returned
+2023-10-19 18:39:31,961 - DEBUG - Factory (Factory[0x2244a456b20]) requesting 1 worker (barrack Barrack[18, 0x2244a456850])
+2023-10-19 18:39:31,962 - DEBUG - Barrack[17, 0x2244a456850] sends one Worker [0x2244a470400, 87]
+2023-10-19 18:39:31,962 - DEBUG - Factory[0x2244a456b20]: product created (sent to: Storage[13, 0x2244a456670]), Worker [0x2244a470400, 68] harmed -19
+2023-10-19 18:39:31,962 - DEBUG - Storage[14, 0x2244a456670], one Product [0x2244a470b50] added
+2023-10-19 18:39:31,962 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a470400, 68] returned
+2023-10-19 18:39:31,962 - DEBUG - Factory (Factory[0x2244a456b80]) requesting 1 worker (barrack Barrack[18, 0x2244a456850])
+2023-10-19 18:39:31,962 - DEBUG - Barrack[17, 0x2244a456850] sends one Worker [0x2244a456d00, 100]
+2023-10-19 18:39:31,962 - DEBUG - Factory[0x2244a456b80]: product created (sent to: Storage[14, 0x2244a456670]), Worker [0x2244a456d00, 90] harmed -10
+2023-10-19 18:39:31,962 - DEBUG - Storage[15, 0x2244a456670], one Product [0x2244a470b80] added
+2023-10-19 18:39:31,962 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a456d00, 90] returned
+2023-10-19 18:39:31,962 - DEBUG - Factory (Factory[0x2244a456be0]) requesting 1 worker (barrack Barrack[18, 0x2244a456850])
+2023-10-19 18:39:31,962 - DEBUG - Barrack[17, 0x2244a456850] sends one Worker [0x2244a456d60, 100]
+2023-10-19 18:39:31,962 - DEBUG - Factory[0x2244a456be0]: product created (sent to: Storage[15, 0x2244a456670]), Worker [0x2244a456d60, 53] harmed -47
+2023-10-19 18:39:31,962 - DEBUG - Storage[16, 0x2244a456670], one Product [0x2244a470bb0] added
+2023-10-19 18:39:31,962 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a456d60, 53] returned
+2023-10-19 18:39:31,962 - DEBUG - Factory (Factory[0x2244a456c40]) requesting 1 worker (barrack Barrack[18, 0x2244a456850])
+2023-10-19 18:39:31,963 - DEBUG - Barrack[17, 0x2244a456850] sends one Worker [0x2244a456dc0, 56]
+2023-10-19 18:39:31,963 - DEBUG - Factory[0x2244a456c40]: product created (sent to: Storage[16, 0x2244a456670]), Worker [0x2244a456dc0, 16] harmed -40
+2023-10-19 18:39:31,963 - DEBUG - Storage[17, 0x2244a456670], one Product [0x2244a470be0] added
+2023-10-19 18:39:31,963 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a456dc0, 16] returned
+2023-10-19 18:39:31,963 - INFO - New day (5)
+2023-10-19 18:39:31,963 - DEBUG - DiningHall[0x2244a456700] requesting 1 from Barrack[18, 0x2244a456850], 1 from Barn[13, 0x2244a456640]
+2023-10-19 18:39:31,963 - DEBUG - Barrack[17, 0x2244a456850] sends one Worker [0x2244a456e20, 67]
+2023-10-19 18:39:31,963 - DEBUG - Barn[12, 0x2244a456640] sends one Food [0x2244a4705e0]
+2023-10-19 18:39:31,963 - DEBUG - DiningHall[0x2244a456700]: Food [0x2244a4705e0], Worker [0x2244a456e20, 100], plus 33
+2023-10-19 18:39:31,963 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a456e20, 100] returned
+2023-10-19 18:39:31,964 - DEBUG - Home[0x2244a456880] requesting 2 from Barrack[18, 0x2244a456850] and 1 from Storage[17, 0x2244a456670]
+2023-10-19 18:39:31,964 - DEBUG - Barrack[17, 0x2244a456850] sends one Worker [0x2244a456e80, 54]
+2023-10-19 18:39:31,964 - DEBUG - Barrack[16, 0x2244a456850] sends one Worker [0x2244a456f40, 65]
+2023-10-19 18:39:31,964 - DEBUG - Storage[17, 0x2244a456670] sends one product
+2023-10-19 18:39:31,964 - DEBUG - Home[0x2244a456880]: new Worker [0x2244a456e80, 54] + Worker [0x2244a456f40, 65] -> Worker [0x2244a470be0, 100]
+2023-10-19 18:39:31,964 - DEBUG - Barrack[17, 0x2244a456850], Worker [0x2244a456e80, 54] returned
+2023-10-19 18:39:31,964 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a456f40, 65] returned
+2023-10-19 18:39:31,964 - DEBUG - Barrack[19, 0x2244a456850], Worker [0x2244a470be0, 100] returned
+2023-10-19 18:39:31,965 - DEBUG - Field[0x2244a4568b0] requesting 1 from Barrack[19, 0x2244a456850]
+2023-10-19 18:39:31,965 - DEBUG - Barrack[18, 0x2244a456850] sends one Worker [0x2244a470040, 83]
+2023-10-19 18:39:31,965 - DEBUG - Field[0x2244a4568b0] sent food to Barn[12, 0x2244a456640], Worker [0x2244a470040, 83] harmed 0
+2023-10-19 18:39:31,965 - DEBUG - Barrack[19, 0x2244a456850], Worker [0x2244a470040, 83] returned
+2023-10-19 18:39:31,965 - DEBUG - Barn[13, 0x2244a456640], one Food [0x2244a470610] added
+2023-10-19 18:39:31,965 - DEBUG - Field[0x2244a4569a0] requesting 1 from Barrack[19, 0x2244a456850]
+2023-10-19 18:39:31,965 - DEBUG - Barrack[18, 0x2244a456850] sends one Worker [0x2244a4700a0, 18]
+2023-10-19 18:39:31,965 - DEBUG - Field[0x2244a4569a0] sent food to Barn[13, 0x2244a456640], Worker [0x2244a4700a0, 18] harmed 0
+2023-10-19 18:39:31,965 - DEBUG - Barrack[19, 0x2244a456850], Worker [0x2244a4700a0, 18] returned
+2023-10-19 18:39:31,965 - DEBUG - Barn[14, 0x2244a456640], one Food [0x2244a470c40] added
+2023-10-19 18:39:31,965 - DEBUG - Field[0x2244a456a00] requesting 1 from Barrack[19, 0x2244a456850]
+2023-10-19 18:39:31,965 - DEBUG - Barrack[18, 0x2244a456850] sends one Worker [0x2244a470100, 60]
+2023-10-19 18:39:31,965 - DEBUG - Field[0x2244a456a00] sent food to Barn[14, 0x2244a456640], Worker [0x2244a470100, 60] harmed 0
+2023-10-19 18:39:31,966 - DEBUG - Barrack[19, 0x2244a456850], Worker [0x2244a470100, 60] returned
+2023-10-19 18:39:31,966 - DEBUG - Barn[15, 0x2244a456640], one Food [0x2244a470ca0] added
+2023-10-19 18:39:31,966 - DEBUG - Field[0x2244a456a60] requesting 1 from Barrack[19, 0x2244a456850]
+2023-10-19 18:39:31,966 - DEBUG - Barrack[18, 0x2244a456850] sends one Worker [0x2244a470700, 100]
+2023-10-19 18:39:31,966 - DEBUG - Field[0x2244a456a60] sent food to Barn[15, 0x2244a456640], Worker [0x2244a470700, 100] harmed 0
+2023-10-19 18:39:31,966 - DEBUG - Barrack[19, 0x2244a456850], Worker [0x2244a470700, 100] returned
+2023-10-19 18:39:31,966 - DEBUG - Barn[16, 0x2244a456640], one Food [0x2244a470d00] added
+2023-10-19 18:39:31,966 - DEBUG - Factory (Factory[0x2244a456ac0]) requesting 1 worker (barrack Barrack[19, 0x2244a456850])
+2023-10-19 18:39:31,966 - DEBUG - Barrack[18, 0x2244a456850] sends one Worker [0x2244a470160, 100]
+2023-10-19 18:39:31,966 - DEBUG - Factory[0x2244a456ac0]: product created (sent to: Storage[16, 0x2244a456670]), Worker [0x2244a470160, 80] harmed -20
+2023-10-19 18:39:31,966 - DEBUG - Storage[17, 0x2244a456670], one Product [0x2244a470d60] added
+2023-10-19 18:39:31,966 - DEBUG - Barrack[19, 0x2244a456850], Worker [0x2244a470160, 80] returned
+2023-10-19 18:39:31,966 - DEBUG - Factory (Factory[0x2244a456b20]) requesting 1 worker (barrack Barrack[19, 0x2244a456850])
+2023-10-19 18:39:31,966 - DEBUG - Barrack[18, 0x2244a456850] sends one Worker [0x2244a4701c0, 100]
+2023-10-19 18:39:31,966 - DEBUG - Factory[0x2244a456b20]: product created (sent to: Storage[17, 0x2244a456670]), Worker [0x2244a4701c0, 77] harmed -23
+2023-10-19 18:39:31,966 - DEBUG - Storage[18, 0x2244a456670], one Product [0x2244a470d90] added
+2023-10-19 18:39:31,966 - DEBUG - Barrack[19, 0x2244a456850], Worker [0x2244a4701c0, 77] returned
+2023-10-19 18:39:31,966 - DEBUG - Factory (Factory[0x2244a456b80]) requesting 1 worker (barrack Barrack[19, 0x2244a456850])
+2023-10-19 18:39:31,967 - DEBUG - Barrack[18, 0x2244a456850] sends one Worker [0x2244a470a00, 100]
+2023-10-19 18:39:31,967 - DEBUG - Factory[0x2244a456b80]: product created (sent to: Storage[18, 0x2244a456670]), Worker [0x2244a470a00, 77] harmed -23
+2023-10-19 18:39:31,967 - DEBUG - Storage[19, 0x2244a456670], one Product [0x2244a470dc0] added
+2023-10-19 18:39:31,967 - DEBUG - Barrack[19, 0x2244a456850], Worker [0x2244a470a00, 77] returned
+2023-10-19 18:39:31,967 - DEBUG - Factory (Factory[0x2244a456be0]) requesting 1 worker (barrack Barrack[19, 0x2244a456850])
+2023-10-19 18:39:31,967 - DEBUG - Barrack[18, 0x2244a456850] sends one Worker [0x2244a470280, 47]
+2023-10-19 18:39:31,967 - DEBUG - Factory[0x2244a456be0]: product created (sent to: Storage[19, 0x2244a456670]), Worker [0x2244a470280, 0] harmed -76
+2023-10-19 18:39:31,967 - DEBUG - Storage[20, 0x2244a456670], one Product [0x2244a470df0] added
+2023-10-19 18:39:31,967 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a470280, 0] dead
+2023-10-19 18:39:31,968 - DEBUG - Factory (Factory[0x2244a456c40]) requesting 1 worker (barrack Barrack[18, 0x2244a456850])
+2023-10-19 18:39:31,968 - DEBUG - Barrack[17, 0x2244a456850] sends one Worker [0x2244a4702e0, 78]
+2023-10-19 18:39:31,968 - DEBUG - Factory[0x2244a456c40]: product created (sent to: Storage[20, 0x2244a456670]), Worker [0x2244a4702e0, 18] harmed -60
+2023-10-19 18:39:31,968 - DEBUG - Storage[21, 0x2244a456670], one Product [0x2244a470280] added
+2023-10-19 18:39:31,968 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a4702e0, 18] returned
+2023-10-19 18:39:31,968 - INFO - New day (6)
+2023-10-19 18:39:31,968 - DEBUG - DiningHall[0x2244a456700] requesting 1 from Barrack[18, 0x2244a456850], 1 from Barn[16, 0x2244a456640]
+2023-10-19 18:39:31,968 - DEBUG - Barrack[17, 0x2244a456850] sends one Worker [0x2244a470340, 42]
+2023-10-19 18:39:31,968 - DEBUG - Barn[15, 0x2244a456640] sends one Food [0x2244a4704f0]
+2023-10-19 18:39:31,968 - DEBUG - DiningHall[0x2244a456700]: Food [0x2244a4704f0], Worker [0x2244a470340, 75], plus 33
+2023-10-19 18:39:31,969 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a470340, 75] returned
+2023-10-19 18:39:31,969 - DEBUG - Home[0x2244a456880] requesting 2 from Barrack[18, 0x2244a456850] and 1 from Storage[21, 0x2244a456670]
+2023-10-19 18:39:31,969 - DEBUG - Barrack[17, 0x2244a456850] sends one Worker [0x2244a4703a0, 75]
+2023-10-19 18:39:31,969 - DEBUG - Barrack[16, 0x2244a456850] sends one Worker [0x2244a470400, 68]
+2023-10-19 18:39:31,969 - DEBUG - Storage[21, 0x2244a456670] sends one product
+2023-10-19 18:39:31,969 - DEBUG - Home[0x2244a456880]: new Worker [0x2244a4703a0, 75] + Worker [0x2244a470400, 68] -> Worker [0x2244a470280, 100]
+2023-10-19 18:39:31,969 - DEBUG - Barrack[17, 0x2244a456850], Worker [0x2244a4703a0, 75] returned
+2023-10-19 18:39:31,969 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a470400, 68] returned
+2023-10-19 18:39:31,970 - DEBUG - Barrack[19, 0x2244a456850], Worker [0x2244a470280, 100] returned
+2023-10-19 18:39:31,970 - DEBUG - Field[0x2244a4568b0] requesting 1 from Barrack[19, 0x2244a456850]
+2023-10-19 18:39:31,970 - DEBUG - Barrack[18, 0x2244a456850] sends one Worker [0x2244a456d00, 90]
+2023-10-19 18:39:31,970 - DEBUG - Field[0x2244a4568b0] sent food to Barn[15, 0x2244a456640], Worker [0x2244a456d00, 16] harmed -74
+2023-10-19 18:39:31,970 - DEBUG - Barrack[19, 0x2244a456850], Worker [0x2244a456d00, 16] returned
+2023-10-19 18:39:31,970 - DEBUG - Barn[16, 0x2244a456640], one Food [0x2244a470730] added
+2023-10-19 18:39:31,970 - DEBUG - Field[0x2244a4569a0] requesting 1 from Barrack[19, 0x2244a456850]
+2023-10-19 18:39:31,970 - DEBUG - Barrack[18, 0x2244a456850] sends one Worker [0x2244a456d60, 53]
+2023-10-19 18:39:31,970 - DEBUG - Field[0x2244a4569a0] sent food to Barn[16, 0x2244a456640], Worker [0x2244a456d60, 53] harmed 0
+2023-10-19 18:39:31,971 - DEBUG - Barrack[19, 0x2244a456850], Worker [0x2244a456d60, 53] returned
+2023-10-19 18:39:31,971 - DEBUG - Barn[17, 0x2244a456640], one Food [0x2244a470e20] added
+2023-10-19 18:39:31,971 - DEBUG - Field[0x2244a456a00] requesting 1 from Barrack[19, 0x2244a456850]
+2023-10-19 18:39:31,971 - DEBUG - Barrack[18, 0x2244a456850] sends one Worker [0x2244a456dc0, 16]
+2023-10-19 18:39:31,971 - DEBUG - Field[0x2244a456a00] sent food to Barn[17, 0x2244a456640], Worker [0x2244a456dc0, 16] harmed 0
+2023-10-19 18:39:31,971 - DEBUG - Barrack[19, 0x2244a456850], Worker [0x2244a456dc0, 16] returned
+2023-10-19 18:39:31,971 - DEBUG - Barn[18, 0x2244a456640], one Food [0x2244a470e80] added
+2023-10-19 18:39:31,971 - DEBUG - Field[0x2244a456a60] requesting 1 from Barrack[19, 0x2244a456850]
+2023-10-19 18:39:31,972 - DEBUG - Barrack[18, 0x2244a456850] sends one Worker [0x2244a456e20, 100]
+2023-10-19 18:39:31,972 - DEBUG - Field[0x2244a456a60] sent food to Barn[18, 0x2244a456640], Worker [0x2244a456e20, 100] harmed 0
+2023-10-19 18:39:31,972 - DEBUG - Barrack[19, 0x2244a456850], Worker [0x2244a456e20, 100] returned
+2023-10-19 18:39:31,972 - DEBUG - Barn[19, 0x2244a456640], one Food [0x2244a470ee0] added
+2023-10-19 18:39:31,972 - DEBUG - Factory (Factory[0x2244a456ac0]) requesting 1 worker (barrack Barrack[19, 0x2244a456850])
+2023-10-19 18:39:31,972 - DEBUG - Barrack[18, 0x2244a456850] sends one Worker [0x2244a456e80, 54]
+2023-10-19 18:39:31,972 - DEBUG - Factory[0x2244a456ac0]: product created (sent to: Storage[20, 0x2244a456670]), Worker [0x2244a456e80, 52] harmed -2
+2023-10-19 18:39:31,972 - DEBUG - Storage[21, 0x2244a456670], one Product [0x2244a470f40] added
+2023-10-19 18:39:31,972 - DEBUG - Barrack[19, 0x2244a456850], Worker [0x2244a456e80, 52] returned
+2023-10-19 18:39:31,972 - DEBUG - Factory (Factory[0x2244a456b20]) requesting 1 worker (barrack Barrack[19, 0x2244a456850])
+2023-10-19 18:39:31,972 - DEBUG - Barrack[18, 0x2244a456850] sends one Worker [0x2244a456f40, 65]
+2023-10-19 18:39:31,972 - DEBUG - Factory[0x2244a456b20]: product created (sent to: Storage[21, 0x2244a456670]), Worker [0x2244a456f40, 50] harmed -15
+2023-10-19 18:39:31,973 - DEBUG - Storage[22, 0x2244a456670], one Product [0x2244a470f70] added
+2023-10-19 18:39:31,973 - DEBUG - Barrack[19, 0x2244a456850], Worker [0x2244a456f40, 50] returned
+2023-10-19 18:39:31,973 - DEBUG - Factory (Factory[0x2244a456b80]) requesting 1 worker (barrack Barrack[19, 0x2244a456850])
+2023-10-19 18:39:31,973 - DEBUG - Barrack[18, 0x2244a456850] sends one Worker [0x2244a470be0, 100]
+2023-10-19 18:39:31,973 - DEBUG - Factory[0x2244a456b80]: product created (sent to: Storage[22, 0x2244a456670]), Worker [0x2244a470be0, 87] harmed -13
+2023-10-19 18:39:31,973 - DEBUG - Storage[23, 0x2244a456670], one Product [0x2244a470fa0] added
+2023-10-19 18:39:31,973 - DEBUG - Barrack[19, 0x2244a456850], Worker [0x2244a470be0, 87] returned
+2023-10-19 18:39:31,973 - DEBUG - Factory (Factory[0x2244a456be0]) requesting 1 worker (barrack Barrack[19, 0x2244a456850])
+2023-10-19 18:39:31,973 - DEBUG - Barrack[18, 0x2244a456850] sends one Worker [0x2244a470040, 83]
+2023-10-19 18:39:31,973 - DEBUG - Factory[0x2244a456be0]: product created (sent to: Storage[23, 0x2244a456670]), Worker [0x2244a470040, 0] harmed -90
+2023-10-19 18:39:31,973 - DEBUG - Storage[24, 0x2244a456670], one Product [0x2244a470fd0] added
+2023-10-19 18:39:31,973 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a470040, 0] dead
+2023-10-19 18:39:31,973 - DEBUG - Factory (Factory[0x2244a456c40]) requesting 1 worker (barrack Barrack[18, 0x2244a456850])
+2023-10-19 18:39:31,973 - DEBUG - Barrack[17, 0x2244a456850] sends one Worker [0x2244a4700a0, 18]
+2023-10-19 18:39:31,973 - DEBUG - Factory[0x2244a456c40]: product created (sent to: Storage[24, 0x2244a456670]), Worker [0x2244a4700a0, 13] harmed -5
+2023-10-19 18:39:31,974 - DEBUG - Storage[25, 0x2244a456670], one Product [0x2244a470040] added
+2023-10-19 18:39:31,974 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a4700a0, 13] returned
+2023-10-19 18:39:31,974 - INFO - New day (7)
+2023-10-19 18:39:31,974 - DEBUG - DiningHall[0x2244a456700] requesting 1 from Barrack[18, 0x2244a456850], 1 from Barn[19, 0x2244a456640]
+2023-10-19 18:39:31,974 - DEBUG - Barrack[17, 0x2244a456850] sends one Worker [0x2244a470100, 60]
+2023-10-19 18:39:31,974 - DEBUG - Barn[18, 0x2244a456640] sends one Food [0x2244a470760]
+2023-10-19 18:39:31,974 - DEBUG - DiningHall[0x2244a456700]: Food [0x2244a470760], Worker [0x2244a470100, 93], plus 33
+2023-10-19 18:39:31,974 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a470100, 93] returned
+2023-10-19 18:39:31,974 - DEBUG - Home[0x2244a456880] requesting 1 from Barrack[18, 0x2244a456850], 1 from Storage[25, 0x2244a456670]
+2023-10-19 18:39:31,974 - DEBUG - Barrack[17, 0x2244a456850] sends one Worker [0x2244a470700, 100]
+2023-10-19 18:39:31,974 - DEBUG - Storage[25, 0x2244a456670] sends one product
+2023-10-19 18:39:31,975 - DEBUG - Home[0x2244a456880]: Resting Worker [0x2244a470700, 100], plus 11
+2023-10-19 18:39:31,975 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a470700, 100] returned
+2023-10-19 18:39:31,975 - DEBUG - Field[0x2244a4568b0] requesting 1 from Barrack[18, 0x2244a456850]
+2023-10-19 18:39:31,975 - DEBUG - Barrack[17, 0x2244a456850] sends one Worker [0x2244a470160, 80]
+2023-10-19 18:39:31,975 - DEBUG - Field[0x2244a4568b0] sent food to Barn[18, 0x2244a456640], Worker [0x2244a470160, 6] harmed -74
+2023-10-19 18:39:31,975 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a470160, 6] returned
+2023-10-19 18:39:31,975 - DEBUG - Barn[19, 0x2244a456640], one Food [0x2244a470040] added
+2023-10-19 18:39:31,975 - DEBUG - Field[0x2244a4569a0] requesting 1 from Barrack[18, 0x2244a456850]
+2023-10-19 18:39:31,975 - DEBUG - Barrack[17, 0x2244a456850] sends one Worker [0x2244a4701c0, 77]
+2023-10-19 18:39:31,975 - DEBUG - Field[0x2244a4569a0] sent food to Barn[19, 0x2244a456640], Worker [0x2244a4701c0, 2] harmed -75
+2023-10-19 18:39:31,975 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a4701c0, 2] returned
+2023-10-19 18:39:31,975 - DEBUG - Barn[20, 0x2244a456640], one Food [0x2244a470790] added
+2023-10-19 18:39:31,975 - DEBUG - Field[0x2244a456a00] requesting 1 from Barrack[18, 0x2244a456850]
+2023-10-19 18:39:31,976 - DEBUG - Barrack[17, 0x2244a456850] sends one Worker [0x2244a470a00, 77]
+2023-10-19 18:39:31,976 - DEBUG - Field[0x2244a456a00] sent food to Barn[20, 0x2244a456640], Worker [0x2244a470a00, 77] harmed 0
+2023-10-19 18:39:31,976 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a470a00, 77] returned
+2023-10-19 18:39:31,976 - DEBUG - Barn[21, 0x2244a456640], one Food [0x2244a474040] added
+2023-10-19 18:39:31,976 - DEBUG - Field[0x2244a456a60] requesting 1 from Barrack[18, 0x2244a456850]
+2023-10-19 18:39:31,976 - DEBUG - Barrack[17, 0x2244a456850] sends one Worker [0x2244a4702e0, 18]
+2023-10-19 18:39:31,976 - DEBUG - Field[0x2244a456a60] sent food to Barn[21, 0x2244a456640], Worker [0x2244a4702e0, 18] harmed 0
+2023-10-19 18:39:31,976 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a4702e0, 18] returned
+2023-10-19 18:39:31,976 - DEBUG - Barn[22, 0x2244a456640], one Food [0x2244a4740a0] added
+2023-10-19 18:39:31,976 - DEBUG - Factory (Factory[0x2244a456ac0]) requesting 1 worker (barrack Barrack[18, 0x2244a456850])
+2023-10-19 18:39:31,976 - DEBUG - Barrack[17, 0x2244a456850] sends one Worker [0x2244a470340, 75]
+2023-10-19 18:39:31,976 - DEBUG - Factory[0x2244a456ac0]: product created (sent to: Storage[24, 0x2244a456670]), Worker [0x2244a470340, 71] harmed -4
+2023-10-19 18:39:31,976 - DEBUG - Storage[25, 0x2244a456670], one Product [0x2244a474100] added
+2023-10-19 18:39:31,976 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a470340, 71] returned
+2023-10-19 18:39:31,976 - DEBUG - Factory (Factory[0x2244a456b20]) requesting 1 worker (barrack Barrack[18, 0x2244a456850])
+2023-10-19 18:39:31,976 - DEBUG - Barrack[17, 0x2244a456850] sends one Worker [0x2244a4703a0, 75]
+2023-10-19 18:39:31,976 - DEBUG - Factory[0x2244a456b20]: product created (sent to: Storage[25, 0x2244a456670]), Worker [0x2244a4703a0, 52] harmed -23
+2023-10-19 18:39:31,976 - DEBUG - Storage[26, 0x2244a456670], one Product [0x2244a474130] added
+2023-10-19 18:39:31,976 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a4703a0, 52] returned
+2023-10-19 18:39:31,976 - DEBUG - Factory (Factory[0x2244a456b80]) requesting 1 worker (barrack Barrack[18, 0x2244a456850])
+2023-10-19 18:39:31,976 - DEBUG - Barrack[17, 0x2244a456850] sends one Worker [0x2244a470400, 68]
+2023-10-19 18:39:31,976 - DEBUG - Factory[0x2244a456b80]: product created (sent to: Storage[26, 0x2244a456670]), Worker [0x2244a470400, 47] harmed -21
+2023-10-19 18:39:31,976 - DEBUG - Storage[27, 0x2244a456670], one Product [0x2244a474160] added
+2023-10-19 18:39:31,976 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a470400, 47] returned
+2023-10-19 18:39:31,977 - DEBUG - Factory (Factory[0x2244a456be0]) requesting 1 worker (barrack Barrack[18, 0x2244a456850])
+2023-10-19 18:39:31,977 - DEBUG - Barrack[17, 0x2244a456850] sends one Worker [0x2244a470280, 100]
+2023-10-19 18:39:31,977 - DEBUG - Factory[0x2244a456be0]: product created (sent to: Storage[27, 0x2244a456670]), Worker [0x2244a470280, 90] harmed -10
+2023-10-19 18:39:31,977 - DEBUG - Storage[28, 0x2244a456670], one Product [0x2244a474190] added
+2023-10-19 18:39:31,977 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a470280, 90] returned
+2023-10-19 18:39:31,977 - DEBUG - Factory (Factory[0x2244a456c40]) requesting 1 worker (barrack Barrack[18, 0x2244a456850])
+2023-10-19 18:39:31,977 - DEBUG - Barrack[17, 0x2244a456850] sends one Worker [0x2244a456d00, 16]
+2023-10-19 18:39:31,977 - DEBUG - Factory[0x2244a456c40]: product created (sent to: Storage[28, 0x2244a456670]), Worker [0x2244a456d00, 14] harmed -2
+2023-10-19 18:39:31,977 - DEBUG - Storage[29, 0x2244a456670], one Product [0x2244a4741c0] added
+2023-10-19 18:39:31,977 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a456d00, 14] returned
+2023-10-19 18:39:31,977 - INFO - New day (8)
+2023-10-19 18:39:31,977 - DEBUG - DiningHall[0x2244a456700] requesting 1 from Barrack[18, 0x2244a456850], 1 from Barn[22, 0x2244a456640]
+2023-10-19 18:39:31,977 - DEBUG - Barrack[17, 0x2244a456850] sends one Worker [0x2244a456d60, 53]
+2023-10-19 18:39:31,977 - DEBUG - Barn[21, 0x2244a456640] sends one Food [0x2244a4707c0]
+2023-10-19 18:39:31,977 - DEBUG - DiningHall[0x2244a456700]: Food [0x2244a4707c0], Worker [0x2244a456d60, 86], plus 33
+2023-10-19 18:39:31,977 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a456d60, 86] returned
+2023-10-19 18:39:31,978 - DEBUG - Home[0x2244a456880] requesting 1 from Barrack[18, 0x2244a456850], 1 from Storage[29, 0x2244a456670]
+2023-10-19 18:39:31,978 - DEBUG - Barrack[17, 0x2244a456850] sends one Worker [0x2244a456dc0, 16]
+2023-10-19 18:39:31,978 - DEBUG - Storage[29, 0x2244a456670] sends one product
+2023-10-19 18:39:31,978 - DEBUG - Home[0x2244a456880]: Resting Worker [0x2244a456dc0, 23], plus 7
+2023-10-19 18:39:31,978 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a456dc0, 23] returned
+2023-10-19 18:39:31,978 - DEBUG - Field[0x2244a4568b0] requesting 1 from Barrack[18, 0x2244a456850]
+2023-10-19 18:39:31,978 - DEBUG - Barrack[17, 0x2244a456850] sends one Worker [0x2244a456e20, 100]
+2023-10-19 18:39:31,978 - DEBUG - Field[0x2244a4568b0] sent food to Barn[21, 0x2244a456640], Worker [0x2244a456e20, 100] harmed 0
+2023-10-19 18:39:31,978 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a456e20, 100] returned
+2023-10-19 18:39:31,979 - DEBUG - Barn[22, 0x2244a456640], one Food [0x2244a4707c0] added
+2023-10-19 18:39:31,979 - DEBUG - Field[0x2244a4569a0] requesting 1 from Barrack[18, 0x2244a456850]
+2023-10-19 18:39:31,979 - DEBUG - Barrack[17, 0x2244a456850] sends one Worker [0x2244a456e80, 52]
+2023-10-19 18:39:31,979 - DEBUG - Field[0x2244a4569a0] sent food to Barn[22, 0x2244a456640], Worker [0x2244a456e80, 52] harmed 0
+2023-10-19 18:39:31,979 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a456e80, 52] returned
+2023-10-19 18:39:31,979 - DEBUG - Barn[23, 0x2244a456640], one Food [0x2244a4741c0] added
+2023-10-19 18:39:31,979 - DEBUG - Field[0x2244a456a00] requesting 1 from Barrack[18, 0x2244a456850]
+2023-10-19 18:39:31,979 - DEBUG - Barrack[17, 0x2244a456850] sends one Worker [0x2244a456f40, 50]
+2023-10-19 18:39:31,980 - DEBUG - Field[0x2244a456a00] sent food to Barn[23, 0x2244a456640], Worker [0x2244a456f40, 50] harmed 0
+2023-10-19 18:39:31,980 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a456f40, 50] returned
+2023-10-19 18:39:31,980 - DEBUG - Barn[24, 0x2244a456640], one Food [0x2244a474220] added
+2023-10-19 18:39:31,980 - DEBUG - Field[0x2244a456a60] requesting 1 from Barrack[18, 0x2244a456850]
+2023-10-19 18:39:31,980 - DEBUG - Barrack[17, 0x2244a456850] sends one Worker [0x2244a470be0, 87]
+2023-10-19 18:39:31,980 - DEBUG - Field[0x2244a456a60] sent food to Barn[24, 0x2244a456640], Worker [0x2244a470be0, 87] harmed 0
+2023-10-19 18:39:31,980 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a470be0, 87] returned
+2023-10-19 18:39:31,980 - DEBUG - Barn[25, 0x2244a456640], one Food [0x2244a474280] added
+2023-10-19 18:39:31,980 - DEBUG - Factory (Factory[0x2244a456ac0]) requesting 1 worker (barrack Barrack[18, 0x2244a456850])
+2023-10-19 18:39:31,980 - DEBUG - Barrack[17, 0x2244a456850] sends one Worker [0x2244a4700a0, 13]
+2023-10-19 18:39:31,980 - DEBUG - Factory[0x2244a456ac0]: product created (sent to: Storage[28, 0x2244a456670]), Worker [0x2244a4700a0, 3] harmed -10
+2023-10-19 18:39:31,981 - DEBUG - Storage[29, 0x2244a456670], one Product [0x2244a4742e0] added
+2023-10-19 18:39:31,981 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a4700a0, 3] returned
+2023-10-19 18:39:31,981 - DEBUG - Factory (Factory[0x2244a456b20]) requesting 1 worker (barrack Barrack[18, 0x2244a456850])
+2023-10-19 18:39:31,981 - DEBUG - Barrack[17, 0x2244a456850] sends one Worker [0x2244a470100, 93]
+2023-10-19 18:39:31,981 - DEBUG - Factory[0x2244a456b20]: product created (sent to: Storage[29, 0x2244a456670]), Worker [0x2244a470100, 91] harmed -2
+2023-10-19 18:39:31,981 - DEBUG - Storage[30, 0x2244a456670], one Product [0x2244a474310] added
+2023-10-19 18:39:31,981 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a470100, 91] returned
+2023-10-19 18:39:31,981 - DEBUG - Factory (Factory[0x2244a456b80]) requesting 1 worker (barrack Barrack[18, 0x2244a456850])
+2023-10-19 18:39:31,981 - DEBUG - Barrack[17, 0x2244a456850] sends one Worker [0x2244a470700, 100]
+2023-10-19 18:39:31,981 - DEBUG - Factory[0x2244a456b80]: product created (sent to: Storage[30, 0x2244a456670]), Worker [0x2244a470700, 3] harmed -97
+2023-10-19 18:39:31,981 - DEBUG - Storage[31, 0x2244a456670], one Product [0x2244a474340] added
+2023-10-19 18:39:31,981 - DEBUG - Barrack[18, 0x2244a456850], Worker [0x2244a470700, 3] returned
+2023-10-19 18:39:31,982 - DEBUG - Factory (Factory[0x2244a456be0]) requesting 1 worker (barrack Barrack[18, 0x2244a456850])
+2023-10-19 18:39:31,982 - DEBUG - Barrack[17, 0x2244a456850] sends one Worker [0x2244a470160, 6]
+2023-10-19 18:39:31,982 - DEBUG - Factory[0x2244a456be0]: product created (sent to: Storage[31, 0x2244a456670]), Worker [0x2244a470160, 0] harmed -18
+2023-10-19 18:39:31,982 - DEBUG - Storage[32, 0x2244a456670], one Product [0x2244a474370] added
+2023-10-19 18:39:31,982 - DEBUG - Barrack[17, 0x2244a456850], Worker [0x2244a470160, 0] dead
+2023-10-19 18:39:31,982 - DEBUG - Factory (Factory[0x2244a456c40]) requesting 1 worker (barrack Barrack[17, 0x2244a456850])
+2023-10-19 18:39:31,982 - DEBUG - Barrack[16, 0x2244a456850] sends one Worker [0x2244a4701c0, 2]
+2023-10-19 18:39:31,982 - DEBUG - Factory[0x2244a456c40]: product created (sent to: Storage[32, 0x2244a456670]), Worker [0x2244a4701c0, 0] harmed -20
+2023-10-19 18:39:31,982 - DEBUG - Storage[33, 0x2244a456670], one Product [0x2244a470160] added
+2023-10-19 18:39:31,982 - DEBUG - Barrack[16, 0x2244a456850], Worker [0x2244a4701c0, 0] dead
+2023-10-19 18:39:31,982 - INFO - New day (9)
+2023-10-19 18:39:31,982 - DEBUG - DiningHall[0x2244a456700] requesting 1 from Barrack[16, 0x2244a456850], 1 from Barn[25, 0x2244a456640]
+2023-10-19 18:39:31,982 - DEBUG - Barrack[15, 0x2244a456850] sends one Worker [0x2244a470a00, 77]
+2023-10-19 18:39:31,983 - DEBUG - Barn[24, 0x2244a456640] sends one Food [0x2244a470820]
+2023-10-19 18:39:31,983 - DEBUG - DiningHall[0x2244a456700]: Food [0x2244a470820], Worker [0x2244a470a00, 100], plus 33
+2023-10-19 18:39:31,983 - DEBUG - Barrack[16, 0x2244a456850], Worker [0x2244a470a00, 100] returned
+2023-10-19 18:39:31,983 - DEBUG - Home[0x2244a456880] requesting 1 from Barrack[16, 0x2244a456850], 1 from Storage[33, 0x2244a456670]
+2023-10-19 18:39:31,983 - DEBUG - Barrack[15, 0x2244a456850] sends one Worker [0x2244a4702e0, 18]
+2023-10-19 18:39:31,983 - DEBUG - Storage[33, 0x2244a456670] sends one product
+2023-10-19 18:39:31,983 - DEBUG - Home[0x2244a456880]: Resting Worker [0x2244a4702e0, 34], plus 16
+2023-10-19 18:39:31,983 - DEBUG - Barrack[16, 0x2244a456850], Worker [0x2244a4702e0, 34] returned
+2023-10-19 18:39:31,984 - DEBUG - Field[0x2244a4568b0] requesting 1 from Barrack[16, 0x2244a456850]
+2023-10-19 18:39:31,984 - DEBUG - Barrack[15, 0x2244a456850] sends one Worker [0x2244a470340, 71]
+2023-10-19 18:39:31,984 - DEBUG - Field[0x2244a4568b0] sent food to Barn[24, 0x2244a456640], Worker [0x2244a470340, 32] harmed -39
+2023-10-19 18:39:31,984 - DEBUG - Barrack[16, 0x2244a456850], Worker [0x2244a470340, 32] returned
+2023-10-19 18:39:31,984 - DEBUG - Barn[25, 0x2244a456640], one Food [0x2244a470160] added
+2023-10-19 18:39:31,984 - DEBUG - Field[0x2244a4569a0] requesting 1 from Barrack[16, 0x2244a456850]
+2023-10-19 18:39:31,984 - DEBUG - Barrack[15, 0x2244a456850] sends one Worker [0x2244a4703a0, 52]
+2023-10-19 18:39:31,984 - DEBUG - Field[0x2244a4569a0] sent food to Barn[25, 0x2244a456640], Worker [0x2244a4703a0, 52] harmed 0
+2023-10-19 18:39:31,984 - DEBUG - Barrack[16, 0x2244a456850], Worker [0x2244a4703a0, 52] returned
+2023-10-19 18:39:31,984 - DEBUG - Barn[26, 0x2244a456640], one Food [0x2244a470850] added
+2023-10-19 18:39:31,984 - DEBUG - Field[0x2244a456a00] requesting 1 from Barrack[16, 0x2244a456850]
+2023-10-19 18:39:31,984 - DEBUG - Barrack[15, 0x2244a456850] sends one Worker [0x2244a470400, 47]
+2023-10-19 18:39:31,984 - DEBUG - Field[0x2244a456a00] sent food to Barn[26, 0x2244a456640], Worker [0x2244a470400, 47] harmed 0
+2023-10-19 18:39:31,984 - DEBUG - Barrack[16, 0x2244a456850], Worker [0x2244a470400, 47] returned
+2023-10-19 18:39:31,985 - DEBUG - Barn[27, 0x2244a456640], one Food [0x2244a4701f0] added
+2023-10-19 18:39:31,985 - DEBUG - Field[0x2244a456a60] requesting 1 from Barrack[16, 0x2244a456850]
+2023-10-19 18:39:31,985 - DEBUG - Barrack[15, 0x2244a456850] sends one Worker [0x2244a470280, 90]
+2023-10-19 18:39:31,985 - DEBUG - Field[0x2244a456a60] sent food to Barn[27, 0x2244a456640], Worker [0x2244a470280, 90] harmed 0
+2023-10-19 18:39:31,985 - DEBUG - Barrack[16, 0x2244a456850], Worker [0x2244a470280, 90] returned
+2023-10-19 18:39:31,985 - DEBUG - Barn[28, 0x2244a456640], one Food [0x2244a4743a0] added
+2023-10-19 18:39:31,985 - DEBUG - Factory (Factory[0x2244a456ac0]) requesting 1 worker (barrack Barrack[16, 0x2244a456850])
+2023-10-19 18:39:31,985 - DEBUG - Barrack[15, 0x2244a456850] sends one Worker [0x2244a456d00, 14]
+2023-10-19 18:39:31,985 - DEBUG - Factory[0x2244a456ac0]: product created (sent to: Storage[32, 0x2244a456670]), Worker [0x2244a456d00, 11] harmed -3
+2023-10-19 18:39:31,985 - DEBUG - Storage[33, 0x2244a456670], one Product [0x2244a474400] added
+2023-10-19 18:39:31,985 - DEBUG - Barrack[16, 0x2244a456850], Worker [0x2244a456d00, 11] returned
+2023-10-19 18:39:31,985 - DEBUG - Factory (Factory[0x2244a456b20]) requesting 1 worker (barrack Barrack[16, 0x2244a456850])
+2023-10-19 18:39:31,985 - DEBUG - Barrack[15, 0x2244a456850] sends one Worker [0x2244a456d60, 86]
+2023-10-19 18:39:31,985 - DEBUG - Factory[0x2244a456b20]: product created (sent to: Storage[33, 0x2244a456670]), Worker [0x2244a456d60, 84] harmed -2
+2023-10-19 18:39:31,985 - DEBUG - Storage[34, 0x2244a456670], one Product [0x2244a474430] added
+2023-10-19 18:39:31,986 - DEBUG - Barrack[16, 0x2244a456850], Worker [0x2244a456d60, 84] returned
+2023-10-19 18:39:31,986 - DEBUG - Factory (Factory[0x2244a456b80]) requesting 1 worker (barrack Barrack[16, 0x2244a456850])
+2023-10-19 18:39:31,986 - DEBUG - Barrack[15, 0x2244a456850] sends one Worker [0x2244a456dc0, 23]
+2023-10-19 18:39:31,986 - DEBUG - Factory[0x2244a456b80]: product created (sent to: Storage[34, 0x2244a456670]), Worker [0x2244a456dc0, 0] harmed -30
+2023-10-19 18:39:31,986 - DEBUG - Storage[35, 0x2244a456670], one Product [0x2244a474460] added
+2023-10-19 18:39:31,986 - DEBUG - Barrack[15, 0x2244a456850], Worker [0x2244a456dc0, 0] dead
+2023-10-19 18:39:31,986 - DEBUG - Factory (Factory[0x2244a456be0]) requesting 1 worker (barrack Barrack[15, 0x2244a456850])
+2023-10-19 18:39:31,986 - DEBUG - Barrack[14, 0x2244a456850] sends one Worker [0x2244a456e20, 100]
+2023-10-19 18:39:31,986 - DEBUG - Factory[0x2244a456be0]: product created (sent to: Storage[35, 0x2244a456670]), Worker [0x2244a456e20, 36] harmed -64
+2023-10-19 18:39:31,987 - DEBUG - Storage[36, 0x2244a456670], one Product [0x2244a456dc0] added
+2023-10-19 18:39:31,987 - DEBUG - Barrack[15, 0x2244a456850], Worker [0x2244a456e20, 36] returned
+2023-10-19 18:39:31,987 - DEBUG - Factory (Factory[0x2244a456c40]) requesting 1 worker (barrack Barrack[15, 0x2244a456850])
+2023-10-19 18:39:31,987 - DEBUG - Barrack[14, 0x2244a456850] sends one Worker [0x2244a456e80, 52]
+2023-10-19 18:39:31,987 - DEBUG - Factory[0x2244a456c40]: product created (sent to: Storage[36, 0x2244a456670]), Worker [0x2244a456e80, 0] harmed -61
+2023-10-19 18:39:31,987 - DEBUG - Storage[37, 0x2244a456670], one Product [0x2244a456df0] added
+2023-10-19 18:39:31,987 - DEBUG - Barrack[14, 0x2244a456850], Worker [0x2244a456e80, 0] dead
+2023-10-19 18:39:31,987 - INFO - New day (10)
+2023-10-19 18:39:31,987 - DEBUG - DiningHall[0x2244a456700] requesting 1 from Barrack[14, 0x2244a456850], 1 from Barn[28, 0x2244a456640]
+2023-10-19 18:39:31,987 - DEBUG - Barrack[13, 0x2244a456850] sends one Worker [0x2244a456f40, 50]
+2023-10-19 18:39:31,987 - DEBUG - Barn[27, 0x2244a456640] sends one Food [0x2244a456cd0]
+2023-10-19 18:39:31,987 - DEBUG - DiningHall[0x2244a456700]: Food [0x2244a456cd0], Worker [0x2244a456f40, 83], plus 33
+2023-10-19 18:39:31,987 - DEBUG - Barrack[14, 0x2244a456850], Worker [0x2244a456f40, 83] returned
+2023-10-19 18:39:31,987 - DEBUG - Home[0x2244a456880] requesting 1 from Barrack[14, 0x2244a456850], 1 from Storage[37, 0x2244a456670]
+2023-10-19 18:39:31,987 - DEBUG - Barrack[13, 0x2244a456850] sends one Worker [0x2244a470be0, 87]
+2023-10-19 18:39:31,987 - DEBUG - Storage[37, 0x2244a456670] sends one product
+2023-10-19 18:39:31,987 - DEBUG - Home[0x2244a456880]: Resting Worker [0x2244a470be0, 100], plus 18
+2023-10-19 18:39:31,987 - DEBUG - Barrack[14, 0x2244a456850], Worker [0x2244a470be0, 100] returned
+2023-10-19 18:39:31,987 - DEBUG - Field[0x2244a4568b0] requesting 1 from Barrack[14, 0x2244a456850]
+2023-10-19 18:39:31,987 - DEBUG - Barrack[13, 0x2244a456850] sends one Worker [0x2244a4700a0, 3]
+2023-10-19 18:39:31,987 - DEBUG - Field[0x2244a4568b0] sent food to Barn[27, 0x2244a456640], Worker [0x2244a4700a0, 3] harmed 0
+2023-10-19 18:39:31,987 - DEBUG - Barrack[14, 0x2244a456850], Worker [0x2244a4700a0, 3] returned
+2023-10-19 18:39:31,987 - DEBUG - Barn[28, 0x2244a456640], one Food [0x2244a470940] added
+2023-10-19 18:39:31,987 - DEBUG - Field[0x2244a4569a0] requesting 1 from Barrack[14, 0x2244a456850]
+2023-10-19 18:39:31,987 - DEBUG - Barrack[13, 0x2244a456850] sends one Worker [0x2244a470100, 91]
+2023-10-19 18:39:31,987 - DEBUG - Field[0x2244a4569a0] sent food to Barn[28, 0x2244a456640], Worker [0x2244a470100, 91] harmed 0
+2023-10-19 18:39:31,987 - DEBUG - Barrack[14, 0x2244a456850], Worker [0x2244a470100, 91] returned
+2023-10-19 18:39:31,987 - DEBUG - Barn[29, 0x2244a456640], one Food [0x2244a456cd0] added
+2023-10-19 18:39:31,987 - DEBUG - Field[0x2244a456a00] requesting 1 from Barrack[14, 0x2244a456850]
+2023-10-19 18:39:31,987 - DEBUG - Barrack[13, 0x2244a456850] sends one Worker [0x2244a470700, 3]
+2023-10-19 18:39:31,987 - DEBUG - Field[0x2244a456a00] sent food to Barn[29, 0x2244a456640], Worker [0x2244a470700, 3] harmed 0
+2023-10-19 18:39:31,987 - DEBUG - Barrack[14, 0x2244a456850], Worker [0x2244a470700, 3] returned
+2023-10-19 18:39:31,987 - DEBUG - Barn[30, 0x2244a456640], one Food [0x2244a456eb0] added
+2023-10-19 18:39:31,987 - DEBUG - Field[0x2244a456a60] requesting 1 from Barrack[14, 0x2244a456850]
+2023-10-19 18:39:31,987 - DEBUG - Barrack[13, 0x2244a456850] sends one Worker [0x2244a470a00, 100]
+2023-10-19 18:39:31,987 - DEBUG - Field[0x2244a456a60] sent food to Barn[30, 0x2244a456640], Worker [0x2244a470a00, 100] harmed 0
+2023-10-19 18:39:31,987 - DEBUG - Barrack[14, 0x2244a456850], Worker [0x2244a470a00, 100] returned
+2023-10-19 18:39:31,987 - DEBUG - Barn[31, 0x2244a456640], one Food [0x2244a4744c0] added
+2023-10-19 18:39:31,987 - DEBUG - Factory (Factory[0x2244a456ac0]) requesting 1 worker (barrack Barrack[14, 0x2244a456850])
+2023-10-19 18:39:31,987 - DEBUG - Barrack[13, 0x2244a456850] sends one Worker [0x2244a4702e0, 34]
+2023-10-19 18:39:31,987 - DEBUG - Factory[0x2244a456ac0]: product created (sent to: Storage[36, 0x2244a456670]), Worker [0x2244a4702e0, 0] harmed -66
+2023-10-19 18:39:31,987 - DEBUG - Storage[37, 0x2244a456670], one Product [0x2244a474520] added
+2023-10-19 18:39:31,987 - DEBUG - Barrack[13, 0x2244a456850], Worker [0x2244a4702e0, 0] dead
+2023-10-19 18:39:31,987 - DEBUG - Factory (Factory[0x2244a456b20]) requesting 1 worker (barrack Barrack[13, 0x2244a456850])
+2023-10-19 18:39:31,987 - DEBUG - Barrack[12, 0x2244a456850] sends one Worker [0x2244a470340, 32]
+2023-10-19 18:39:31,987 - DEBUG - Factory[0x2244a456b20]: product created (sent to: Storage[37, 0x2244a456670]), Worker [0x2244a470340, 30] harmed -2
+2023-10-19 18:39:31,987 - DEBUG - Storage[38, 0x2244a456670], one Product [0x2244a4702e0] added
+2023-10-19 18:39:31,987 - DEBUG - Barrack[13, 0x2244a456850], Worker [0x2244a470340, 30] returned
+2023-10-19 18:39:31,987 - DEBUG - Factory (Factory[0x2244a456b80]) requesting 1 worker (barrack Barrack[13, 0x2244a456850])
+2023-10-19 18:39:31,987 - DEBUG - Barrack[12, 0x2244a456850] sends one Worker [0x2244a4703a0, 52]
+2023-10-19 18:39:31,987 - DEBUG - Factory[0x2244a456b80]: product created (sent to: Storage[38, 0x2244a456670]), Worker [0x2244a4703a0, 0] harmed -100
+2023-10-19 18:39:31,987 - DEBUG - Storage[39, 0x2244a456670], one Product [0x2244a470310] added
+2023-10-19 18:39:31,987 - DEBUG - Barrack[12, 0x2244a456850], Worker [0x2244a4703a0, 0] dead
+2023-10-19 18:39:31,987 - DEBUG - Factory (Factory[0x2244a456be0]) requesting 1 worker (barrack Barrack[12, 0x2244a456850])
+2023-10-19 18:39:31,987 - DEBUG - Barrack[11, 0x2244a456850] sends one Worker [0x2244a470400, 47]
+2023-10-19 18:39:31,987 - DEBUG - Factory[0x2244a456be0]: product created (sent to: Storage[39, 0x2244a456670]), Worker [0x2244a470400, 44] harmed -3
+2023-10-19 18:39:31,987 - DEBUG - Storage[40, 0x2244a456670], one Product [0x2244a4703a0] added
+2023-10-19 18:39:31,987 - DEBUG - Barrack[12, 0x2244a456850], Worker [0x2244a470400, 44] returned
+2023-10-19 18:39:31,987 - DEBUG - Factory (Factory[0x2244a456c40]) requesting 1 worker (barrack Barrack[12, 0x2244a456850])
+2023-10-19 18:39:31,987 - DEBUG - Barrack[11, 0x2244a456850] sends one Worker [0x2244a470280, 90]
+2023-10-19 18:39:31,987 - DEBUG - Factory[0x2244a456c40]: product created (sent to: Storage[40, 0x2244a456670]), Worker [0x2244a470280, 59] harmed -31
+2023-10-19 18:39:31,987 - DEBUG - Storage[41, 0x2244a456670], one Product [0x2244a4703d0] added
+2023-10-19 18:39:31,987 - DEBUG - Barrack[12, 0x2244a456850], Worker [0x2244a470280, 59] returned
+2023-10-19 18:39:31,987 - INFO - New day (11)
+2023-10-19 18:39:31,987 - DEBUG - DiningHall[0x2244a456700] requesting 1 from Barrack[12, 0x2244a456850], 1 from Barn[31, 0x2244a456640]
+2023-10-19 18:39:31,987 - DEBUG - Barrack[11, 0x2244a456850] sends one Worker [0x2244a456d00, 11]
+2023-10-19 18:39:31,987 - DEBUG - Barn[30, 0x2244a456640] sends one Food [0x2244a470520]
+2023-10-19 18:39:31,987 - DEBUG - DiningHall[0x2244a456700]: Food [0x2244a470520], Worker [0x2244a456d00, 44], plus 33
+2023-10-19 18:39:31,987 - DEBUG - Barrack[12, 0x2244a456850], Worker [0x2244a456d00, 44] returned
+2023-10-19 18:39:31,987 - DEBUG - Home[0x2244a456880] requesting 2 from Barrack[12, 0x2244a456850] and 1 from Storage[41, 0x2244a456670]
+2023-10-19 18:39:31,987 - DEBUG - Barrack[11, 0x2244a456850] sends one Worker [0x2244a456d60, 84]
+2023-10-19 18:39:31,987 - DEBUG - Barrack[10, 0x2244a456850] sends one Worker [0x2244a456e20, 36]
+2023-10-19 18:39:31,987 - DEBUG - Storage[41, 0x2244a456670] sends one product
+2023-10-19 18:39:31,987 - DEBUG - Home[0x2244a456880]: new Worker [0x2244a456d60, 84] + Worker [0x2244a456e20, 36] -> Worker [0x2244a4703d0, 100]
+2023-10-19 18:39:31,987 - DEBUG - Barrack[11, 0x2244a456850], Worker [0x2244a456d60, 84] returned
+2023-10-19 18:39:31,987 - DEBUG - Barrack[12, 0x2244a456850], Worker [0x2244a456e20, 36] returned
+2023-10-19 18:39:31,987 - DEBUG - Barrack[13, 0x2244a456850], Worker [0x2244a4703d0, 100] returned
+2023-10-19 18:39:31,987 - DEBUG - Field[0x2244a4568b0] requesting 1 from Barrack[13, 0x2244a456850]
+2023-10-19 18:39:31,987 - DEBUG - Barrack[12, 0x2244a456850] sends one Worker [0x2244a456f40, 83]
+2023-10-19 18:39:31,987 - DEBUG - Field[0x2244a4568b0] sent food to Barn[30, 0x2244a456640], Worker [0x2244a456f40, 83] harmed 0
+2023-10-19 18:39:31,987 - DEBUG - Barrack[13, 0x2244a456850], Worker [0x2244a456f40, 83] returned
+2023-10-19 18:39:31,987 - DEBUG - Barn[31, 0x2244a456640], one Food [0x2244a470550] added
+2023-10-19 18:39:31,987 - DEBUG - Field[0x2244a4569a0] requesting 1 from Barrack[13, 0x2244a456850]
+2023-10-19 18:39:31,987 - DEBUG - Barrack[12, 0x2244a456850] sends one Worker [0x2244a470be0, 100]
+2023-10-19 18:39:31,987 - DEBUG - Field[0x2244a4569a0] sent food to Barn[31, 0x2244a456640], Worker [0x2244a470be0, 64] harmed -36
+2023-10-19 18:39:31,987 - DEBUG - Barrack[13, 0x2244a456850], Worker [0x2244a470be0, 64] returned
+2023-10-19 18:39:31,987 - DEBUG - Barn[32, 0x2244a456640], one Food [0x2244a474580] added
+2023-10-19 18:39:31,987 - DEBUG - Field[0x2244a456a00] requesting 1 from Barrack[13, 0x2244a456850]
+2023-10-19 18:39:31,987 - DEBUG - Barrack[12, 0x2244a456850] sends one Worker [0x2244a4700a0, 3]
+2023-10-19 18:39:31,987 - DEBUG - Field[0x2244a456a00] sent food to Barn[32, 0x2244a456640], Worker [0x2244a4700a0, 3] harmed 0
+2023-10-19 18:39:31,987 - DEBUG - Barrack[13, 0x2244a456850], Worker [0x2244a4700a0, 3] returned
+2023-10-19 18:39:31,987 - DEBUG - Barn[33, 0x2244a456640], one Food [0x2244a4745e0] added
+2023-10-19 18:39:31,987 - DEBUG - Field[0x2244a456a60] requesting 1 from Barrack[13, 0x2244a456850]
+2023-10-19 18:39:31,987 - DEBUG - Barrack[12, 0x2244a456850] sends one Worker [0x2244a470100, 91]
+2023-10-19 18:39:31,987 - DEBUG - Field[0x2244a456a60] sent food to Barn[33, 0x2244a456640], Worker [0x2244a470100, 91] harmed 0
+2023-10-19 18:39:31,987 - DEBUG - Barrack[13, 0x2244a456850], Worker [0x2244a470100, 91] returned
+2023-10-19 18:39:31,987 - DEBUG - Barn[34, 0x2244a456640], one Food [0x2244a474640] added
+2023-10-19 18:39:31,987 - DEBUG - Factory (Factory[0x2244a456ac0]) requesting 1 worker (barrack Barrack[13, 0x2244a456850])
+2023-10-19 18:39:31,987 - DEBUG - Barrack[12, 0x2244a456850] sends one Worker [0x2244a470700, 3]
+2023-10-19 18:39:31,987 - DEBUG - Factory[0x2244a456ac0]: product created (sent to: Storage[40, 0x2244a456670]), Worker [0x2244a470700, 0] harmed -61
+2023-10-19 18:39:31,987 - DEBUG - Storage[41, 0x2244a456670], one Product [0x2244a4746a0] added
+2023-10-19 18:39:31,987 - DEBUG - Barrack[12, 0x2244a456850], Worker [0x2244a470700, 0] dead
+2023-10-19 18:39:31,987 - DEBUG - Factory (Factory[0x2244a456b20]) requesting 1 worker (barrack Barrack[12, 0x2244a456850])
+2023-10-19 18:39:31,987 - DEBUG - Barrack[11, 0x2244a456850] sends one Worker [0x2244a470a00, 100]
+2023-10-19 18:39:31,987 - DEBUG - Factory[0x2244a456b20]: product created (sent to: Storage[41, 0x2244a456670]), Worker [0x2244a470a00, 28] harmed -72
+2023-10-19 18:39:31,987 - DEBUG - Storage[42, 0x2244a456670], one Product [0x2244a470700] added
+2023-10-19 18:39:31,987 - DEBUG - Barrack[12, 0x2244a456850], Worker [0x2244a470a00, 28] returned
+2023-10-19 18:39:31,987 - DEBUG - Factory (Factory[0x2244a456b80]) requesting 1 worker (barrack Barrack[12, 0x2244a456850])
+2023-10-19 18:39:31,987 - DEBUG - Barrack[11, 0x2244a456850] sends one Worker [0x2244a470340, 30]
+2023-10-19 18:39:31,987 - DEBUG - Factory[0x2244a456b80]: product created (sent to: Storage[42, 0x2244a456670]), Worker [0x2244a470340, 0] harmed -36
+2023-10-19 18:39:31,987 - DEBUG - Storage[43, 0x2244a456670], one Product [0x2244a4704c0] added
+2023-10-19 18:39:31,987 - DEBUG - Barrack[11, 0x2244a456850], Worker [0x2244a470340, 0] dead
+2023-10-19 18:39:31,987 - DEBUG - Factory (Factory[0x2244a456be0]) requesting 1 worker (barrack Barrack[11, 0x2244a456850])
+2023-10-19 18:39:31,987 - DEBUG - Barrack[10, 0x2244a456850] sends one Worker [0x2244a470400, 44]
+2023-10-19 18:39:31,997 - DEBUG - Factory[0x2244a456be0]: product created (sent to: Storage[43, 0x2244a456670]), Worker [0x2244a470400, 41] harmed -3
+2023-10-19 18:39:31,997 - DEBUG - Storage[44, 0x2244a456670], one Product [0x2244a470340] added
+2023-10-19 18:39:31,997 - DEBUG - Barrack[11, 0x2244a456850], Worker [0x2244a470400, 41] returned
+2023-10-19 18:39:31,997 - DEBUG - Factory (Factory[0x2244a456c40]) requesting 1 worker (barrack Barrack[11, 0x2244a456850])
+2023-10-19 18:39:31,997 - DEBUG - Barrack[10, 0x2244a456850] sends one Worker [0x2244a470280, 59]
+2023-10-19 18:39:31,997 - DEBUG - Factory[0x2244a456c40]: product created (sent to: Storage[44, 0x2244a456670]), Worker [0x2244a470280, 14] harmed -45
+2023-10-19 18:39:31,997 - DEBUG - Storage[45, 0x2244a456670], one Product [0x2244a470370] added
+2023-10-19 18:39:31,997 - DEBUG - Barrack[11, 0x2244a456850], Worker [0x2244a470280, 14] returned
+2023-10-19 18:39:31,997 - INFO - New day (12)
+2023-10-19 18:39:31,997 - DEBUG - DiningHall[0x2244a456700] requesting 1 from Barrack[11, 0x2244a456850], 1 from Barn[34, 0x2244a456640]
+2023-10-19 18:39:31,997 - DEBUG - Barrack[10, 0x2244a456850] sends one Worker [0x2244a456d00, 44]
+2023-10-19 18:39:31,997 - DEBUG - Barn[33, 0x2244a456640] sends one Food [0x2244a470460]
+2023-10-19 18:39:31,997 - DEBUG - DiningHall[0x2244a456700]: Food [0x2244a470460], Worker [0x2244a456d00, 77], plus 33
+2023-10-19 18:39:31,997 - DEBUG - Barrack[11, 0x2244a456850], Worker [0x2244a456d00, 77] returned
+2023-10-19 18:39:31,997 - DEBUG - Home[0x2244a456880] requesting 1 from Barrack[11, 0x2244a456850], 1 from Storage[45, 0x2244a456670]
+2023-10-19 18:39:31,997 - DEBUG - Barrack[10, 0x2244a456850] sends one Worker [0x2244a456d60, 84]
+2023-10-19 18:39:31,997 - DEBUG - Storage[45, 0x2244a456670] sends one product
+2023-10-19 18:39:31,997 - DEBUG - Home[0x2244a456880]: Resting Worker [0x2244a456d60, 91], plus 7
+2023-10-19 18:39:31,997 - DEBUG - Barrack[11, 0x2244a456850], Worker [0x2244a456d60, 91] returned
+2023-10-19 18:39:31,997 - DEBUG - Field[0x2244a4568b0] requesting 1 from Barrack[11, 0x2244a456850]
+2023-10-19 18:39:31,997 - DEBUG - Barrack[10, 0x2244a456850] sends one Worker [0x2244a456e20, 36]
+2023-10-19 18:39:31,997 - DEBUG - Field[0x2244a4568b0] sent food to Barn[33, 0x2244a456640], Worker [0x2244a456e20, 0] harmed -51
+2023-10-19 18:39:31,997 - DEBUG - Barrack[10, 0x2244a456850], Worker [0x2244a456e20, 0] dead
+2023-10-19 18:39:31,997 - DEBUG - Barn[34, 0x2244a456640], one Food [0x2244a470370] added
+2023-10-19 18:39:31,997 - DEBUG - Field[0x2244a4569a0] requesting 1 from Barrack[10, 0x2244a456850]
+2023-10-19 18:39:31,997 - DEBUG - Barrack[9, 0x2244a456850] sends one Worker [0x2244a4703d0, 100]
+2023-10-19 18:39:31,997 - DEBUG - Field[0x2244a4569a0] sent food to Barn[34, 0x2244a456640], Worker [0x2244a4703d0, 100] harmed 0
+2023-10-19 18:39:31,997 - DEBUG - Barrack[10, 0x2244a456850], Worker [0x2244a4703d0, 100] returned
+2023-10-19 18:39:31,997 - DEBUG - Barn[35, 0x2244a456640], one Food [0x2244a456e20] added
+2023-10-19 18:39:31,997 - DEBUG - Field[0x2244a456a00] requesting 1 from Barrack[10, 0x2244a456850]
+2023-10-19 18:39:31,997 - DEBUG - Barrack[9, 0x2244a456850] sends one Worker [0x2244a456f40, 83]
+2023-10-19 18:39:31,997 - DEBUG - Field[0x2244a456a00] sent food to Barn[35, 0x2244a456640], Worker [0x2244a456f40, 83] harmed 0
+2023-10-19 18:39:31,997 - DEBUG - Barrack[10, 0x2244a456850], Worker [0x2244a456f40, 83] returned
+2023-10-19 18:39:31,997 - DEBUG - Barn[36, 0x2244a456640], one Food [0x2244a470970] added
+2023-10-19 18:39:31,997 - DEBUG - Field[0x2244a456a60] requesting 1 from Barrack[10, 0x2244a456850]
+2023-10-19 18:39:31,997 - DEBUG - Barrack[9, 0x2244a456850] sends one Worker [0x2244a470be0, 64]
+2023-10-19 18:39:31,997 - DEBUG - Field[0x2244a456a60] sent food to Barn[36, 0x2244a456640], Worker [0x2244a470be0, 64] harmed 0
+2023-10-19 18:39:31,997 - DEBUG - Barrack[10, 0x2244a456850], Worker [0x2244a470be0, 64] returned
+2023-10-19 18:39:31,997 - DEBUG - Barn[37, 0x2244a456640], one Food [0x2244a474700] added
+2023-10-19 18:39:31,997 - DEBUG - Factory (Factory[0x2244a456ac0]) requesting 1 worker (barrack Barrack[10, 0x2244a456850])
+2023-10-19 18:39:31,997 - DEBUG - Barrack[9, 0x2244a456850] sends one Worker [0x2244a4700a0, 3]
+2023-10-19 18:39:31,997 - DEBUG - Factory[0x2244a456ac0]: product created (sent to: Storage[44, 0x2244a456670]), Worker [0x2244a4700a0, 0] harmed -21
+2023-10-19 18:39:31,997 - DEBUG - Storage[45, 0x2244a456670], one Product [0x2244a474760] added
+2023-10-19 18:39:31,997 - DEBUG - Barrack[9, 0x2244a456850], Worker [0x2244a4700a0, 0] dead
+2023-10-19 18:39:31,997 - DEBUG - Factory (Factory[0x2244a456b20]) requesting 1 worker (barrack Barrack[9, 0x2244a456850])
+2023-10-19 18:39:31,997 - DEBUG - Barrack[8, 0x2244a456850] sends one Worker [0x2244a470100, 91]
+2023-10-19 18:39:31,997 - DEBUG - Factory[0x2244a456b20]: product created (sent to: Storage[45, 0x2244a456670]), Worker [0x2244a470100, 39] harmed -52
+2023-10-19 18:39:31,997 - DEBUG - Storage[46, 0x2244a456670], one Product [0x2244a4700a0] added
+2023-10-19 18:39:31,997 - DEBUG - Barrack[9, 0x2244a456850], Worker [0x2244a470100, 39] returned
+2023-10-19 18:39:31,997 - DEBUG - Factory (Factory[0x2244a456b80]) requesting 1 worker (barrack Barrack[9, 0x2244a456850])
+2023-10-19 18:39:31,997 - DEBUG - Barrack[8, 0x2244a456850] sends one Worker [0x2244a470a00, 28]
+2023-10-19 18:39:31,997 - DEBUG - Factory[0x2244a456b80]: product created (sent to: Storage[46, 0x2244a456670]), Worker [0x2244a470a00, 18] harmed -10
+2023-10-19 18:39:32,003 - DEBUG - Storage[47, 0x2244a456670], one Product [0x2244a4700d0] added
+2023-10-19 18:39:32,003 - DEBUG - Barrack[9, 0x2244a456850], Worker [0x2244a470a00, 18] returned
+2023-10-19 18:39:32,003 - DEBUG - Factory (Factory[0x2244a456be0]) requesting 1 worker (barrack Barrack[9, 0x2244a456850])
+2023-10-19 18:39:32,003 - DEBUG - Barrack[8, 0x2244a456850] sends one Worker [0x2244a470400, 41]
+2023-10-19 18:39:32,003 - DEBUG - Factory[0x2244a456be0]: product created (sent to: Storage[47, 0x2244a456670]), Worker [0x2244a470400, 0] harmed -89
+2023-10-19 18:39:32,003 - DEBUG - Storage[48, 0x2244a456670], one Product [0x2244a474790] added
+2023-10-19 18:39:32,003 - DEBUG - Barrack[8, 0x2244a456850], Worker [0x2244a470400, 0] dead
+2023-10-19 18:39:32,003 - DEBUG - Factory (Factory[0x2244a456c40]) requesting 1 worker (barrack Barrack[8, 0x2244a456850])
+2023-10-19 18:39:32,003 - DEBUG - Barrack[7, 0x2244a456850] sends one Worker [0x2244a470280, 14]
+2023-10-19 18:39:32,003 - DEBUG - Factory[0x2244a456c40]: product created (sent to: Storage[48, 0x2244a456670]), Worker [0x2244a470280, 0] harmed -21
+2023-10-19 18:39:32,003 - DEBUG - Storage[49, 0x2244a456670], one Product [0x2244a470400] added
+2023-10-19 18:39:32,003 - DEBUG - Barrack[7, 0x2244a456850], Worker [0x2244a470280, 0] dead
+2023-10-19 18:39:32,003 - INFO - New day (13)
+2023-10-19 18:39:32,003 - DEBUG - DiningHall[0x2244a456700] requesting 1 from Barrack[7, 0x2244a456850], 1 from Barn[37, 0x2244a456640]
+2023-10-19 18:39:32,003 - DEBUG - Barrack[6, 0x2244a456850] sends one Worker [0x2244a456d00, 77]
+2023-10-19 18:39:32,003 - DEBUG - Barn[36, 0x2244a456640] sends one Food [0x2244a4709a0]
+2023-10-19 18:39:32,003 - DEBUG - DiningHall[0x2244a456700]: Food [0x2244a4709a0], Worker [0x2244a456d00, 100], plus 33
+2023-10-19 18:39:32,003 - DEBUG - Barrack[7, 0x2244a456850], Worker [0x2244a456d00, 100] returned
+2023-10-19 18:39:32,003 - DEBUG - Home[0x2244a456880] requesting 2 from Barrack[7, 0x2244a456850] and 1 from Storage[49, 0x2244a456670]
+2023-10-19 18:39:32,003 - DEBUG - Barrack[6, 0x2244a456850] sends one Worker [0x2244a456d60, 91]
+2023-10-19 18:39:32,003 - DEBUG - Barrack[5, 0x2244a456850] sends one Worker [0x2244a4703d0, 100]
+2023-10-19 18:39:32,003 - DEBUG - Storage[49, 0x2244a456670] sends one product
+2023-10-19 18:39:32,003 - DEBUG - Home[0x2244a456880]: new Worker [0x2244a456d60, 91] + Worker [0x2244a4703d0, 100] -> Worker [0x2244a470400, 100]
+2023-10-19 18:39:32,003 - DEBUG - Barrack[6, 0x2244a456850], Worker [0x2244a456d60, 91] returned
+2023-10-19 18:39:32,003 - DEBUG - Barrack[7, 0x2244a456850], Worker [0x2244a4703d0, 100] returned
+2023-10-19 18:39:32,003 - DEBUG - Barrack[8, 0x2244a456850], Worker [0x2244a470400, 100] returned
+2023-10-19 18:39:32,003 - DEBUG - Field[0x2244a4568b0] requesting 1 from Barrack[8, 0x2244a456850]
+2023-10-19 18:39:32,003 - DEBUG - Barrack[7, 0x2244a456850] sends one Worker [0x2244a456f40, 83]
+2023-10-19 18:39:32,003 - DEBUG - Field[0x2244a4568b0] sent food to Barn[36, 0x2244a456640], Worker [0x2244a456f40, 83] harmed 0
+2023-10-19 18:39:32,003 - DEBUG - Barrack[8, 0x2244a456850], Worker [0x2244a456f40, 83] returned
+2023-10-19 18:39:32,003 - DEBUG - Barn[37, 0x2244a456640], one Food [0x2244a4709d0] added
+2023-10-19 18:39:32,003 - DEBUG - Field[0x2244a4569a0] requesting 1 from Barrack[8, 0x2244a456850]
+2023-10-19 18:39:32,003 - DEBUG - Barrack[7, 0x2244a456850] sends one Worker [0x2244a470be0, 64]
+2023-10-19 18:39:32,003 - DEBUG - Field[0x2244a4569a0] sent food to Barn[37, 0x2244a456640], Worker [0x2244a470be0, 64] harmed 0
+2023-10-19 18:39:32,003 - DEBUG - Barrack[8, 0x2244a456850], Worker [0x2244a470be0, 64] returned
+2023-10-19 18:39:32,003 - DEBUG - Barn[38, 0x2244a456640], one Food [0x2244a4704f0] added
+2023-10-19 18:39:32,003 - DEBUG - Field[0x2244a456a00] requesting 1 from Barrack[8, 0x2244a456850]
+2023-10-19 18:39:32,003 - DEBUG - Barrack[7, 0x2244a456850] sends one Worker [0x2244a470100, 39]
+2023-10-19 18:39:32,003 - DEBUG - Field[0x2244a456a00] sent food to Barn[38, 0x2244a456640], Worker [0x2244a470100, 39] harmed 0
+2023-10-19 18:39:32,003 - DEBUG - Barrack[8, 0x2244a456850], Worker [0x2244a470100, 39] returned
+2023-10-19 18:39:32,003 - DEBUG - Barn[39, 0x2244a456640], one Food [0x2244a4747c0] added
+2023-10-19 18:39:32,003 - DEBUG - Field[0x2244a456a60] requesting 1 from Barrack[8, 0x2244a456850]
+2023-10-19 18:39:32,003 - DEBUG - Barrack[7, 0x2244a456850] sends one Worker [0x2244a470a00, 18]
+2023-10-19 18:39:32,003 - DEBUG - Field[0x2244a456a60] sent food to Barn[39, 0x2244a456640], Worker [0x2244a470a00, 0] harmed -70
+2023-10-19 18:39:32,003 - DEBUG - Barrack[7, 0x2244a456850], Worker [0x2244a470a00, 0] dead
+2023-10-19 18:39:32,003 - DEBUG - Barn[40, 0x2244a456640], one Food [0x2244a474820] added
+2023-10-19 18:39:32,003 - DEBUG - Factory (Factory[0x2244a456ac0]) requesting 1 worker (barrack Barrack[7, 0x2244a456850])
+2023-10-19 18:39:32,003 - DEBUG - Barrack[6, 0x2244a456850] sends one Worker [0x2244a456d00, 100]
+2023-10-19 18:39:32,003 - DEBUG - Factory[0x2244a456ac0]: product created (sent to: Storage[48, 0x2244a456670]), Worker [0x2244a456d00, 51] harmed -49
+2023-10-19 18:39:32,003 - DEBUG - Storage[49, 0x2244a456670], one Product [0x2244a470a00] added
+2023-10-19 18:39:32,003 - DEBUG - Barrack[7, 0x2244a456850], Worker [0x2244a456d00, 51] returned
+2023-10-19 18:39:32,003 - DEBUG - Factory (Factory[0x2244a456b20]) requesting 1 worker (barrack Barrack[7, 0x2244a456850])
+2023-10-19 18:39:32,003 - DEBUG - Barrack[6, 0x2244a456850] sends one Worker [0x2244a456d60, 91]
+2023-10-19 18:39:32,003 - DEBUG - Factory[0x2244a456b20]: product created (sent to: Storage[49, 0x2244a456670]), Worker [0x2244a456d60, 42] harmed -49
+2023-10-19 18:39:32,003 - DEBUG - Storage[50, 0x2244a456670], one Product [0x2244a470580] added
+2023-10-19 18:39:32,003 - DEBUG - Barrack[7, 0x2244a456850], Worker [0x2244a456d60, 42] returned
+2023-10-19 18:39:32,003 - DEBUG - Factory (Factory[0x2244a456b80]) requesting 1 worker (barrack Barrack[7, 0x2244a456850])
+2023-10-19 18:39:32,008 - DEBUG - Barrack[6, 0x2244a456850] sends one Worker [0x2244a4703d0, 100]
+2023-10-19 18:39:32,008 - DEBUG - Factory[0x2244a456b80]: product created (sent to: Storage[50, 0x2244a456670]), Worker [0x2244a4703d0, 85] harmed -15
+2023-10-19 18:39:32,008 - DEBUG - Storage[51, 0x2244a456670], one Product [0x2244a474880] added
+2023-10-19 18:39:32,008 - DEBUG - Barrack[7, 0x2244a456850], Worker [0x2244a4703d0, 85] returned
+2023-10-19 18:39:32,008 - DEBUG - Factory (Factory[0x2244a456be0]) requesting 1 worker (barrack Barrack[7, 0x2244a456850])
+2023-10-19 18:39:32,008 - DEBUG - Barrack[6, 0x2244a456850] sends one Worker [0x2244a470400, 100]
+2023-10-19 18:39:32,008 - DEBUG - Factory[0x2244a456be0]: product created (sent to: Storage[51, 0x2244a456670]), Worker [0x2244a470400, 35] harmed -65
+2023-10-19 18:39:32,008 - DEBUG - Storage[52, 0x2244a456670], one Product [0x2244a4748b0] added
+2023-10-19 18:39:32,008 - DEBUG - Barrack[7, 0x2244a456850], Worker [0x2244a470400, 35] returned
+2023-10-19 18:39:32,008 - DEBUG - Factory (Factory[0x2244a456c40]) requesting 1 worker (barrack Barrack[7, 0x2244a456850])
+2023-10-19 18:39:32,008 - DEBUG - Barrack[6, 0x2244a456850] sends one Worker [0x2244a456f40, 83]
+2023-10-19 18:39:32,008 - DEBUG - Factory[0x2244a456c40]: product created (sent to: Storage[52, 0x2244a456670]), Worker [0x2244a456f40, 64] harmed -19
+2023-10-19 18:39:32,008 - DEBUG - Storage[53, 0x2244a456670], one Product [0x2244a4748e0] added
+2023-10-19 18:39:32,008 - DEBUG - Barrack[7, 0x2244a456850], Worker [0x2244a456f40, 64] returned
+2023-10-19 18:39:32,008 - INFO - New day (14)
+2023-10-19 18:39:32,008 - DEBUG - DiningHall[0x2244a456700] requesting 1 from Barrack[7, 0x2244a456850], 1 from Barn[40, 0x2244a456640]
+2023-10-19 18:39:32,008 - DEBUG - Barrack[6, 0x2244a456850] sends one Worker [0x2244a470be0, 64]
+2023-10-19 18:39:32,008 - DEBUG - Barn[39, 0x2244a456640] sends one Food [0x2244a4705b0]
+2023-10-19 18:39:32,008 - DEBUG - DiningHall[0x2244a456700]: Food [0x2244a4705b0], Worker [0x2244a470be0, 97], plus 33
+2023-10-19 18:39:32,008 - DEBUG - Barrack[7, 0x2244a456850], Worker [0x2244a470be0, 97] returned
+2023-10-19 18:39:32,008 - DEBUG - Home[0x2244a456880] requesting 2 from Barrack[7, 0x2244a456850] and 1 from Storage[53, 0x2244a456670]
+2023-10-19 18:39:32,008 - DEBUG - Barrack[6, 0x2244a456850] sends one Worker [0x2244a470100, 39]
+2023-10-19 18:39:32,008 - DEBUG - Barrack[5, 0x2244a456850] sends one Worker [0x2244a456d00, 51]
+2023-10-19 18:39:32,008 - DEBUG - Storage[53, 0x2244a456670] sends one product
+2023-10-19 18:39:32,008 - DEBUG - Home[0x2244a456880]: new Worker [0x2244a470100, 39] + Worker [0x2244a456d00, 51] -> Worker [0x2244a4705b0, 100]
+2023-10-19 18:39:32,008 - DEBUG - Barrack[6, 0x2244a456850], Worker [0x2244a470100, 39] returned
+2023-10-19 18:39:32,008 - DEBUG - Barrack[7, 0x2244a456850], Worker [0x2244a456d00, 51] returned
+2023-10-19 18:39:32,008 - DEBUG - Barrack[8, 0x2244a456850], Worker [0x2244a4705b0, 100] returned
+2023-10-19 18:39:32,008 - DEBUG - Field[0x2244a4568b0] requesting 1 from Barrack[8, 0x2244a456850]
+2023-10-19 18:39:32,008 - DEBUG - Barrack[7, 0x2244a456850] sends one Worker [0x2244a456d60, 42]
+2023-10-19 18:39:32,008 - DEBUG - Field[0x2244a4568b0] sent food to Barn[39, 0x2244a456640], Worker [0x2244a456d60, 42] harmed 0
+2023-10-19 18:39:32,008 - DEBUG - Barrack[8, 0x2244a456850], Worker [0x2244a456d60, 42] returned
+2023-10-19 18:39:32,008 - DEBUG - Barn[40, 0x2244a456640], one Food [0x2244a4748e0] added
+2023-10-19 18:39:32,008 - DEBUG - Field[0x2244a4569a0] requesting 1 from Barrack[8, 0x2244a456850]
+2023-10-19 18:39:32,008 - DEBUG - Barrack[7, 0x2244a456850] sends one Worker [0x2244a4703d0, 85]
+2023-10-19 18:39:32,008 - DEBUG - Field[0x2244a4569a0] sent food to Barn[40, 0x2244a456640], Worker [0x2244a4703d0, 85] harmed 0
+2023-10-19 18:39:32,008 - DEBUG - Barrack[8, 0x2244a456850], Worker [0x2244a4703d0, 85] returned
+2023-10-19 18:39:32,008 - DEBUG - Barn[41, 0x2244a456640], one Food [0x2244a474940] added
+2023-10-19 18:39:32,008 - DEBUG - Field[0x2244a456a00] requesting 1 from Barrack[8, 0x2244a456850]
+2023-10-19 18:39:32,008 - DEBUG - Barrack[7, 0x2244a456850] sends one Worker [0x2244a470400, 35]
+2023-10-19 18:39:32,008 - DEBUG - Field[0x2244a456a00] sent food to Barn[41, 0x2244a456640], Worker [0x2244a470400, 35] harmed 0
+2023-10-19 18:39:32,008 - DEBUG - Barrack[8, 0x2244a456850], Worker [0x2244a470400, 35] returned
+2023-10-19 18:39:32,008 - DEBUG - Barn[42, 0x2244a456640], one Food [0x2244a4749a0] added
+2023-10-19 18:39:32,008 - DEBUG - Field[0x2244a456a60] requesting 1 from Barrack[8, 0x2244a456850]
+2023-10-19 18:39:32,008 - DEBUG - Barrack[7, 0x2244a456850] sends one Worker [0x2244a456f40, 64]
+2023-10-19 18:39:32,008 - DEBUG - Field[0x2244a456a60] sent food to Barn[42, 0x2244a456640], Worker [0x2244a456f40, 64] harmed 0
+2023-10-19 18:39:32,008 - DEBUG - Barrack[8, 0x2244a456850], Worker [0x2244a456f40, 64] returned
+2023-10-19 18:39:32,008 - DEBUG - Barn[43, 0x2244a456640], one Food [0x2244a474a00] added
+2023-10-19 18:39:32,008 - DEBUG - Factory (Factory[0x2244a456ac0]) requesting 1 worker (barrack Barrack[8, 0x2244a456850])
+2023-10-19 18:39:32,008 - DEBUG - Barrack[7, 0x2244a456850] sends one Worker [0x2244a470be0, 97]
+2023-10-19 18:39:32,008 - DEBUG - Factory[0x2244a456ac0]: product created (sent to: Storage[52, 0x2244a456670]), Worker [0x2244a470be0, 3] harmed -94
+2023-10-19 18:39:32,008 - DEBUG - Storage[53, 0x2244a456670], one Product [0x2244a474a60] added
+2023-10-19 18:39:32,008 - DEBUG - Barrack[8, 0x2244a456850], Worker [0x2244a470be0, 3] returned
+2023-10-19 18:39:32,008 - DEBUG - Factory (Factory[0x2244a456b20]) requesting 1 worker (barrack Barrack[8, 0x2244a456850])
+2023-10-19 18:39:32,008 - DEBUG - Barrack[7, 0x2244a456850] sends one Worker [0x2244a470100, 39]
+2023-10-19 18:39:32,008 - DEBUG - Factory[0x2244a456b20]: product created (sent to: Storage[53, 0x2244a456670]), Worker [0x2244a470100, 38] harmed -1
+2023-10-19 18:39:32,008 - DEBUG - Storage[54, 0x2244a456670], one Product [0x2244a474a90] added
+2023-10-19 18:39:32,008 - DEBUG - Barrack[8, 0x2244a456850], Worker [0x2244a470100, 38] returned
+2023-10-19 18:39:32,008 - DEBUG - Factory (Factory[0x2244a456b80]) requesting 1 worker (barrack Barrack[8, 0x2244a456850])
+2023-10-19 18:39:32,008 - DEBUG - Barrack[7, 0x2244a456850] sends one Worker [0x2244a456d00, 51]
+2023-10-19 18:39:32,008 - DEBUG - Factory[0x2244a456b80]: product created (sent to: Storage[54, 0x2244a456670]), Worker [0x2244a456d00, 24] harmed -27
+2023-10-19 18:39:32,013 - DEBUG - Storage[55, 0x2244a456670], one Product [0x2244a474ac0] added
+2023-10-19 18:39:32,013 - DEBUG - Barrack[8, 0x2244a456850], Worker [0x2244a456d00, 24] returned
+2023-10-19 18:39:32,013 - DEBUG - Factory (Factory[0x2244a456be0]) requesting 1 worker (barrack Barrack[8, 0x2244a456850])
+2023-10-19 18:39:32,013 - DEBUG - Barrack[7, 0x2244a456850] sends one Worker [0x2244a4705b0, 100]
+2023-10-19 18:39:32,013 - DEBUG - Factory[0x2244a456be0]: product created (sent to: Storage[55, 0x2244a456670]), Worker [0x2244a4705b0, 23] harmed -77
+2023-10-19 18:39:32,013 - DEBUG - Storage[56, 0x2244a456670], one Product [0x2244a474af0] added
+2023-10-19 18:39:32,013 - DEBUG - Barrack[8, 0x2244a456850], Worker [0x2244a4705b0, 23] returned
+2023-10-19 18:39:32,013 - DEBUG - Factory (Factory[0x2244a456c40]) requesting 1 worker (barrack Barrack[8, 0x2244a456850])
+2023-10-19 18:39:32,013 - DEBUG - Barrack[7, 0x2244a456850] sends one Worker [0x2244a456d60, 42]
+2023-10-19 18:39:32,013 - DEBUG - Factory[0x2244a456c40]: product created (sent to: Storage[56, 0x2244a456670]), Worker [0x2244a456d60, 38] harmed -4
+2023-10-19 18:39:32,013 - DEBUG - Storage[57, 0x2244a456670], one Product [0x2244a474b20] added
+2023-10-19 18:39:32,013 - DEBUG - Barrack[8, 0x2244a456850], Worker [0x2244a456d60, 38] returned
+2023-10-19 18:39:32,013 - INFO - New day (15)
+2023-10-19 18:39:32,013 - DEBUG - DiningHall[0x2244a456700] requesting 1 from Barrack[8, 0x2244a456850], 1 from Barn[43, 0x2244a456640]
+2023-10-19 18:39:32,013 - DEBUG - Barrack[7, 0x2244a456850] sends one Worker [0x2244a4703d0, 85]
+2023-10-19 18:39:32,013 - DEBUG - Barn[42, 0x2244a456640] sends one Food [0x2244a470220]
+2023-10-19 18:39:32,013 - DEBUG - DiningHall[0x2244a456700]: Food [0x2244a470220], Worker [0x2244a4703d0, 100], plus 33
+2023-10-19 18:39:32,013 - DEBUG - Barrack[8, 0x2244a456850], Worker [0x2244a4703d0, 100] returned
+2023-10-19 18:39:32,013 - DEBUG - Home[0x2244a456880] requesting 2 from Barrack[8, 0x2244a456850] and 1 from Storage[57, 0x2244a456670]
+2023-10-19 18:39:32,013 - DEBUG - Barrack[7, 0x2244a456850] sends one Worker [0x2244a470400, 35]
+2023-10-19 18:39:32,013 - DEBUG - Barrack[6, 0x2244a456850] sends one Worker [0x2244a456f40, 64]
+2023-10-19 18:39:32,013 - DEBUG - Storage[57, 0x2244a456670] sends one product
+2023-10-19 18:39:32,013 - DEBUG - Home[0x2244a456880]: new Worker [0x2244a470400, 35] + Worker [0x2244a456f40, 64] -> Worker [0x2244a470220, 100]
+2023-10-19 18:39:32,013 - DEBUG - Barrack[7, 0x2244a456850], Worker [0x2244a470400, 35] returned
+2023-10-19 18:39:32,013 - DEBUG - Barrack[8, 0x2244a456850], Worker [0x2244a456f40, 64] returned
+2023-10-19 18:39:32,013 - DEBUG - Barrack[9, 0x2244a456850], Worker [0x2244a470220, 100] returned
+2023-10-19 18:39:32,013 - DEBUG - Field[0x2244a4568b0] requesting 1 from Barrack[9, 0x2244a456850]
+2023-10-19 18:39:32,013 - DEBUG - Barrack[8, 0x2244a456850] sends one Worker [0x2244a470be0, 3]
+2023-10-19 18:39:32,013 - DEBUG - Field[0x2244a4568b0] sent food to Barn[42, 0x2244a456640], Worker [0x2244a470be0, 3] harmed 0
+2023-10-19 18:39:32,013 - DEBUG - Barrack[9, 0x2244a456850], Worker [0x2244a470be0, 3] returned
+2023-10-19 18:39:32,013 - DEBUG - Barn[43, 0x2244a456640], one Food [0x2244a474b20] added
+2023-10-19 18:39:32,013 - DEBUG - Field[0x2244a4569a0] requesting 1 from Barrack[9, 0x2244a456850]
+2023-10-19 18:39:32,013 - DEBUG - Barrack[8, 0x2244a456850] sends one Worker [0x2244a470100, 38]
+2023-10-19 18:39:32,013 - DEBUG - Field[0x2244a4569a0] sent food to Barn[43, 0x2244a456640], Worker [0x2244a470100, 38] harmed 0
+2023-10-19 18:39:32,013 - DEBUG - Barrack[9, 0x2244a456850], Worker [0x2244a470100, 38] returned
+2023-10-19 18:39:32,013 - DEBUG - Barn[44, 0x2244a456640], one Food [0x2244a474b80] added
+2023-10-19 18:39:32,013 - DEBUG - Field[0x2244a456a00] requesting 1 from Barrack[9, 0x2244a456850]
+2023-10-19 18:39:32,013 - DEBUG - Barrack[8, 0x2244a456850] sends one Worker [0x2244a456d00, 24]
+2023-10-19 18:39:32,013 - DEBUG - Field[0x2244a456a00] sent food to Barn[44, 0x2244a456640], Worker [0x2244a456d00, 0] harmed -34
+2023-10-19 18:39:32,013 - DEBUG - Barrack[8, 0x2244a456850], Worker [0x2244a456d00, 0] dead
+2023-10-19 18:39:32,013 - DEBUG - Barn[45, 0x2244a456640], one Food [0x2244a474be0] added
+2023-10-19 18:39:32,013 - DEBUG - Field[0x2244a456a60] requesting 1 from Barrack[8, 0x2244a456850]
+2023-10-19 18:39:32,013 - DEBUG - Barrack[7, 0x2244a456850] sends one Worker [0x2244a4705b0, 23]
+2023-10-19 18:39:32,013 - DEBUG - Field[0x2244a456a60] sent food to Barn[45, 0x2244a456640], Worker [0x2244a4705b0, 23] harmed 0
+2023-10-19 18:39:32,013 - DEBUG - Barrack[8, 0x2244a456850], Worker [0x2244a4705b0, 23] returned
+2023-10-19 18:39:32,013 - DEBUG - Barn[46, 0x2244a456640], one Food [0x2244a456d00] added
+2023-10-19 18:39:32,013 - DEBUG - Factory (Factory[0x2244a456ac0]) requesting 1 worker (barrack Barrack[8, 0x2244a456850])
+2023-10-19 18:39:32,013 - DEBUG - Barrack[7, 0x2244a456850] sends one Worker [0x2244a456d60, 38]
+2023-10-19 18:39:32,013 - DEBUG - Factory[0x2244a456ac0]: product created (sent to: Storage[56, 0x2244a456670]), Worker [0x2244a456d60, 38] harmed 0
+2023-10-19 18:39:32,013 - DEBUG - Storage[57, 0x2244a456670], one Product [0x2244a474c40] added
+2023-10-19 18:39:32,013 - DEBUG - Barrack[8, 0x2244a456850], Worker [0x2244a456d60, 38] returned
+2023-10-19 18:39:32,013 - DEBUG - Factory (Factory[0x2244a456b20]) requesting 1 worker (barrack Barrack[8, 0x2244a456850])
+2023-10-19 18:39:32,013 - DEBUG - Barrack[7, 0x2244a456850] sends one Worker [0x2244a4703d0, 100]
+2023-10-19 18:39:32,013 - DEBUG - Factory[0x2244a456b20]: product created (sent to: Storage[57, 0x2244a456670]), Worker [0x2244a4703d0, 88] harmed -12
+2023-10-19 18:39:32,013 - DEBUG - Storage[58, 0x2244a456670], one Product [0x2244a474c70] added
+2023-10-19 18:39:32,013 - DEBUG - Barrack[8, 0x2244a456850], Worker [0x2244a4703d0, 88] returned
+2023-10-19 18:39:32,013 - DEBUG - Factory (Factory[0x2244a456b80]) requesting 1 worker (barrack Barrack[8, 0x2244a456850])
+2023-10-19 18:39:32,013 - DEBUG - Barrack[7, 0x2244a456850] sends one Worker [0x2244a470400, 35]
+2023-10-19 18:39:32,013 - DEBUG - Factory[0x2244a456b80]: product created (sent to: Storage[58, 0x2244a456670]), Worker [0x2244a470400, 27] harmed -8
+2023-10-19 18:39:32,013 - DEBUG - Storage[59, 0x2244a456670], one Product [0x2244a474ca0] added
+2023-10-19 18:39:32,013 - DEBUG - Barrack[8, 0x2244a456850], Worker [0x2244a470400, 27] returned
+2023-10-19 18:39:32,013 - DEBUG - Factory (Factory[0x2244a456be0]) requesting 1 worker (barrack Barrack[8, 0x2244a456850])
+2023-10-19 18:39:32,013 - DEBUG - Barrack[7, 0x2244a456850] sends one Worker [0x2244a456f40, 64]
+2023-10-19 18:39:32,013 - DEBUG - Factory[0x2244a456be0]: product created (sent to: Storage[59, 0x2244a456670]), Worker [0x2244a456f40, 41] harmed -23
+2023-10-19 18:39:32,013 - DEBUG - Storage[60, 0x2244a456670], one Product [0x2244a474cd0] added
+2023-10-19 18:39:32,013 - DEBUG - Barrack[8, 0x2244a456850], Worker [0x2244a456f40, 41] returned
+2023-10-19 18:39:32,013 - DEBUG - Factory (Factory[0x2244a456c40]) requesting 1 worker (barrack Barrack[8, 0x2244a456850])
+2023-10-19 18:39:32,018 - DEBUG - Barrack[7, 0x2244a456850] sends one Worker [0x2244a470220, 100]
+2023-10-19 18:39:32,018 - DEBUG - Factory[0x2244a456c40]: product created (sent to: Storage[60, 0x2244a456670]), Worker [0x2244a470220, 51] harmed -49
+2023-10-19 18:39:32,018 - DEBUG - Storage[61, 0x2244a456670], one Product [0x2244a474d00] added
+2023-10-19 18:39:32,018 - DEBUG - Barrack[8, 0x2244a456850], Worker [0x2244a470220, 51] returned
+2023-10-19 18:39:32,018 - INFO - New day (16)
+2023-10-19 18:39:32,018 - DEBUG - DiningHall[0x2244a456700] requesting 1 from Barrack[8, 0x2244a456850], 1 from Barn[46, 0x2244a456640]
+2023-10-19 18:39:32,018 - DEBUG - Barrack[7, 0x2244a456850] sends one Worker [0x2244a470be0, 3]
+2023-10-19 18:39:32,018 - DEBUG - Barn[45, 0x2244a456640] sends one Food [0x2244a470a60]
+2023-10-19 18:39:32,018 - DEBUG - DiningHall[0x2244a456700]: Food [0x2244a470a60], Worker [0x2244a470be0, 36], plus 33
+2023-10-19 18:39:32,018 - DEBUG - Barrack[8, 0x2244a456850], Worker [0x2244a470be0, 36] returned
+2023-10-19 18:39:32,018 - DEBUG - Home[0x2244a456880] requesting 2 from Barrack[8, 0x2244a456850] and 1 from Storage[61, 0x2244a456670]
+2023-10-19 18:39:32,018 - DEBUG - Barrack[7, 0x2244a456850] sends one Worker [0x2244a470100, 38]
+2023-10-19 18:39:32,019 - DEBUG - Barrack[6, 0x2244a456850] sends one Worker [0x2244a4705b0, 23]
+2023-10-19 18:39:32,019 - DEBUG - Storage[61, 0x2244a456670] sends one product
+2023-10-19 18:39:32,019 - DEBUG - Home[0x2244a456880]: new Worker [0x2244a470100, 38] + Worker [0x2244a4705b0, 23] -> Worker [0x2244a470a60, 100]
+2023-10-19 18:39:32,019 - DEBUG - Barrack[7, 0x2244a456850], Worker [0x2244a470100, 38] returned
+2023-10-19 18:39:32,019 - DEBUG - Barrack[8, 0x2244a456850], Worker [0x2244a4705b0, 23] returned
+2023-10-19 18:39:32,019 - DEBUG - Barrack[9, 0x2244a456850], Worker [0x2244a470a60, 100] returned
+2023-10-19 18:39:32,019 - DEBUG - Field[0x2244a4568b0] requesting 1 from Barrack[9, 0x2244a456850]
+2023-10-19 18:39:32,019 - DEBUG - Barrack[8, 0x2244a456850] sends one Worker [0x2244a456d60, 38]
+2023-10-19 18:39:32,019 - DEBUG - Field[0x2244a4568b0] sent food to Barn[45, 0x2244a456640], Worker [0x2244a456d60, 38] harmed 0
+2023-10-19 18:39:32,019 - DEBUG - Barrack[9, 0x2244a456850], Worker [0x2244a456d60, 38] returned
+2023-10-19 18:39:32,019 - DEBUG - Barn[46, 0x2244a456640], one Food [0x2244a474d00] added
+2023-10-19 18:39:32,019 - DEBUG - Field[0x2244a4569a0] requesting 1 from Barrack[9, 0x2244a456850]
+2023-10-19 18:39:32,019 - DEBUG - Barrack[8, 0x2244a456850] sends one Worker [0x2244a4703d0, 88]
+2023-10-19 18:39:32,019 - DEBUG - Field[0x2244a4569a0] sent food to Barn[46, 0x2244a456640], Worker [0x2244a4703d0, 88] harmed 0
+2023-10-19 18:39:32,019 - DEBUG - Barrack[9, 0x2244a456850], Worker [0x2244a4703d0, 88] returned
+2023-10-19 18:39:32,019 - DEBUG - Barn[47, 0x2244a456640], one Food [0x2244a474d60] added
+2023-10-19 18:39:32,019 - DEBUG - Field[0x2244a456a00] requesting 1 from Barrack[9, 0x2244a456850]
+2023-10-19 18:39:32,019 - DEBUG - Barrack[8, 0x2244a456850] sends one Worker [0x2244a470400, 27]
+2023-10-19 18:39:32,019 - DEBUG - Field[0x2244a456a00] sent food to Barn[47, 0x2244a456640], Worker [0x2244a470400, 27] harmed 0
+2023-10-19 18:39:32,019 - DEBUG - Barrack[9, 0x2244a456850], Worker [0x2244a470400, 27] returned
+2023-10-19 18:39:32,019 - DEBUG - Barn[48, 0x2244a456640], one Food [0x2244a474dc0] added
+2023-10-19 18:39:32,019 - DEBUG - Field[0x2244a456a60] requesting 1 from Barrack[9, 0x2244a456850]
+2023-10-19 18:39:32,019 - DEBUG - Barrack[8, 0x2244a456850] sends one Worker [0x2244a456f40, 41]
+2023-10-19 18:39:32,019 - DEBUG - Field[0x2244a456a60] sent food to Barn[48, 0x2244a456640], Worker [0x2244a456f40, 41] harmed 0
+2023-10-19 18:39:32,019 - DEBUG - Barrack[9, 0x2244a456850], Worker [0x2244a456f40, 41] returned
+2023-10-19 18:39:32,019 - DEBUG - Barn[49, 0x2244a456640], one Food [0x2244a474e20] added
+2023-10-19 18:39:32,019 - DEBUG - Factory (Factory[0x2244a456ac0]) requesting 1 worker (barrack Barrack[9, 0x2244a456850])
+2023-10-19 18:39:32,019 - DEBUG - Barrack[8, 0x2244a456850] sends one Worker [0x2244a470220, 51]
+2023-10-19 18:39:32,019 - DEBUG - Factory[0x2244a456ac0]: product created (sent to: Storage[60, 0x2244a456670]), Worker [0x2244a470220, 0] harmed -79
+2023-10-19 18:39:32,019 - DEBUG - Storage[61, 0x2244a456670], one Product [0x2244a474e80] added
+2023-10-19 18:39:32,019 - DEBUG - Barrack[8, 0x2244a456850], Worker [0x2244a470220, 0] dead
+2023-10-19 18:39:32,019 - DEBUG - Factory (Factory[0x2244a456b20]) requesting 1 worker (barrack Barrack[8, 0x2244a456850])
+2023-10-19 18:39:32,019 - DEBUG - Barrack[7, 0x2244a456850] sends one Worker [0x2244a470be0, 36]
+2023-10-19 18:39:32,019 - DEBUG - Factory[0x2244a456b20]: product created (sent to: Storage[61, 0x2244a456670]), Worker [0x2244a470be0, 14] harmed -22
+2023-10-19 18:39:32,019 - DEBUG - Storage[62, 0x2244a456670], one Product [0x2244a470220] added
+2023-10-19 18:39:32,019 - DEBUG - Barrack[8, 0x2244a456850], Worker [0x2244a470be0, 14] returned
+2023-10-19 18:39:32,019 - DEBUG - Factory (Factory[0x2244a456b80]) requesting 1 worker (barrack Barrack[8, 0x2244a456850])
+2023-10-19 18:39:32,019 - DEBUG - Barrack[7, 0x2244a456850] sends one Worker [0x2244a470100, 38]
+2023-10-19 18:39:32,019 - DEBUG - Factory[0x2244a456b80]: product created (sent to: Storage[62, 0x2244a456670]), Worker [0x2244a470100, 0] harmed -90
+2023-10-19 18:39:32,019 - DEBUG - Storage[63, 0x2244a456670], one Product [0x2244a470250] added
+2023-10-19 18:39:32,019 - DEBUG - Barrack[7, 0x2244a456850], Worker [0x2244a470100, 0] dead
+2023-10-19 18:39:32,019 - DEBUG - Factory (Factory[0x2244a456be0]) requesting 1 worker (barrack Barrack[7, 0x2244a456850])
+2023-10-19 18:39:32,019 - DEBUG - Barrack[6, 0x2244a456850] sends one Worker [0x2244a4705b0, 23]
+2023-10-19 18:39:32,019 - DEBUG - Factory[0x2244a456be0]: product created (sent to: Storage[63, 0x2244a456670]), Worker [0x2244a4705b0, 0] harmed -53
+2023-10-19 18:39:32,019 - DEBUG - Storage[64, 0x2244a456670], one Product [0x2244a470100] added
+2023-10-19 18:39:32,019 - DEBUG - Barrack[6, 0x2244a456850], Worker [0x2244a4705b0, 0] dead
+2023-10-19 18:39:32,019 - DEBUG - Factory (Factory[0x2244a456c40]) requesting 1 worker (barrack Barrack[6, 0x2244a456850])
+2023-10-19 18:39:32,019 - DEBUG - Barrack[5, 0x2244a456850] sends one Worker [0x2244a470a60, 100]
+2023-10-19 18:39:32,019 - DEBUG - Factory[0x2244a456c40]: product created (sent to: Storage[64, 0x2244a456670]), Worker [0x2244a470a60, 47] harmed -53
+2023-10-19 18:39:32,019 - DEBUG - Storage[65, 0x2244a456670], one Product [0x2244a4705b0] added
+2023-10-19 18:39:32,023 - DEBUG - Barrack[6, 0x2244a456850], Worker [0x2244a470a60, 47] returned
+2023-10-19 18:39:32,023 - INFO - New day (17)
+2023-10-19 18:39:32,023 - DEBUG - DiningHall[0x2244a456700] requesting 1 from Barrack[6, 0x2244a456850], 1 from Barn[49, 0x2244a456640]
+2023-10-19 18:39:32,023 - DEBUG - Barrack[5, 0x2244a456850] sends one Worker [0x2244a456d60, 38]
+2023-10-19 18:39:32,023 - DEBUG - Barn[48, 0x2244a456640] sends one Food [0x2244a470ac0]
+2023-10-19 18:39:32,023 - DEBUG - DiningHall[0x2244a456700]: Food [0x2244a470ac0], Worker [0x2244a456d60, 71], plus 33
+2023-10-19 18:39:32,023 - DEBUG - Barrack[6, 0x2244a456850], Worker [0x2244a456d60, 71] returned
+2023-10-19 18:39:32,023 - DEBUG - Home[0x2244a456880] requesting 2 from Barrack[6, 0x2244a456850] and 1 from Storage[65, 0x2244a456670]
+2023-10-19 18:39:32,023 - DEBUG - Barrack[5, 0x2244a456850] sends one Worker [0x2244a4703d0, 88]
+2023-10-19 18:39:32,023 - DEBUG - Barrack[4, 0x2244a456850] sends one Worker [0x2244a470400, 27]
+2023-10-19 18:39:32,023 - DEBUG - Storage[65, 0x2244a456670] sends one product
+2023-10-19 18:39:32,023 - DEBUG - Home[0x2244a456880]: new Worker [0x2244a4703d0, 88] + Worker [0x2244a470400, 27] -> Worker [0x2244a4705b0, 100]
+2023-10-19 18:39:32,023 - DEBUG - Barrack[5, 0x2244a456850], Worker [0x2244a4703d0, 88] returned
+2023-10-19 18:39:32,023 - DEBUG - Barrack[6, 0x2244a456850], Worker [0x2244a470400, 27] returned
+2023-10-19 18:39:32,023 - DEBUG - Barrack[7, 0x2244a456850], Worker [0x2244a4705b0, 100] returned
+2023-10-19 18:39:32,023 - DEBUG - Field[0x2244a4568b0] requesting 1 from Barrack[7, 0x2244a456850]
+2023-10-19 18:39:32,023 - DEBUG - Barrack[6, 0x2244a456850] sends one Worker [0x2244a456f40, 41]
+2023-10-19 18:39:32,023 - DEBUG - Field[0x2244a4568b0] sent food to Barn[48, 0x2244a456640], Worker [0x2244a456f40, 41] harmed 0
+2023-10-19 18:39:32,023 - DEBUG - Barrack[7, 0x2244a456850], Worker [0x2244a456f40, 41] returned
+2023-10-19 18:39:32,023 - DEBUG - Barn[49, 0x2244a456640], one Food [0x2244a470af0] added
+2023-10-19 18:39:32,023 - DEBUG - Field[0x2244a4569a0] requesting 1 from Barrack[7, 0x2244a456850]
+2023-10-19 18:39:32,023 - DEBUG - Barrack[6, 0x2244a456850] sends one Worker [0x2244a470be0, 14]
+2023-10-19 18:39:32,023 - DEBUG - Field[0x2244a4569a0] sent food to Barn[49, 0x2244a456640], Worker [0x2244a470be0, 14] harmed 0
+2023-10-19 18:39:32,023 - DEBUG - Barrack[7, 0x2244a456850], Worker [0x2244a470be0, 14] returned
+2023-10-19 18:39:32,023 - DEBUG - Barn[50, 0x2244a456640], one Food [0x2244a470130] added
+2023-10-19 18:39:32,023 - DEBUG - Field[0x2244a456a00] requesting 1 from Barrack[7, 0x2244a456850]
+2023-10-19 18:39:32,023 - DEBUG - Barrack[6, 0x2244a456850] sends one Worker [0x2244a470a60, 47]
+2023-10-19 18:39:32,023 - DEBUG - Field[0x2244a456a00] sent food to Barn[50, 0x2244a456640], Worker [0x2244a470a60, 47] harmed 0
+2023-10-19 18:39:32,023 - DEBUG - Barrack[7, 0x2244a456850], Worker [0x2244a470a60, 47] returned
+2023-10-19 18:39:32,023 - DEBUG - Barn[51, 0x2244a456640], one Food [0x2244a474ee0] added
+2023-10-19 18:39:32,023 - DEBUG - Field[0x2244a456a60] requesting 1 from Barrack[7, 0x2244a456850]
+2023-10-19 18:39:32,023 - DEBUG - Barrack[6, 0x2244a456850] sends one Worker [0x2244a456d60, 71]
+2023-10-19 18:39:32,023 - DEBUG - Field[0x2244a456a60] sent food to Barn[51, 0x2244a456640], Worker [0x2244a456d60, 71] harmed 0
+2023-10-19 18:39:32,023 - DEBUG - Barrack[7, 0x2244a456850], Worker [0x2244a456d60, 71] returned
+2023-10-19 18:39:32,023 - DEBUG - Barn[52, 0x2244a456640], one Food [0x2244a474f40] added
+2023-10-19 18:39:32,023 - DEBUG - Factory (Factory[0x2244a456ac0]) requesting 1 worker (barrack Barrack[7, 0x2244a456850])
+2023-10-19 18:39:32,023 - DEBUG - Barrack[6, 0x2244a456850] sends one Worker [0x2244a4703d0, 88]
+2023-10-19 18:39:32,023 - DEBUG - Factory[0x2244a456ac0]: product created (sent to: Storage[64, 0x2244a456670]), Worker [0x2244a4703d0, 71] harmed -17
+2023-10-19 18:39:32,023 - DEBUG - Storage[65, 0x2244a456670], one Product [0x2244a474fa0] added
+2023-10-19 18:39:32,023 - DEBUG - Barrack[7, 0x2244a456850], Worker [0x2244a4703d0, 71] returned
+2023-10-19 18:39:32,023 - DEBUG - Factory (Factory[0x2244a456b20]) requesting 1 worker (barrack Barrack[7, 0x2244a456850])
+2023-10-19 18:39:32,023 - DEBUG - Barrack[6, 0x2244a456850] sends one Worker [0x2244a470400, 27]
+2023-10-19 18:39:32,023 - DEBUG - Factory[0x2244a456b20]: product created (sent to: Storage[65, 0x2244a456670]), Worker [0x2244a470400, 11] harmed -16
+2023-10-19 18:39:32,023 - DEBUG - Storage[66, 0x2244a456670], one Product [0x2244a474fd0] added
+2023-10-19 18:39:32,023 - DEBUG - Barrack[7, 0x2244a456850], Worker [0x2244a470400, 11] returned
+2023-10-19 18:39:32,023 - DEBUG - Factory (Factory[0x2244a456b80]) requesting 1 worker (barrack Barrack[7, 0x2244a456850])
+2023-10-19 18:39:32,023 - DEBUG - Barrack[6, 0x2244a456850] sends one Worker [0x2244a4705b0, 100]
+2023-10-19 18:39:32,023 - DEBUG - Factory[0x2244a456b80]: product created (sent to: Storage[66, 0x2244a456670]), Worker [0x2244a4705b0, 85] harmed -15
+2023-10-19 18:39:32,023 - DEBUG - Storage[67, 0x2244a456670], one Product [0x2244a476040] added
+2023-10-19 18:39:32,023 - DEBUG - Barrack[7, 0x2244a456850], Worker [0x2244a4705b0, 85] returned
+2023-10-19 18:39:32,023 - DEBUG - Factory (Factory[0x2244a456be0]) requesting 1 worker (barrack Barrack[7, 0x2244a456850])
+2023-10-19 18:39:32,023 - DEBUG - Barrack[6, 0x2244a456850] sends one Worker [0x2244a456f40, 41]
+2023-10-19 18:39:32,023 - DEBUG - Factory[0x2244a456be0]: product created (sent to: Storage[67, 0x2244a456670]), Worker [0x2244a456f40, 0] harmed -76
+2023-10-19 18:39:32,028 - DEBUG - Storage[68, 0x2244a456670], one Product [0x2244a476070] added
+2023-10-19 18:39:32,028 - DEBUG - Barrack[6, 0x2244a456850], Worker [0x2244a456f40, 0] dead
+2023-10-19 18:39:32,028 - DEBUG - Factory (Factory[0x2244a456c40]) requesting 1 worker (barrack Barrack[6, 0x2244a456850])
+2023-10-19 18:39:32,028 - DEBUG - Barrack[5, 0x2244a456850] sends one Worker [0x2244a470be0, 14]
+2023-10-19 18:39:32,028 - DEBUG - Factory[0x2244a456c40]: product created (sent to: Storage[68, 0x2244a456670]), Worker [0x2244a470be0, 0] harmed -99
+2023-10-19 18:39:32,028 - DEBUG - Storage[69, 0x2244a456670], one Product [0x2244a456f40] added
+2023-10-19 18:39:32,028 - DEBUG - Barrack[5, 0x2244a456850], Worker [0x2244a470be0, 0] dead
+2023-10-19 18:39:32,028 - INFO - New day (18)
+2023-10-19 18:39:32,028 - DEBUG - DiningHall[0x2244a456700] requesting 1 from Barrack[5, 0x2244a456850], 1 from Barn[52, 0x2244a456640]
+2023-10-19 18:39:32,028 - DEBUG - Barrack[4, 0x2244a456850] sends one Worker [0x2244a470a60, 47]
+2023-10-19 18:39:32,028 - DEBUG - Barn[51, 0x2244a456640] sends one Food [0x2244a470610]
+2023-10-19 18:39:32,028 - DEBUG - DiningHall[0x2244a456700]: Food [0x2244a470610], Worker [0x2244a470a60, 80], plus 33
+2023-10-19 18:39:32,028 - DEBUG - Barrack[5, 0x2244a456850], Worker [0x2244a470a60, 80] returned
+2023-10-19 18:39:32,028 - DEBUG - Home[0x2244a456880] requesting 2 from Barrack[5, 0x2244a456850] and 1 from Storage[69, 0x2244a456670]
+2023-10-19 18:39:32,028 - DEBUG - Barrack[4, 0x2244a456850] sends one Worker [0x2244a456d60, 71]
+2023-10-19 18:39:32,028 - DEBUG - Barrack[3, 0x2244a456850] sends one Worker [0x2244a4703d0, 71]
+2023-10-19 18:39:32,028 - DEBUG - Storage[69, 0x2244a456670] sends one product
+2023-10-19 18:39:32,028 - DEBUG - Home[0x2244a456880]: new Worker [0x2244a456d60, 71] + Worker [0x2244a4703d0, 71] -> Worker [0x2244a470610, 100]
+2023-10-19 18:39:32,028 - DEBUG - Barrack[4, 0x2244a456850], Worker [0x2244a456d60, 71] returned
+2023-10-19 18:39:32,028 - DEBUG - Barrack[5, 0x2244a456850], Worker [0x2244a4703d0, 71] returned
+2023-10-19 18:39:32,028 - DEBUG - Barrack[6, 0x2244a456850], Worker [0x2244a470610, 100] returned
+2023-10-19 18:39:32,028 - DEBUG - Field[0x2244a4568b0] requesting 1 from Barrack[6, 0x2244a456850]
+2023-10-19 18:39:32,028 - DEBUG - Barrack[5, 0x2244a456850] sends one Worker [0x2244a470400, 11]
+2023-10-19 18:39:32,028 - DEBUG - Field[0x2244a4568b0] sent food to Barn[51, 0x2244a456640], Worker [0x2244a470400, 0] harmed -69
+2023-10-19 18:39:32,028 - DEBUG - Barrack[5, 0x2244a456850], Worker [0x2244a470400, 0] dead
+2023-10-19 18:39:32,028 - DEBUG - Barn[52, 0x2244a456640], one Food [0x2244a456f40] added
+2023-10-19 18:39:32,028 - DEBUG - Field[0x2244a4569a0] requesting 1 from Barrack[5, 0x2244a456850]
+2023-10-19 18:39:32,028 - DEBUG - Barrack[4, 0x2244a456850] sends one Worker [0x2244a4705b0, 85]
+2023-10-19 18:39:32,028 - DEBUG - Field[0x2244a4569a0] sent food to Barn[52, 0x2244a456640], Worker [0x2244a4705b0, 85] harmed 0
+2023-10-19 18:39:32,028 - DEBUG - Barrack[5, 0x2244a456850], Worker [0x2244a4705b0, 85] returned
+2023-10-19 18:39:32,028 - DEBUG - Barn[53, 0x2244a456640], one Food [0x2244a470400] added
+2023-10-19 18:39:32,028 - DEBUG - Field[0x2244a456a00] requesting 1 from Barrack[5, 0x2244a456850]
+2023-10-19 18:39:32,033 - DEBUG - Barrack[4, 0x2244a456850] sends one Worker [0x2244a470a60, 80]
+2023-10-19 18:39:32,033 - DEBUG - Field[0x2244a456a00] sent food to Barn[53, 0x2244a456640], Worker [0x2244a470a60, 80] harmed 0
+2023-10-19 18:39:32,033 - DEBUG - Barrack[5, 0x2244a456850], Worker [0x2244a470a60, 80] returned
+2023-10-19 18:39:32,033 - DEBUG - Barn[54, 0x2244a456640], one Food [0x2244a476100] added
+2023-10-19 18:39:32,033 - DEBUG - Field[0x2244a456a60] requesting 1 from Barrack[5, 0x2244a456850]
+2023-10-19 18:39:32,033 - DEBUG - Barrack[4, 0x2244a456850] sends one Worker [0x2244a456d60, 71]
+2023-10-19 18:39:32,033 - DEBUG - Field[0x2244a456a60] sent food to Barn[54, 0x2244a456640], Worker [0x2244a456d60, 71] harmed 0
+2023-10-19 18:39:32,033 - DEBUG - Barrack[5, 0x2244a456850], Worker [0x2244a456d60, 71] returned
+2023-10-19 18:39:32,033 - DEBUG - Barn[55, 0x2244a456640], one Food [0x2244a476160] added
+2023-10-19 18:39:32,033 - DEBUG - Factory (Factory[0x2244a456ac0]) requesting 1 worker (barrack Barrack[5, 0x2244a456850])
+2023-10-19 18:39:32,033 - DEBUG - Barrack[4, 0x2244a456850] sends one Worker [0x2244a4703d0, 71]
+2023-10-19 18:39:32,033 - DEBUG - Factory[0x2244a456ac0]: product created (sent to: Storage[68, 0x2244a456670]), Worker [0x2244a4703d0, 40] harmed -31
+2023-10-19 18:39:32,035 - DEBUG - Storage[69, 0x2244a456670], one Product [0x2244a4761c0] added
+2023-10-19 18:39:32,035 - DEBUG - Barrack[5, 0x2244a456850], Worker [0x2244a4703d0, 40] returned
+2023-10-19 18:39:32,035 - DEBUG - Factory (Factory[0x2244a456b20]) requesting 1 worker (barrack Barrack[5, 0x2244a456850])
+2023-10-19 18:39:32,035 - DEBUG - Barrack[4, 0x2244a456850] sends one Worker [0x2244a470610, 100]
+2023-10-19 18:39:32,035 - DEBUG - Factory[0x2244a456b20]: product created (sent to: Storage[69, 0x2244a456670]), Worker [0x2244a470610, 92] harmed -8
+2023-10-19 18:39:32,035 - DEBUG - Storage[70, 0x2244a456670], one Product [0x2244a4761f0] added
+2023-10-19 18:39:32,035 - DEBUG - Barrack[5, 0x2244a456850], Worker [0x2244a470610, 92] returned
+2023-10-19 18:39:32,035 - DEBUG - Factory (Factory[0x2244a456b80]) requesting 1 worker (barrack Barrack[5, 0x2244a456850])
+2023-10-19 18:39:32,035 - DEBUG - Barrack[4, 0x2244a456850] sends one Worker [0x2244a4705b0, 85]
+2023-10-19 18:39:32,035 - DEBUG - Factory[0x2244a456b80]: product created (sent to: Storage[70, 0x2244a456670]), Worker [0x2244a4705b0, 56] harmed -29
+2023-10-19 18:39:32,035 - DEBUG - Storage[71, 0x2244a456670], one Product [0x2244a476220] added
+2023-10-19 18:39:32,035 - DEBUG - Barrack[5, 0x2244a456850], Worker [0x2244a4705b0, 56] returned
+2023-10-19 18:39:32,035 - DEBUG - Factory (Factory[0x2244a456be0]) requesting 1 worker (barrack Barrack[5, 0x2244a456850])
+2023-10-19 18:39:32,035 - DEBUG - Barrack[4, 0x2244a456850] sends one Worker [0x2244a470a60, 80]
+2023-10-19 18:39:32,035 - DEBUG - Factory[0x2244a456be0]: product created (sent to: Storage[71, 0x2244a456670]), Worker [0x2244a470a60, 77] harmed -3
+2023-10-19 18:39:32,035 - DEBUG - Storage[72, 0x2244a456670], one Product [0x2244a476250] added
+2023-10-19 18:39:32,035 - DEBUG - Barrack[5, 0x2244a456850], Worker [0x2244a470a60, 77] returned
+2023-10-19 18:39:32,035 - DEBUG - Factory (Factory[0x2244a456c40]) requesting 1 worker (barrack Barrack[5, 0x2244a456850])
+2023-10-19 18:39:32,035 - DEBUG - Barrack[4, 0x2244a456850] sends one Worker [0x2244a456d60, 71]
+2023-10-19 18:39:32,035 - DEBUG - Factory[0x2244a456c40]: product created (sent to: Storage[72, 0x2244a456670]), Worker [0x2244a456d60, 59] harmed -12
+2023-10-19 18:39:32,038 - DEBUG - Storage[73, 0x2244a456670], one Product [0x2244a476280] added
+2023-10-19 18:39:32,038 - DEBUG - Barrack[5, 0x2244a456850], Worker [0x2244a456d60, 59] returned
+2023-10-19 18:39:32,038 - INFO - New day (19)
+2023-10-19 18:39:32,038 - DEBUG - DiningHall[0x2244a456700] requesting 1 from Barrack[5, 0x2244a456850], 1 from Barn[55, 0x2244a456640]
+2023-10-19 18:39:32,038 - DEBUG - Barrack[4, 0x2244a456850] sends one Worker [0x2244a4703d0, 40]
+2023-10-19 18:39:32,038 - DEBUG - Barn[54, 0x2244a456640] sends one Food [0x2244a470c40]
+2023-10-19 18:39:32,038 - DEBUG - DiningHall[0x2244a456700]: Food [0x2244a470c40], Worker [0x2244a4703d0, 73], plus 33
+2023-10-19 18:39:32,038 - DEBUG - Barrack[5, 0x2244a456850], Worker [0x2244a4703d0, 73] returned
+2023-10-19 18:39:32,038 - DEBUG - Home[0x2244a456880] requesting 1 from Barrack[5, 0x2244a456850], 1 from Storage[73, 0x2244a456670]
+2023-10-19 18:39:32,038 - DEBUG - Barrack[4, 0x2244a456850] sends one Worker [0x2244a470610, 92]
+2023-10-19 18:39:32,038 - DEBUG - Storage[73, 0x2244a456670] sends one product
+2023-10-19 18:39:32,038 - DEBUG - Home[0x2244a456880]: Resting Worker [0x2244a470610, 100], plus 13
+2023-10-19 18:39:32,038 - DEBUG - Barrack[5, 0x2244a456850], Worker [0x2244a470610, 100] returned
+2023-10-19 18:39:32,038 - DEBUG - Field[0x2244a4568b0] requesting 1 from Barrack[5, 0x2244a456850]
+2023-10-19 18:39:32,038 - DEBUG - Barrack[4, 0x2244a456850] sends one Worker [0x2244a4705b0, 56]
+2023-10-19 18:39:32,038 - DEBUG - Field[0x2244a4568b0] sent food to Barn[54, 0x2244a456640], Worker [0x2244a4705b0, 56] harmed 0
+2023-10-19 18:39:32,038 - DEBUG - Barrack[5, 0x2244a456850], Worker [0x2244a4705b0, 56] returned
+2023-10-19 18:39:32,038 - DEBUG - Barn[55, 0x2244a456640], one Food [0x2244a470c40] added
+2023-10-19 18:39:32,038 - DEBUG - Field[0x2244a4569a0] requesting 1 from Barrack[5, 0x2244a456850]
+2023-10-19 18:39:32,038 - DEBUG - Barrack[4, 0x2244a456850] sends one Worker [0x2244a470a60, 77]
+2023-10-19 18:39:32,038 - DEBUG - Field[0x2244a4569a0] sent food to Barn[55, 0x2244a456640], Worker [0x2244a470a60, 77] harmed 0
+2023-10-19 18:39:32,038 - DEBUG - Barrack[5, 0x2244a456850], Worker [0x2244a470a60, 77] returned
+2023-10-19 18:39:32,038 - DEBUG - Barn[56, 0x2244a456640], one Food [0x2244a476280] added
+2023-10-19 18:39:32,038 - DEBUG - Field[0x2244a456a00] requesting 1 from Barrack[5, 0x2244a456850]
+2023-10-19 18:39:32,043 - DEBUG - Barrack[4, 0x2244a456850] sends one Worker [0x2244a456d60, 59]
+2023-10-19 18:39:32,043 - DEBUG - Field[0x2244a456a00] sent food to Barn[56, 0x2244a456640], Worker [0x2244a456d60, 59] harmed 0
+2023-10-19 18:39:32,043 - DEBUG - Barrack[5, 0x2244a456850], Worker [0x2244a456d60, 59] returned
+2023-10-19 18:39:32,043 - DEBUG - Barn[57, 0x2244a456640], one Food [0x2244a4762e0] added
+2023-10-19 18:39:32,043 - DEBUG - Field[0x2244a456a60] requesting 1 from Barrack[5, 0x2244a456850]
+2023-10-19 18:39:32,043 - DEBUG - Barrack[4, 0x2244a456850] sends one Worker [0x2244a4703d0, 73]
+2023-10-19 18:39:32,043 - DEBUG - Field[0x2244a456a60] sent food to Barn[57, 0x2244a456640], Worker [0x2244a4703d0, 5] harmed -68
+2023-10-19 18:39:32,043 - DEBUG - Barrack[5, 0x2244a456850], Worker [0x2244a4703d0, 5] returned
+2023-10-19 18:39:32,043 - DEBUG - Barn[58, 0x2244a456640], one Food [0x2244a476340] added
+2023-10-19 18:39:32,043 - DEBUG - Factory (Factory[0x2244a456ac0]) requesting 1 worker (barrack Barrack[5, 0x2244a456850])
+2023-10-19 18:39:32,043 - DEBUG - Barrack[4, 0x2244a456850] sends one Worker [0x2244a470610, 100]
+2023-10-19 18:39:32,043 - DEBUG - Factory[0x2244a456ac0]: product created (sent to: Storage[72, 0x2244a456670]), Worker [0x2244a470610, 100] harmed 0
+2023-10-19 18:39:32,043 - DEBUG - Storage[73, 0x2244a456670], one Product [0x2244a4763a0] added
+2023-10-19 18:39:32,043 - DEBUG - Barrack[5, 0x2244a456850], Worker [0x2244a470610, 100] returned
+2023-10-19 18:39:32,047 - DEBUG - Factory (Factory[0x2244a456b20]) requesting 1 worker (barrack Barrack[5, 0x2244a456850])
+2023-10-19 18:39:32,047 - DEBUG - Barrack[4, 0x2244a456850] sends one Worker [0x2244a4705b0, 56]
+2023-10-19 18:39:32,047 - DEBUG - Factory[0x2244a456b20]: product created (sent to: Storage[73, 0x2244a456670]), Worker [0x2244a4705b0, 6] harmed -50
+2023-10-19 18:39:32,047 - DEBUG - Storage[74, 0x2244a456670], one Product [0x2244a4763d0] added
+2023-10-19 18:39:32,047 - DEBUG - Barrack[5, 0x2244a456850], Worker [0x2244a4705b0, 6] returned
+2023-10-19 18:39:32,047 - DEBUG - Factory (Factory[0x2244a456b80]) requesting 1 worker (barrack Barrack[5, 0x2244a456850])
+2023-10-19 18:39:32,047 - DEBUG - Barrack[4, 0x2244a456850] sends one Worker [0x2244a470a60, 77]
+2023-10-19 18:39:32,047 - DEBUG - Factory[0x2244a456b80]: product created (sent to: Storage[74, 0x2244a456670]), Worker [0x2244a470a60, 9] harmed -68
+2023-10-19 18:39:32,047 - DEBUG - Storage[75, 0x2244a456670], one Product [0x2244a476400] added
+2023-10-19 18:39:32,047 - DEBUG - Barrack[5, 0x2244a456850], Worker [0x2244a470a60, 9] returned
+2023-10-19 18:39:32,047 - DEBUG - Factory (Factory[0x2244a456be0]) requesting 1 worker (barrack Barrack[5, 0x2244a456850])
+2023-10-19 18:39:32,047 - DEBUG - Barrack[4, 0x2244a456850] sends one Worker [0x2244a456d60, 59]
+2023-10-19 18:39:32,047 - DEBUG - Factory[0x2244a456be0]: product created (sent to: Storage[75, 0x2244a456670]), Worker [0x2244a456d60, 56] harmed -3
+2023-10-19 18:39:32,047 - DEBUG - Storage[76, 0x2244a456670], one Product [0x2244a476430] added
+2023-10-19 18:39:32,047 - DEBUG - Barrack[5, 0x2244a456850], Worker [0x2244a456d60, 56] returned
+2023-10-19 18:39:32,047 - DEBUG - Factory (Factory[0x2244a456c40]) requesting 1 worker (barrack Barrack[5, 0x2244a456850])
+2023-10-19 18:39:32,047 - DEBUG - Barrack[4, 0x2244a456850] sends one Worker [0x2244a4703d0, 5]
+2023-10-19 18:39:32,047 - DEBUG - Factory[0x2244a456c40]: product created (sent to: Storage[76, 0x2244a456670]), Worker [0x2244a4703d0, 3] harmed -2
+2023-10-19 18:39:32,047 - DEBUG - Storage[77, 0x2244a456670], one Product [0x2244a476460] added
+2023-10-19 18:39:32,047 - DEBUG - Barrack[5, 0x2244a456850], Worker [0x2244a4703d0, 3] returned
+2023-10-19 18:39:32,047 - INFO - New day (20)
+2023-10-19 18:39:32,047 - DEBUG - DiningHall[0x2244a456700] requesting 1 from Barrack[5, 0x2244a456850], 1 from Barn[58, 0x2244a456640]
+2023-10-19 18:39:32,047 - DEBUG - Barrack[4, 0x2244a456850] sends one Worker [0x2244a470610, 100]
+2023-10-19 18:39:32,047 - DEBUG - Barn[57, 0x2244a456640] sends one Food [0x2244a470ca0]
+2023-10-19 18:39:32,047 - DEBUG - DiningHall[0x2244a456700]: Food [0x2244a470ca0], Worker [0x2244a470610, 100], plus 33
+2023-10-19 18:39:32,047 - DEBUG - Barrack[5, 0x2244a456850], Worker [0x2244a470610, 100] returned
+2023-10-19 18:39:32,047 - DEBUG - Home[0x2244a456880] requesting 1 from Barrack[5, 0x2244a456850], 1 from Storage[77, 0x2244a456670]
+2023-10-19 18:39:32,051 - DEBUG - Barrack[4, 0x2244a456850] sends one Worker [0x2244a4705b0, 6]
+2023-10-19 18:39:32,051 - DEBUG - Storage[77, 0x2244a456670] sends one product
+2023-10-19 18:39:32,051 - DEBUG - Home[0x2244a456880]: Resting Worker [0x2244a4705b0, 6], plus 0
+2023-10-19 18:39:32,051 - DEBUG - Barrack[5, 0x2244a456850], Worker [0x2244a4705b0, 6] returned
+2023-10-19 18:39:32,051 - DEBUG - Field[0x2244a4568b0] requesting 1 from Barrack[5, 0x2244a456850]
+2023-10-19 18:39:32,051 - DEBUG - Barrack[4, 0x2244a456850] sends one Worker [0x2244a470a60, 9]
+2023-10-19 18:39:32,051 - DEBUG - Field[0x2244a4568b0] sent food to Barn[57, 0x2244a456640], Worker [0x2244a470a60, 9] harmed 0
+2023-10-19 18:39:32,051 - DEBUG - Barrack[5, 0x2244a456850], Worker [0x2244a470a60, 9] returned
+2023-10-19 18:39:32,051 - DEBUG - Barn[58, 0x2244a456640], one Food [0x2244a470ca0] added
+2023-10-19 18:39:32,051 - DEBUG - Field[0x2244a4569a0] requesting 1 from Barrack[5, 0x2244a456850]
+2023-10-19 18:39:32,051 - DEBUG - Barrack[4, 0x2244a456850] sends one Worker [0x2244a456d60, 56]
+2023-10-19 18:39:32,057 - DEBUG - Field[0x2244a4569a0] sent food to Barn[58, 0x2244a456640], Worker [0x2244a456d60, 10] harmed -46
+2023-10-19 18:39:32,062 - DEBUG - Barrack[5, 0x2244a456850], Worker [0x2244a456d60, 10] returned
+2023-10-19 18:39:32,062 - DEBUG - Barn[59, 0x2244a456640], one Food [0x2244a476460] added
+2023-10-19 18:39:32,072 - DEBUG - Field[0x2244a456a00] requesting 1 from Barrack[5, 0x2244a456850]
+2023-10-19 18:39:32,072 - DEBUG - Barrack[4, 0x2244a456850] sends one Worker [0x2244a4703d0, 3]
+2023-10-19 18:39:32,072 - DEBUG - Field[0x2244a456a00] sent food to Barn[59, 0x2244a456640], Worker [0x2244a4703d0, 3] harmed 0
+2023-10-19 18:39:32,072 - DEBUG - Barrack[5, 0x2244a456850], Worker [0x2244a4703d0, 3] returned
+2023-10-19 18:39:32,072 - DEBUG - Barn[60, 0x2244a456640], one Food [0x2244a4764c0] added
+2023-10-19 18:39:32,072 - DEBUG - Field[0x2244a456a60] requesting 1 from Barrack[5, 0x2244a456850]
+2023-10-19 18:39:32,072 - DEBUG - Barrack[4, 0x2244a456850] sends one Worker [0x2244a470610, 100]
+2023-10-19 18:39:32,072 - DEBUG - Field[0x2244a456a60] sent food to Barn[60, 0x2244a456640], Worker [0x2244a470610, 39] harmed -61
+2023-10-19 18:39:32,072 - DEBUG - Barrack[5, 0x2244a456850], Worker [0x2244a470610, 39] returned
+2023-10-19 18:39:32,077 - DEBUG - Barn[61, 0x2244a456640], one Food [0x2244a476520] added
+2023-10-19 18:39:32,077 - DEBUG - Factory (Factory[0x2244a456ac0]) requesting 1 worker (barrack Barrack[5, 0x2244a456850])
+2023-10-19 18:39:32,077 - DEBUG - Barrack[4, 0x2244a456850] sends one Worker [0x2244a4705b0, 6]
+2023-10-19 18:39:32,077 - DEBUG - Factory[0x2244a456ac0]: product created (sent to: Storage[76, 0x2244a456670]), Worker [0x2244a4705b0, 0] harmed -25
+2023-10-19 18:39:32,077 - DEBUG - Storage[77, 0x2244a456670], one Product [0x2244a476580] added
+2023-10-19 18:39:32,077 - DEBUG - Barrack[4, 0x2244a456850], Worker [0x2244a4705b0, 0] dead
+2023-10-19 18:39:32,077 - DEBUG - Factory (Factory[0x2244a456b20]) requesting 1 worker (barrack Barrack[4, 0x2244a456850])
+2023-10-19 18:39:32,077 - DEBUG - Barrack[3, 0x2244a456850] sends one Worker [0x2244a470a60, 9]
+2023-10-19 18:39:32,077 - DEBUG - Factory[0x2244a456b20]: product created (sent to: Storage[77, 0x2244a456670]), Worker [0x2244a470a60, 0] harmed -38
+2023-10-19 18:39:32,077 - DEBUG - Storage[78, 0x2244a456670], one Product [0x2244a4705b0] added
+2023-10-19 18:39:32,077 - DEBUG - Barrack[3, 0x2244a456850], Worker [0x2244a470a60, 0] dead
+2023-10-19 18:39:32,077 - DEBUG - Factory (Factory[0x2244a456b80]) requesting 1 worker (barrack Barrack[3, 0x2244a456850])
+2023-10-19 18:39:32,077 - DEBUG - Barrack[2, 0x2244a456850] sends one Worker [0x2244a456d60, 10]
+2023-10-19 18:39:32,077 - DEBUG - Factory[0x2244a456b80]: product created (sent to: Storage[78, 0x2244a456670]), Worker [0x2244a456d60, 0] harmed -67
+2023-10-19 18:39:32,077 - DEBUG - Storage[79, 0x2244a456670], one Product [0x2244a470a60] added
+2023-10-19 18:39:32,077 - DEBUG - Barrack[2, 0x2244a456850], Worker [0x2244a456d60, 0] dead
+2023-10-19 18:39:32,077 - DEBUG - Factory (Factory[0x2244a456be0]) requesting 1 worker (barrack Barrack[2, 0x2244a456850])
+2023-10-19 18:39:32,077 - DEBUG - Barrack[1, 0x2244a456850] sends one Worker [0x2244a4703d0, 3]
+2023-10-19 18:39:32,077 - DEBUG - Factory[0x2244a456be0]: product created (sent to: Storage[79, 0x2244a456670]), Worker [0x2244a4703d0, 0] harmed -17
+2023-10-19 18:39:32,077 - DEBUG - Storage[80, 0x2244a456670], one Product [0x2244a456d60] added
+2023-10-19 18:39:32,077 - DEBUG - Barrack[1, 0x2244a456850], Worker [0x2244a4703d0, 0] dead
+2023-10-19 18:39:32,077 - DEBUG - Factory (Factory[0x2244a456c40]) requesting 1 worker (barrack Barrack[1, 0x2244a456850])
+2023-10-19 18:39:32,077 - DEBUG - Barrack[0, 0x2244a456850] sends one Worker [0x2244a470610, 39]
+2023-10-19 18:39:32,077 - DEBUG - Factory[0x2244a456c40]: product created (sent to: Storage[80, 0x2244a456670]), Worker [0x2244a470610, 25] harmed -14
+2023-10-19 18:39:32,077 - DEBUG - Storage[81, 0x2244a456670], one Product [0x2244a456d90] added
+2023-10-19 18:39:32,077 - DEBUG - Barrack[1, 0x2244a456850], Worker [0x2244a470610, 25] returned
+2023-10-19 18:39:32,077 - INFO - New day (21)
+2023-10-19 18:39:32,077 - DEBUG - DiningHall[0x2244a456700] requesting 1 from Barrack[1, 0x2244a456850], 1 from Barn[61, 0x2244a456640]
+2023-10-19 18:39:32,077 - DEBUG - Barrack[0, 0x2244a456850] sends one Worker [0x2244a470610, 25]
+2023-10-19 18:39:32,077 - DEBUG - Barn[60, 0x2244a456640] sends one Food [0x2244a470d00]
+2023-10-19 18:39:32,077 - DEBUG - DiningHall[0x2244a456700]: Food [0x2244a470d00], Worker [0x2244a470610, 58], plus 33
+2023-10-19 18:39:32,077 - DEBUG - Barrack[1, 0x2244a456850], Worker [0x2244a470610, 58] returned
+2023-10-19 18:39:32,077 - DEBUG - Home[0x2244a456880] requesting 1 from Barrack[1, 0x2244a456850], 1 from Storage[81, 0x2244a456670]
+2023-10-19 18:39:32,077 - DEBUG - Barrack[0, 0x2244a456850] sends one Worker [0x2244a470610, 58]
+2023-10-19 18:39:32,077 - DEBUG - Storage[81, 0x2244a456670] sends one product
+2023-10-19 18:39:32,077 - DEBUG - Home[0x2244a456880]: Resting Worker [0x2244a470610, 62], plus 4
+2023-10-19 18:39:32,077 - DEBUG - Barrack[1, 0x2244a456850], Worker [0x2244a470610, 62] returned
+2023-10-19 18:39:32,077 - DEBUG - Field[0x2244a4568b0] requesting 1 from Barrack[1, 0x2244a456850]
+2023-10-19 18:39:32,077 - DEBUG - Barrack[0, 0x2244a456850] sends one Worker [0x2244a470610, 62]
+2023-10-19 18:39:32,077 - DEBUG - Field[0x2244a4568b0] sent food to Barn[60, 0x2244a456640], Worker [0x2244a470610, 62] harmed 0
+2023-10-19 18:39:32,077 - DEBUG - Barrack[1, 0x2244a456850], Worker [0x2244a470610, 62] returned
+2023-10-19 18:39:32,083 - DEBUG - Barn[61, 0x2244a456640], one Food [0x2244a456d90] added
+2023-10-19 18:39:32,083 - DEBUG - Field[0x2244a4569a0] requesting 1 from Barrack[1, 0x2244a456850]
+2023-10-19 18:39:32,083 - DEBUG - Barrack[0, 0x2244a456850] sends one Worker [0x2244a470610, 62]
+2023-10-19 18:39:32,083 - DEBUG - Field[0x2244a4569a0] sent food to Barn[61, 0x2244a456640], Worker [0x2244a470610, 62] harmed 0
+2023-10-19 18:39:32,083 - DEBUG - Barrack[1, 0x2244a456850], Worker [0x2244a470610, 62] returned
+2023-10-19 18:39:32,083 - DEBUG - Barn[62, 0x2244a456640], one Food [0x2244a470d30] added
+2023-10-19 18:39:32,083 - DEBUG - Field[0x2244a456a00] requesting 1 from Barrack[1, 0x2244a456850]
+2023-10-19 18:39:32,083 - DEBUG - Barrack[0, 0x2244a456850] sends one Worker [0x2244a470610, 62]
+2023-10-19 18:39:32,083 - DEBUG - Field[0x2244a456a00] sent food to Barn[62, 0x2244a456640], Worker [0x2244a470610, 62] harmed 0
+2023-10-19 18:39:32,083 - DEBUG - Barrack[1, 0x2244a456850], Worker [0x2244a470610, 62] returned
+2023-10-19 18:39:32,083 - DEBUG - Barn[63, 0x2244a456640], one Food [0x2244a470520] added
+2023-10-19 18:39:32,083 - DEBUG - Field[0x2244a456a60] requesting 1 from Barrack[1, 0x2244a456850]
+2023-10-19 18:39:32,083 - DEBUG - Barrack[0, 0x2244a456850] sends one Worker [0x2244a470610, 62]
+2023-10-19 18:39:32,083 - DEBUG - Field[0x2244a456a60] sent food to Barn[63, 0x2244a456640], Worker [0x2244a470610, 62] harmed 0
+2023-10-19 18:39:32,083 - DEBUG - Barrack[1, 0x2244a456850], Worker [0x2244a470610, 62] returned
+2023-10-19 18:39:32,083 - DEBUG - Barn[64, 0x2244a456640], one Food [0x2244a470ac0] added
+2023-10-19 18:39:32,083 - DEBUG - Factory (Factory[0x2244a456ac0]) requesting 1 worker (barrack Barrack[1, 0x2244a456850])
+2023-10-19 18:39:32,083 - DEBUG - Barrack[0, 0x2244a456850] sends one Worker [0x2244a470610, 62]
+2023-10-19 18:39:32,083 - DEBUG - Factory[0x2244a456ac0]: product created (sent to: Storage[80, 0x2244a456670]), Worker [0x2244a470610, 17] harmed -45
+2023-10-19 18:39:32,083 - DEBUG - Storage[81, 0x2244a456670], one Product [0x2244a4765e0] added
+2023-10-19 18:39:32,089 - DEBUG - Barrack[1, 0x2244a456850], Worker [0x2244a470610, 17] returned
+2023-10-19 18:39:32,089 - DEBUG - Factory (Factory[0x2244a456b20]) requesting 1 worker (barrack Barrack[1, 0x2244a456850])
+2023-10-19 18:39:32,089 - DEBUG - Barrack[0, 0x2244a456850] sends one Worker [0x2244a470610, 17]
+2023-10-19 18:39:32,089 - DEBUG - Factory[0x2244a456b20]: product created (sent to: Storage[81, 0x2244a456670]), Worker [0x2244a470610, 0] harmed -22
+2023-10-19 18:39:32,089 - DEBUG - Storage[82, 0x2244a456670], one Product [0x2244a476610] added
+2023-10-19 18:39:32,090 - DEBUG - Barrack[0, 0x2244a456850], Worker [0x2244a470610, 0] dead
+2023-10-19 18:39:32,092 - DEBUG - Factory Factory[0x2244a456b80]: barrack empty
+2023-10-19 18:39:32,093 - DEBUG - Factory Factory[0x2244a456be0]: barrack empty
+2023-10-19 18:39:32,093 - DEBUG - Factory Factory[0x2244a456c40]: barrack empty
+2023-10-19 18:39:32,094 - INFO - Program ended
