@@ -1,0 +1,72 @@
+2023-10-19 17:24:28,585 - INFO - Program started
+2023-10-19 17:24:28,585 - INFO - Added barracks (1), storages (1), barns (1)
+2023-10-19 17:24:28,585 - DEBUG - Connecting transition (<class '__main__.DiningHall'>) to barracks (0x2de5027a070)(0x2de5027a070) and place ([<__main__.Barn object at 0x000002DE5027A130>])(0x2de50206dc0)
+2023-10-19 17:24:28,585 - DEBUG - Connecting transition (<class '__main__.Home'>) to barracks (0x2de5027a070)(0x2de5027a070) and place ([<__main__.Storage object at 0x000002DE5027A0D0>])(0x2de50257d80)
+2023-10-19 17:24:28,585 - DEBUG - Connecting transition (<class '__main__.Field'>) to barracks (0x2de5027a070)(0x2de5027a070) and place ([<__main__.Barn object at 0x000002DE5027A130>])(0x2de50206dc0)
+2023-10-19 17:24:28,585 - DEBUG - Connecting transition (<class '__main__.Factory'>) to barracks (0x2de5027a070)(0x2de5027a070) and place ([<__main__.Storage object at 0x000002DE5027A0D0>])(0x2de50257d80)
+2023-10-19 17:24:28,585 - DEBUG - Connecting transition (<class '__main__.Factory'>) to barracks (0x2de5027a070)(0x2de5027a070) and place ([<__main__.Storage object at 0x000002DE5027A0D0>])(0x2de50257d80)
+2023-10-19 17:24:28,585 - DEBUG - Barrack 0x2de5027a070, worker (0x2de5027a370) returned
+2023-10-19 17:24:28,585 - DEBUG - Barrack 0x2de5027a070, worker (0x2de5027a3d0) returned
+2023-10-19 17:24:28,585 - INFO - Added dining halls (1), homes (1), fields (1), factories (2), workers (2)
+2023-10-19 17:24:28,585 - INFO - New day (1)
+2023-10-19 17:24:28,585 - DEBUG - Dininghall 0x2de5027a190: barrack (False) or barn (True) empty
+2023-10-19 17:24:28,585 - DEBUG - Home 0x2de5027a1f0, storage empty
+2023-10-19 17:24:28,585 - DEBUG - Field 0x2de5027a250 requesting 1 worker (barrack 0x2de5027a070)
+2023-10-19 17:24:28,585 - DEBUG - Place (Barrack (1) (0x2de5027a070)) sends resource (0x2de5027a370)
+2023-10-19 17:24:28,585 - DEBUG - Field 0x2de5027a250, worker (0x2de5027a370) harmed (100 -> 70)
+2023-10-19 17:24:28,585 - DEBUG - Barrack 0x2de5027a070, worker (0x2de5027a370) returned
+2023-10-19 17:24:28,585 - DEBUG - Factory (0x2de5027a2b0) requesting 1 worker (barrack 0x2de5027a070)
+2023-10-19 17:24:28,585 - DEBUG - Place (Barrack (1) (0x2de5027a070)) sends resource (0x2de5027a3d0)
+2023-10-19 17:24:28,585 - DEBUG - Factory 0x2de5027a2b0: product created, worker (0x2de5027a3d0), harmed (100 -> 78)
+2023-10-19 17:24:28,585 - DEBUG - Barrack 0x2de5027a070, worker (0x2de5027a3d0) returned
+2023-10-19 17:24:28,585 - DEBUG - Factory (0x2de5027a310) requesting 1 worker (barrack 0x2de5027a070)
+2023-10-19 17:24:28,585 - DEBUG - Place (Barrack (1) (0x2de5027a070)) sends resource (0x2de5027a370)
+2023-10-19 17:24:28,585 - DEBUG - Factory 0x2de5027a310: product created, worker (0x2de5027a370), harmed (70 -> 19)
+2023-10-19 17:24:28,585 - DEBUG - Barrack 0x2de5027a070, worker (0x2de5027a370) returned
+2023-10-19 17:24:28,585 - INFO - New day (2)
+2023-10-19 17:24:28,585 - DEBUG - Dininghall 0x2de5027a190 requesting 1 worker (barrack 0x2de5027a070) and 1 food (barn 0x2de5027a130)
+2023-10-19 17:24:28,585 - DEBUG - Place (Barrack (1) (0x2de5027a070)) sends resource (0x2de5027a3d0)
+2023-10-19 17:24:28,590 - DEBUG - Place (Barn (0)) sends resource (0x2de5027a490)
+2023-10-19 17:24:28,590 - DEBUG - Dininghall 0x2de5027a190: Food quality (1), worker (0x2de5027a3d0), health (78 -> 100)
+2023-10-19 17:24:28,590 - DEBUG - Barrack 0x2de5027a070, worker (0x2de5027a3d0) returned
+2023-10-19 17:24:28,590 - DEBUG - Home 0x2de5027a1f0 requesting one worker (barrack 0x2de5027a070) and 1 product (storage 0x2de5027a0d0)
+2023-10-19 17:24:28,590 - DEBUG - Place (Barrack (1) (0x2de5027a070)) sends resource (0x2de5027a370)
+2023-10-19 17:24:28,590 - DEBUG - Storage 0x2de5027a0d0 sends one product
+2023-10-19 17:24:28,590 - DEBUG - Home 0x2de5027a1f0: worker resting (0x2de5027a370), 19 -> 24
+2023-10-19 17:24:28,590 - DEBUG - Barrack 0x2de5027a070, worker (0x2de5027a370) returned
+2023-10-19 17:24:28,590 - DEBUG - Field 0x2de5027a250 requesting 1 worker (barrack 0x2de5027a070)
+2023-10-19 17:24:28,590 - DEBUG - Place (Barrack (1) (0x2de5027a070)) sends resource (0x2de5027a3d0)
+2023-10-19 17:24:28,590 - DEBUG - Field 0x2de5027a250, worker (0x2de5027a3d0) harmed (100 -> 100)
+2023-10-19 17:24:28,590 - DEBUG - Barrack 0x2de5027a070, worker (0x2de5027a3d0) returned
+2023-10-19 17:24:28,590 - DEBUG - Factory (0x2de5027a2b0) requesting 1 worker (barrack 0x2de5027a070)
+2023-10-19 17:24:28,590 - DEBUG - Place (Barrack (1) (0x2de5027a070)) sends resource (0x2de5027a370)
+2023-10-19 17:24:28,590 - DEBUG - Factory 0x2de5027a2b0: product created, worker (0x2de5027a370), harmed (24 -> 0)
+2023-10-19 17:24:28,590 - DEBUG - Barrack 0x2de5027a070, worker (0x2de5027a370) dead
+2023-10-19 17:24:28,590 - DEBUG - Factory (0x2de5027a310) requesting 1 worker (barrack 0x2de5027a070)
+2023-10-19 17:24:28,590 - DEBUG - Place (Barrack (0) (0x2de5027a070)) sends resource (0x2de5027a3d0)
+2023-10-19 17:24:28,590 - DEBUG - Factory 0x2de5027a310: product created, worker (0x2de5027a3d0), harmed (100 -> 72)
+2023-10-19 17:24:28,590 - DEBUG - Barrack 0x2de5027a070, worker (0x2de5027a3d0) returned
+2023-10-19 17:24:28,590 - INFO - New day (3)
+2023-10-19 17:24:28,590 - DEBUG - Dininghall 0x2de5027a190 requesting 1 worker (barrack 0x2de5027a070) and 1 food (barn 0x2de5027a130)
+2023-10-19 17:24:28,590 - DEBUG - Place (Barrack (0) (0x2de5027a070)) sends resource (0x2de5027a3d0)
+2023-10-19 17:24:28,590 - DEBUG - Place (Barn (0)) sends resource (0x2de5027a520)
+2023-10-19 17:24:28,593 - DEBUG - Dininghall 0x2de5027a190: Food quality (1), worker (0x2de5027a3d0), health (72 -> 100)
+2023-10-19 17:24:28,593 - DEBUG - Barrack 0x2de5027a070, worker (0x2de5027a3d0) returned
+2023-10-19 17:24:28,593 - DEBUG - Home 0x2de5027a1f0 requesting one worker (barrack 0x2de5027a070) and 1 product (storage 0x2de5027a0d0)
+2023-10-19 17:24:28,593 - DEBUG - Place (Barrack (0) (0x2de5027a070)) sends resource (0x2de5027a3d0)
+2023-10-19 17:24:28,593 - DEBUG - Storage 0x2de5027a0d0 sends one product
+2023-10-19 17:24:28,593 - DEBUG - Home 0x2de5027a1f0: worker resting (0x2de5027a3d0), 100 -> 100
+2023-10-19 17:24:28,593 - DEBUG - Barrack 0x2de5027a070, worker (0x2de5027a3d0) returned
+2023-10-19 17:24:28,593 - DEBUG - Field 0x2de5027a250 requesting 1 worker (barrack 0x2de5027a070)
+2023-10-19 17:24:28,593 - DEBUG - Place (Barrack (0) (0x2de5027a070)) sends resource (0x2de5027a3d0)
+2023-10-19 17:24:28,593 - DEBUG - Field 0x2de5027a250, worker (0x2de5027a3d0) harmed (100 -> 100)
+2023-10-19 17:24:28,593 - DEBUG - Barrack 0x2de5027a070, worker (0x2de5027a3d0) returned
+2023-10-19 17:24:28,593 - DEBUG - Factory (0x2de5027a2b0) requesting 1 worker (barrack 0x2de5027a070)
+2023-10-19 17:24:28,593 - DEBUG - Place (Barrack (0) (0x2de5027a070)) sends resource (0x2de5027a3d0)
+2023-10-19 17:24:28,593 - DEBUG - Factory 0x2de5027a2b0: product created, worker (0x2de5027a3d0), harmed (100 -> 80)
+2023-10-19 17:24:28,593 - DEBUG - Barrack 0x2de5027a070, worker (0x2de5027a3d0) returned
+2023-10-19 17:24:28,593 - DEBUG - Factory (0x2de5027a310) requesting 1 worker (barrack 0x2de5027a070)
+2023-10-19 17:24:28,593 - DEBUG - Place (Barrack (0) (0x2de5027a070)) sends resource (0x2de5027a3d0)
+2023-10-19 17:24:28,593 - DEBUG - Factory 0x2de5027a310: product created, worker (0x2de5027a3d0), harmed (80 -> 0)
+2023-10-19 17:24:28,593 - DEBUG - Barrack 0x2de5027a070, worker (0x2de5027a3d0) dead
+2023-10-19 17:24:28,593 - INFO - Program ended
