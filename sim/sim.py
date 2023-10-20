@@ -6,7 +6,6 @@ import math
 from threading import Thread, Event, Lock
 import time
 
-RUN_PROGRAM = True
 
 class Resource:
     def __init__(self):
@@ -59,21 +58,32 @@ class Product(Resource):
 class Place:
     def __init__(self):
         self._resources = deque()
-        self._reserved = {}
+        self._reserved = 0
+        self._lock = Lock()
 
-    def reserve(self, transition:str) -> bool:
-        """Returns True if empty, otherwise returns False and saves a resource to retrieve later"""
-        resource = self.get()
-        logging.debug("%s, reserve %s, transition: %s", self, resource, transition)
-        if resource is None:
-            return False
-        self._reserved[transition] = resource
-        return True
-    
+    def reserve(self) -> bool:
+        """Returns False if empty, otherwise returns True and saves a resource to retrieve later"""
+        reservation_success = False
+        self._lock.acquire()
+        logging.debug("%s Locked", self)
+        try:
+            if len(self._resources) - self._reserved > 0:
+                self._reserved += 1
+                reservation_success = True
+                logging.debug("%s, Reservation succesful", self)
+            else:
+                logging.debug("%s, Reservation unsuccesful", self)
+        finally:
+            logging.debug("%s Open", self)
+            self._lock.release()
 
-    def retrieve(self, transition:str) -> bool:
-        """Returns a reserved resource, returns None if there is none"""
-        return self._reserved.pop(transition, None)
+        return reservation_success
+
+
+    def unreserve(self):
+        """Removes a reservation"""
+        if self._reserved > 0:
+            self._reserved -= 1
 
     def add(self, resource: Resource):
         self._resources.append(resource)
@@ -82,19 +92,15 @@ class Place:
     def get(self) -> Resource:
         """Returns one Resource, returns None if empty"""
         if len(self._resources) > 0:
+            self.unreserve()
             resource = self._resources.popleft()
             return resource
-
-    def is_empty(self) -> bool:
-        """Returns true if place is empty"""
-        logging.debug("is_empty? %s", self)
-        return len(self._resources) == 0
 
     def __len__(self) -> int:
         return len(self._resources)
 
     def __str__(self) -> str:
-        result = f"{self.__class__.__name__}[{len(self._resources)}, {hex(id(self))}]"
+        result = f"{self.__class__.__name__}[{len(self._resources)}, {self._reserved}, {hex(id(self))}]"
         return result
 
 
@@ -111,6 +117,7 @@ class Storage(Place):
         """Returns a product"""
         if len(self._resources) > 0:
             logging.debug("%s sends one product", self)
+            self.unreserve()
             return self._resources.pop()
 
 
@@ -121,8 +128,8 @@ class Barrack(Place):
     def add(self, worker:Worker):
         """Add a worker to the barrack"""
         if worker.vitality > 0:
-            logging.debug("%s, %s returned", self, worker)
             self._resources.append(worker)
+            logging.debug("%s, %s returned", self, worker)
         else:
             logging.debug("%s, %s dead", self, worker)
 
@@ -138,50 +145,59 @@ class Transition(Thread):
 
 
 class Field(Transition):
-    def __init__(self, barrack_in: Barrack, barrack_out: Barrack, barn_out: Barn):
+    def __init__(self, barrack_in: Barrack, barrack_out: Barrack, barn_out: Barn, stop_event:Event):
         super().__init__(barrack_in, barrack_out)
         self._barn_out = barn_out
+        self._stop_event = stop_event
 
     def run(self):
         """Do farming"""
-        if self._barrack_in.is_empty():
-            return
+        while not self._stop_event.is_set():
+            logging.debug("%s attempts to reserve 1 from %s", self, self._barrack_in)
+            if not self._barrack_in.reserve():
+                logging.debug("%s empty: %s", self, self._barrack_in)
+                continue
 
-        logging.debug("%s requesting 1 from %s", self, self._barrack_in)
+            logging.debug("%s retrieving 1 from %s", self, self._barrack_in)
+            worker = self._barrack_in.get()
+            vitality_change = 0
+            if (random() > 0.8):
+                vitality_change = -randrange(30,80)
+            worker.change_vitality(vitality_change)
 
-        worker = self._barrack_in.get()
-        vitality_change = 0
-        if (random() > 0.8):
-            vitality_change = -randrange(30,80)
-        worker.change_vitality(vitality_change)
-
-        logging.debug("%s sent food to %s, %s harmed %s", self, self._barn_out , worker, vitality_change)
-        self._barrack_out.add(worker)
-        self._barn_out.add(Food(1))
+            logging.debug("%s sent food to %s, %s harmed %s", self, self._barn_out , worker, vitality_change)
+            self._barrack_out.add(worker)
+            self._barn_out.add(Food(random()))
 
 
 class DiningHall(Transition):
-    def __init__(self, barrack_in:Barrack, barrack_out:Barrack, barn_in:Barn):
+    def __init__(self, barrack_in:Barrack, barrack_out:Barrack, barn_in:Barn, stop_event:Event):
         super().__init__(barrack_in, barrack_out)
         self._barn_in = barn_in
+        self._stop_event = stop_event
 
     def run(self):
         """Do eating"""
-        if self._barrack_in.is_empty() or self._barn_in.is_empty():
-            logging.debug("%s: %s or %s is empty", self, self._barrack_in, self._barn_in)
-            return
+        while not self._stop_event.is_set():
+            logging.debug("%s attempting to reserve a worker from %s", self, self._barrack_in)
+            if not self._barrack_in.reserve():
+                logging.debug("%s empty: %s", self, self._barrack_in)
+                continue
 
-        logging.debug("%s requesting 1 from %s, 1 from %s",
-                      self, self._barrack_in, self._barn_in)
+            logging.debug("%s attempting to reserve a food from %s", self, self._barn_in)
+            if not self._barn_in.reserve():
+                self._barrack_in.unreserve()
+                logging.debug("%s empty: %s", self, self._barn_in)
+                continue
 
-        worker = self._barrack_in.get()
-        food = self._barn_in.get()
-        vitality_change = (int)(math.atan(6*food.get_quality()-2)*25)
+            logging.debug("%s retrieving 1 from %s, 1 from %s",self, self._barn_in, self._barrack_in)
+            food = self._barn_in.get()
+            worker = self._barrack_in.get()
+            vitality_change = (int)(math.atan(6*food.get_quality()-2)*25)
+            worker.change_vitality(vitality_change)
 
-        worker.change_vitality(vitality_change)
-        logging.debug("%s: %s, %s, plus %s", self, food, worker, vitality_change)
-
-        self._barrack_out.add(worker)
+            logging.debug("%s feeding worker %s, energy %s", self, worker, vitality_change)
+            self._barrack_out.add(worker)
 
 
 class Home(Transition):
@@ -193,53 +209,39 @@ class Home(Transition):
     def run(self):
         """Do resting"""
         while not self._stop_event.is_set():
-            logging.debug("%s reserving", self)
-            if not self._storage_in.reserve(self):
+            logging.debug("%s attempting to reserve a product", self)
+            if not self._storage_in.reserve():
+                logging.debug("%s empty: %s", self, self._storage_in)
                 continue
 
+            logging.debug("%s attempting to reserve a worker", self)
+            if not self._barrack_in.reserve():
+                self._storage_in.unreserve()
+                logging.debug("%s empty: %s", self, self._barrack_in)
+                continue
 
-            logging.debug("%s retrieving 1 worker from %s", self, self._barrack_in)
-            worker = self._barrack_in.retrieve(self)
-
-            x = random()
-            vitality_change = (int)(-90*(x**2) - self._harm_level)
-            worker.change_vitality(vitality_change)
-
-            logging.debug("%s: product sent to %s), %s harmed %s", self, self._storage_out, worker, vitality_change)
-            self._storage_out.add(Product())
-            self._barrack_out.add(worker)
-
-        if self._storage_in.is_empty():
-            logging.debug("%s, empty %s", self, self._storage_in)
-            return
-
-        if len(self._barrack_in) > 1 and randrange(100) < 50:
-            logging.debug("%s requesting 2 from %s and 1 from %s",
-                          self, self._barrack_in, self._storage_in)
-
-            w1 = self._barrack_in.get()
-            w2 = self._barrack_in.get()
             self._storage_in.get()
-            w3 = Worker()
 
-            logging.debug("%s: new %s + %s -> %s", self, w1, w2, w3)
-            self._barrack_out.add(w1)
-            self._barrack_out.add(w2)
-            self._barrack_out.add(w3)
+            barrack_has_worker_2 = False
+            if random() > 0.5:
+                barrack_has_worker_2 = self._barrack_in.reserve()
 
-        elif not self._barrack_in.is_empty():
-            logging.debug("%s requesting 1 from %s, 1 from %s",
-                          self, self._barrack_in, self._storage_in)
+            if barrack_has_worker_2:
+                logging.debug("%s retrieving 2 workers from %s", self, self._barrack_in)
+                worker_1 = self._barrack_in.get()
+                worker_2 = self._barrack_in.get()
+                worker_3 = Worker()
 
-            w1 = self._barrack_in.get()
-            self._storage_in.get()
-            vitality_change = randrange(20)
-            w1.change_vitality(vitality_change)
-
-            logging.debug("%s: Resting %s, plus %s", self, w1, vitality_change)
-            self._barrack_out.add(w1)
-        else:
-            logging.debug("Home %s, %s empty", self, self._barrack_in)
+                logging.debug("%s: new %s + %s -> %s", self, worker_1, worker_2, worker_3)
+                self._barrack_out.add(worker_1)
+                self._barrack_out.add(worker_2)
+                self._barrack_out.add(worker_3)
+            else:
+                logging.debug("%s retrieving 1 worker from %s", self, self._barrack_in)
+                worker_1 = self._barrack_in.get()
+                vitality_change = randrange(10,35)
+                worker_1.change_vitality(vitality_change)
+                logging.debug("%s: Resting %s, plus %s", self, worker_1, vitality_change)
 
 
 class Factory(Transition):
@@ -252,11 +254,12 @@ class Factory(Transition):
     def run(self):
         """Do work"""
         while not self._stop_event.is_set():
-            logging.debug("%s reserving", self)
-            if not self._barrack_in.reserve(self):
+            logging.debug("%s attempting to reserve from %s", self, self._barrack_in)
+            if not self._barrack_in.reserve():
+                logging.debug("%s failed to reserve worker", self)
                 continue
             logging.debug("%s retrieving 1 worker from %s", self, self._barrack_in)
-            worker = self._barrack_in.retrieve(self)
+            worker = self._barrack_in.get()
 
             x = random()
             vitality_change = (int)(-90*(x**2) - self._harm_level)
@@ -309,7 +312,6 @@ class World:
         for b in self._barracks:
             if not b.is_empty():
                 return False
-
         return True
 
     def Simulate(self):
@@ -320,15 +322,11 @@ class World:
         for t in self._transitions:
             t.start()
 
-        print("started")
-
-        time.sleep(0.01)
+        time.sleep(0.15)
         self._stop_event.set()
 
         for t in self._transitions:
             t.join()
-
-        print("joined")
 
 
 if __name__=='__main__':
@@ -340,6 +338,6 @@ if __name__=='__main__':
     root_logger = logging.getLogger()
     root_logger.addHandler(console_handler)
 
-    w1 = World(1, 1, 1, 0, 0, 0, 4,1)
+    w1 = World(1, 1, 1, 5, 5, 5, 5,10)
     w1.Simulate()
     logging.info("Program ended")
