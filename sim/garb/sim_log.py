@@ -3,10 +3,6 @@ from random import randrange, random
 from typing import Type
 import logging
 import math
-from threading import Thread, Event, Lock
-import time
-
-RUN_PROGRAM = True
 
 class Resource:
     def __init__(self):
@@ -37,7 +33,7 @@ class Worker(Resource):
             self._vitality = 0
 
     def __str__(self) -> str:
-        return f"{self.__class__.__name__}[{hex(id(self))}, {self._vitality}]"
+        return f"{self.__class__.__name__} [{hex(id(self))}, {self._vitality}]"
 
 
 class Food(Resource):
@@ -58,43 +54,28 @@ class Product(Resource):
 
 class Place:
     def __init__(self):
-        self._resources = deque()
-        self._reserved = {}
-
-    def reserve(self, transition:str) -> bool:
-        """Returns True if empty, otherwise returns False and saves a resource to retrieve later"""
-        resource = self.get()
-        logging.debug("%s, reserve %s, transition: %s", self, resource, transition)
-        if resource is None:
-            return False
-        self._reserved[transition] = resource
-        return True
+        self._Resources = deque()
     
-
-    def retrieve(self, transition:str) -> bool:
-        """Returns a reserved resource, returns None if there is none"""
-        return self._reserved.pop(transition, None)
-
     def add(self, resource: Resource):
-        self._resources.append(resource)
+        self._Resources.append(resource)
         logging.debug("%s, one %s added", self, resource)
     
     def get(self) -> Resource:
         """Returns one Resource, returns None if empty"""
-        if len(self._resources) > 0:
-            resource = self._resources.popleft()
+        if len(self._Resources) > 0:
+            resource = self._Resources.popleft()
+            logging.debug("%s sends one %s", self, resource)
             return resource
 
     def is_empty(self) -> bool:
         """Returns true if place is empty"""
-        logging.debug("is_empty? %s", self)
-        return len(self._resources) == 0
+        return len(self._Resources) == 0
 
     def __len__(self) -> int:
-        return len(self._resources)
+        return len(self._Resources)
 
     def __str__(self) -> str:
-        result = f"{self.__class__.__name__}[{len(self._resources)}, {hex(id(self))}]"
+        result = f"{self.__class__.__name__}[{len(self._Resources)}, {hex(id(self))}]"
         return result
 
 
@@ -109,9 +90,9 @@ class Storage(Place):
 
     def get(self) -> Product:
         """Returns a product"""
-        if len(self._resources) > 0:
+        if len(self._Resources) > 0:
             logging.debug("%s sends one product", self)
-            return self._resources.pop()
+            return self._Resources.pop()
 
 
 class Barrack(Place):
@@ -121,17 +102,19 @@ class Barrack(Place):
     def add(self, worker:Worker):
         """Add a worker to the barrack"""
         if worker.vitality > 0:
+            self._Resources.append(worker)
             logging.debug("%s, %s returned", self, worker)
-            self._resources.append(worker)
         else:
             logging.debug("%s, %s dead", self, worker)
 
 
-class Transition(Thread):
+class Transition:
     def __init__(self, barrack_in:Barrack, barrack_out:Barrack):
-        super().__init__()
         self._barrack_in = barrack_in
         self._barrack_out = barrack_out
+        
+    def act(self):
+        pass
 
     def __str__(self) -> str:
         return f"{self.__class__.__name__}[{hex(id(self))}]"
@@ -142,7 +125,7 @@ class Field(Transition):
         super().__init__(barrack_in, barrack_out)
         self._barn_out = barn_out
 
-    def run(self):
+    def act(self):
         """Do farming"""
         if self._barrack_in.is_empty():
             return
@@ -165,7 +148,7 @@ class DiningHall(Transition):
         super().__init__(barrack_in, barrack_out)
         self._barn_in = barn_in
 
-    def run(self):
+    def act(self):
         """Do eating"""
         if self._barrack_in.is_empty() or self._barn_in.is_empty():
             logging.debug("%s: %s or %s is empty", self, self._barrack_in, self._barn_in)
@@ -185,30 +168,12 @@ class DiningHall(Transition):
 
 
 class Home(Transition):
-    def __init__(self, barrack_in: Barrack, barrack_out: Barrack, storage_in: Storage, stop_event:Event):
+    def __init__(self, barrack_in: Barrack, barrack_out: Barrack, storage_in: Storage):
         super().__init__(barrack_in, barrack_out)
         self._storage_in = storage_in
-        self._stop_event = stop_event
     
-    def run(self):
+    def act(self):
         """Do resting"""
-        while not self._stop_event.is_set():
-            logging.debug("%s reserving", self)
-            if not self._storage_in.reserve(self):
-                continue
-
-
-            logging.debug("%s retrieving 1 worker from %s", self, self._barrack_in)
-            worker = self._barrack_in.retrieve(self)
-
-            x = random()
-            vitality_change = (int)(-90*(x**2) - self._harm_level)
-            worker.change_vitality(vitality_change)
-
-            logging.debug("%s: product sent to %s), %s harmed %s", self, self._storage_out, worker, vitality_change)
-            self._storage_out.add(Product())
-            self._barrack_out.add(worker)
-
         if self._storage_in.is_empty():
             logging.debug("%s, empty %s", self, self._storage_in)
             return
@@ -239,43 +204,35 @@ class Home(Transition):
             logging.debug("%s: Resting %s, plus %s", self, w1, vitality_change)
             self._barrack_out.add(w1)
         else:
-            logging.debug("Home %s, %s empty", self, self._barrack_in)
+            logging.debug("Home %s, barrack (%s) empty", self, self._barrack_in)
 
 
 class Factory(Transition):
-    def __init__(self, barrack_in: Barrack, barrack_out: Barrack, storage_out: Storage, stop_event:Event):
+    def __init__(self, barrack_in: Barrack, barrack_out: Barrack, storage_out: Storage):
         super().__init__(barrack_in,barrack_out)
         self._storage_out = storage_out
         self._harm_level = randrange(0,10)
-        self._stop_event = stop_event
     
-    def run(self):
+    def act(self):
         """Do work"""
-        while not self._stop_event.is_set():
-            logging.debug("%s reserving", self)
-            if not self._barrack_in.reserve(self):
-                continue
-            logging.debug("%s retrieving 1 worker from %s", self, self._barrack_in)
-            worker = self._barrack_in.retrieve(self)
+        if self._barrack_in.is_empty():
+            logging.debug("Factory %s: barrack empty", self)
+            return
 
-            x = random()
-            vitality_change = (int)(-90*(x**2) - self._harm_level)
-            worker.change_vitality(vitality_change)
+        logging.debug("Factory (%s) requesting 1 worker (barrack %s)", self, self._barrack_in)
+        worker = self._barrack_in.get()
 
-            logging.debug("%s: product sent to %s), %s harmed %s", self, self._storage_out, worker, vitality_change)
-            self._storage_out.add(Product())
-            self._barrack_out.add(worker)
+        x = random()
+        vitality_change = (int)(-100*(x**2) - self._harm_level)
+        worker.change_vitality(vitality_change)
+
+        logging.debug("%s: product created (sent to: %s), %s harmed %s", self, self._storage_out, worker, vitality_change)
+        self._storage_out.add(Product())
+        self._barrack_out.add(worker)
 
 
 class World:    
     def __init__(self, barrack_size:int, storage_size:int, barn_size:int, dining_halls_size:int, homes_size:int, fields_size:int, factories_size:int, workers_size:int):
-        self.stop = False
-        if barrack_size < 1 or storage_size < 1 or barn_size < 1:
-            self.stop = True
-            return
-
-        self._stop_event = Event()
-
         self._day = 0
         self._barracks = [Barrack() for _ in range(barrack_size)]
         self._storage = [Storage() for _ in range(storage_size)]
@@ -299,7 +256,7 @@ class World:
             b1 = self._barracks[randrange(len(self._barracks))]
             b2 = self._barracks[randrange(len(self._barracks))]
             out = out_place[randrange(len(out_place))]
-            transit = transition_type(b1,b2,out,self._stop_event)
+            transit = transition_type(b1,b2,out)
             self._transitions.append(transit)
             logging.debug("Connecting %s to %s, %s, %s",
                     transit, b1, b2, out)
@@ -313,33 +270,27 @@ class World:
         return True
 
     def Simulate(self):
-        if self.stop:
-            return
+        while not self._sim_finished() and self._day < 200:
+            self._day += 1
+            
+            logging.info("New day (%s)", self._day)
 
-        t:Transition
-        for t in self._transitions:
-            t.start()
+            print()
+            print("Day", self._day)
 
-        print("started")
+            t:Transition
+            for t in self._transitions:
+                t.act()
 
-        time.sleep(0.01)
-        self._stop_event.set()
-
-        for t in self._transitions:
-            t.join()
-
-        print("joined")
-
+            b:Barrack
+            for b in self._barracks:
+                print(b)
+    
 
 if __name__=='__main__':
     logging.basicConfig(filename='sim.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s', filemode='w')
     logging.info("Program started")
 
-    console_handler = logging.StreamHandler()
-    console_handler.setLevel(logging.DEBUG)
-    root_logger = logging.getLogger()
-    root_logger.addHandler(console_handler)
-
-    w1 = World(1, 1, 1, 0, 0, 0, 4,1)
+    w1 = World(1, 1, 1, 1, 1, 4, 5,20)
     w1.Simulate()
     logging.info("Program ended")
