@@ -5,7 +5,9 @@ import logging
 import math
 from threading import Thread, Event, Lock
 import time
+from simsimsgui import GUIPlaceComponent as GuiComp, SimSimsGUI
 
+TIME_OUT = 5
 
 class Resource:
     def __init__(self):
@@ -135,24 +137,29 @@ class Barrack(Place):
 
 
 class Transition(Thread):
-    def __init__(self, barrack_in:Barrack, barrack_out:Barrack):
+    def __init__(self, barrack_in:Barrack, barrack_out:Barrack, gui:GuiComp):
         super().__init__()
         self._barrack_in = barrack_in
         self._barrack_out = barrack_out
+        self._gui = gui
 
     def __str__(self) -> str:
         return f"{self.__class__.__name__}[{hex(id(self))}]"
 
+    def get_gui(self) -> GuiComp:
+        return self._gui
+
 
 class Field(Transition):
-    def __init__(self, barrack_in: Barrack, barrack_out: Barrack, barn_out: Barn, stop_event:Event):
-        super().__init__(barrack_in, barrack_out)
+    def __init__(self, barrack_in: Barrack, barrack_out: Barrack, barn_out: Barn, stop_event:Event, gui:GuiComp):
+        super().__init__(barrack_in, barrack_out, gui)
         self._barn_out = barn_out
         self._stop_event = stop_event
 
     def run(self):
         """Do farming"""
         while not self._stop_event.is_set():
+            time.sleep(TIME_OUT)
             logging.debug("%s attempts to reserve 1 from %s", self, self._barrack_in)
             if not self._barrack_in.reserve():
                 logging.debug("%s empty: %s", self, self._barrack_in)
@@ -170,15 +177,17 @@ class Field(Transition):
             self._barn_out.add(Food(random()))
 
 
+
 class DiningHall(Transition):
-    def __init__(self, barrack_in:Barrack, barrack_out:Barrack, barn_in:Barn, stop_event:Event):
-        super().__init__(barrack_in, barrack_out)
+    def __init__(self, barrack_in:Barrack, barrack_out:Barrack, barn_in:Barn, stop_event:Event, gui:GuiComp):
+        super().__init__(barrack_in, barrack_out, gui)
         self._barn_in = barn_in
         self._stop_event = stop_event
 
     def run(self):
         """Do eating"""
         while not self._stop_event.is_set():
+            time.sleep(TIME_OUT)
             logging.debug("%s attempting to reserve a worker from %s", self, self._barrack_in)
             if not self._barrack_in.reserve():
                 logging.debug("%s empty: %s", self, self._barrack_in)
@@ -200,15 +209,17 @@ class DiningHall(Transition):
             self._barrack_out.add(worker)
 
 
+
 class Home(Transition):
-    def __init__(self, barrack_in: Barrack, barrack_out: Barrack, storage_in: Storage, stop_event:Event):
-        super().__init__(barrack_in, barrack_out)
+    def __init__(self, barrack_in: Barrack, barrack_out: Barrack, storage_in: Storage, stop_event:Event, gui:GuiComp):
+        super().__init__(barrack_in, barrack_out, gui)
         self._storage_in = storage_in
         self._stop_event = stop_event
     
     def run(self):
         """Do resting"""
         while not self._stop_event.is_set():
+            time.sleep(TIME_OUT)
             logging.debug("%s attempting to reserve a product", self)
             if not self._storage_in.reserve():
                 logging.debug("%s empty: %s", self, self._storage_in)
@@ -242,11 +253,12 @@ class Home(Transition):
                 vitality_change = randrange(10,35)
                 worker_1.change_vitality(vitality_change)
                 logging.debug("%s: Resting %s, plus %s", self, worker_1, vitality_change)
+                self._barrack_out.add(worker_1)
 
 
 class Factory(Transition):
-    def __init__(self, barrack_in: Barrack, barrack_out: Barrack, storage_out: Storage, stop_event:Event):
-        super().__init__(barrack_in,barrack_out)
+    def __init__(self, barrack_in: Barrack, barrack_out: Barrack, storage_out: Storage, stop_event:Event, gui:GuiComp):
+        super().__init__(barrack_in,barrack_out, gui)
         self._storage_out = storage_out
         self._harm_level = randrange(0,10)
         self._stop_event = stop_event
@@ -254,6 +266,7 @@ class Factory(Transition):
     def run(self):
         """Do work"""
         while not self._stop_event.is_set():
+            time.sleep(TIME_OUT)
             logging.debug("%s attempting to reserve from %s", self, self._barrack_in)
             if not self._barrack_in.reserve():
                 logging.debug("%s failed to reserve worker", self)
@@ -270,6 +283,28 @@ class Factory(Transition):
             self._barrack_out.add(worker)
 
 
+
+class Gui(Thread):
+    def __init__(self):
+        """GUI constructor"""
+        super().__init__()
+        self._gui = SimSimsGUI(w=500, h=500)
+        self._trans_gui = self._gui.create_transition_gui()
+        self._trans_gui.autoplace(1,1)
+        self._gui.start()
+
+    def run(self):
+        """Run logic"""
+        i = 0
+        while self._gui.is_alive:
+            self._trans_gui.move(200+math.cos(i*math.pi*0.01)*60, 200+math.sin(i*math.pi*0.01)*60)
+            i += 1
+            time.sleep(0.01)
+
+    def mainloop(self):
+        """Calls mainloop for gui"""
+        self._gui.mainloop()
+
 class World:    
     def __init__(self, barrack_size:int, storage_size:int, barn_size:int, dining_halls_size:int, homes_size:int, fields_size:int, factories_size:int, workers_size:int):
         self.stop = False
@@ -277,6 +312,7 @@ class World:
             self.stop = True
             return
 
+        self._gui = SimSimsGUI()
         self._stop_event = Event()
 
         self._day = 0
@@ -291,6 +327,11 @@ class World:
         self._connect_transition(Field, self._barns, fields_size)
         self._connect_transition(Factory, self._storage, factories_size)
 
+        places = len(self._transitions)
+        t:Transition
+        for i,t in enumerate(self._transitions):
+            t.get_gui().autoplace(i, places)
+
         for _ in range(workers_size):
             self._barracks[randrange(len(self._barracks))].add(Worker())
 
@@ -302,7 +343,7 @@ class World:
             b1 = self._barracks[randrange(len(self._barracks))]
             b2 = self._barracks[randrange(len(self._barracks))]
             out = out_place[randrange(len(out_place))]
-            transit = transition_type(b1,b2,out,self._stop_event)
+            transit = transition_type(b1,b2,out,self._stop_event, self._gui.create_transition_gui())
             self._transitions.append(transit)
             logging.debug("Connecting %s to %s, %s, %s",
                     transit, b1, b2, out)
@@ -314,19 +355,32 @@ class World:
                 return False
         return True
 
+    def _moving_place(self):
+        i = 0
+        while self._gui.is_alive:
+            print("??")
+            # t:Transition
+            # for t in self._transitions:
+            #     t.get_gui().move(200+math.cos(i*math.pi*0.01)*60, 200+math.sin(i*math.pi*0.01)*60)
+            # i += 1
+            time.sleep(0.06)
+
     def Simulate(self):
         if self.stop:
             return
 
-        t:Transition
-        for t in self._transitions:
-            t.start()
+        thread_1 = Thread(target=self._moving_place)
+        thread_1.start()
+        self._gui.mainloop()
+        # t:Transition
+        # for t in self._transitions:
+        #     t.start()
+        #     time.sleep(1)
 
-        time.sleep(0.15)
-        self._stop_event.set()
-
-        for t in self._transitions:
-            t.join()
+        print("Under")
+        # self._stop_event.set()
+        # for t in self._transitions:
+        #     t.join()
 
 
 if __name__=='__main__':
@@ -338,6 +392,6 @@ if __name__=='__main__':
     root_logger = logging.getLogger()
     root_logger.addHandler(console_handler)
 
-    w1 = World(1, 1, 1, 5, 5, 5, 5,10)
+    w1 = World(1, 1, 1, 0, 0, 0, 1,10)
     w1.Simulate()
     logging.info("Program ended")
