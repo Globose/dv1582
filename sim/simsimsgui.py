@@ -490,10 +490,14 @@ class GUINodeComponent(GUIComponent):
     def _reposition(self, args):
         GUIComponent._reposition(self, *args)
         cps = GUIComponent.sunflower(self.tokens, 1.0, 0.8*self._radius)
-        for i in range(self.tokens):
-            self._tokens[i].position = cps[i].translate(self.position)
-        for a in self._arcs:
-            a.update_position()
+
+        try:
+            for i in range(self.tokens):
+                self._tokens[i].position = cps[i].translate(self.position)
+            for a in self._arcs:
+                a.update_position()
+        except:
+            pass
 
     def anchor_point(self, coord):
         ''' Virtual method to calculate an anchor point for an arc. 
@@ -708,37 +712,37 @@ if __name__ == "__main__":
 
     # Creating GUI components for places and transitions
     p1 = gui.create_place_gui({"lable": "p1"})
-    p2 = gui.create_place_gui({"lable": "p2"})
-    t1 = gui.create_transition_gui({"lable": "t1"})
-    t2 = gui.create_transition_gui({"lable": "t2"})
+    # p2 = gui.create_place_gui({"lable": "p2"})
+    # t1 = gui.create_transition_gui({"lable": "t1"})
+    # t2 = gui.create_transition_gui({"lable": "t2"})
 
     # Autplace places and transitions
-    places = 4
+    places = 1
     p1.autoplace(1, places)
-    p2.autoplace(2, places)
-    t1.autoplace(3, places)
-    t2.autoplace(4, places)
+    # p2.autoplace(2, places)
+    # t1.autoplace(3, places)
+    # t2.autoplace(4, places)
 
     #gui.remove(p3)
 
     # Connect places and transitions, i.e., creating arcs between them
-    gui.connect(p1, t1, {"arrows": True})
-    gui.connect(p1, t2, {"arrows": True})
-    gui.connect(p2, t2, {"arrows": True})
-    gui.connect(t2, p2, {"arrows": True})
+    # gui.connect(p1, t1, {"arrows": True})
+    # gui.connect(p1, t2, {"arrows": True})
+    # gui.connect(p2, t2, {"arrows": True})
+    # gui.connect(t2, p2, {"arrows": True})
 
-    # Create GUI components for two tokens
-    r1 = gui.create_token_gui({"color": "#ff0000"})
-    r2 = gui.create_token_gui({"color": "#00ff00"})
-    r3 = gui.create_token_gui({"color": "#0000ff"})
+    # # Create GUI components for two tokens
+    # r1 = gui.create_token_gui({"color": "#ff0000"})
+    # r2 = gui.create_token_gui({"color": "#00ff00"})
+    # r3 = gui.create_token_gui({"color": "#0000ff"})
 
-    # Place the tokens
-    p1.add_token(r1)
-    p1.add_token(r2)
-    t1.add_token(r3)
+    # # Place the tokens
+    # p1.add_token(r1)
+    # p1.add_token(r2)
+    # t1.add_token(r3)
 
-    # Sets a callback funktion that is called when the window closes.
-    gui.on_close(callback)
+    # # Sets a callback funktion that is called when the window closes.
+    # gui.on_close(callback)
 
     # Start animation
     gui.start()
