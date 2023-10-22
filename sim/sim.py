@@ -7,7 +7,8 @@ from threading import Thread, Event, Lock
 import time
 from simsimsgui import GUIPlaceComponent as GuiComp, SimSimsGUI
 
-TIME_OUT = 0.1
+TIME_OUT = 2
+WAIT_TIME = 3
 
 class GUIObject:
     def __init__(self, gui:GuiComp):
@@ -81,9 +82,9 @@ class Place(GUIObject):
             if len(self._resources) - self._reserved > 0:
                 self._reserved += 1
                 reservation_success = True
-                logging.debug("%s, Reservation succesful", self)
+                logging.debug("%s, Reservation successful for", self)
             else:
-                logging.debug("%s, Reservation unsuccesful", self)
+                logging.debug("%s, Reservation unsuccessful", self)
         finally:
             logging.debug("%s Open", self)
             self._lock.release()
@@ -104,13 +105,15 @@ class Place(GUIObject):
     def get(self) -> Resource:
         """Returns one Resource, returns None if empty"""
         if len(self._resources) > 0:
-            self.unreserve()
+            logging.debug("%s sends one resource", self)
 
             resource:Resource
             resource = self._resources.popleft()
             self._gui.remove_token(resource.get_gui())
+            self.unreserve()
 
             return resource
+        logging.debug("%s is empty, returns None", self)
 
     def __len__(self) -> int:
         return len(self._resources)
@@ -133,10 +136,11 @@ class Storage(Place):
         """Returns a product"""
         if len(self._resources) > 0:
             logging.debug("%s sends one product", self)
-            self.unreserve()
             resource = self._resources.pop()
             self._gui.remove_token(resource.get_gui())
+            self.unreserve()
             return resource
+        logging.debug("%s is empty, returns None", self)
 
 class Barrack(Place):
     def __init__(self, gui:GuiComp):
@@ -182,16 +186,24 @@ class Field(Transition):
 
             logging.debug("%s retrieving 1 from %s", self, self._barrack_in)
             worker = self._barrack_in.get()
+            self._gui.add_token(worker.get_gui())
+            time.sleep(WAIT_TIME)
+
+            food = Food(random(),self._sim_gui.create_token_gui({"color": "#11aa22"}))
+            self._gui.add_token(food.get_gui())
+            time.sleep(WAIT_TIME)
+
             vitality_change = 0
             if (random() > 0.8):
                 vitality_change = -randrange(30,80)
             worker.change_vitality(vitality_change)
 
             logging.debug("%s sent food to %s, %s harmed %s", self, self._barn_out , worker, vitality_change)
-            self._barrack_out.add(worker)
-            self._barn_out.add(Food(random(),self._sim_gui.create_token_gui()))
-            logging.debug("%s actually sent", self)
 
+            self._gui.remove_token(worker.get_gui())
+            self._gui.remove_token(food.get_gui())
+            self._barrack_out.add(worker)
+            self._barn_out.add(food)
 
 
 
@@ -219,10 +231,17 @@ class DiningHall(Transition):
             logging.debug("%s retrieving 1 from %s, 1 from %s",self, self._barn_in, self._barrack_in)
             food = self._barn_in.get()
             worker = self._barrack_in.get()
+
+            self._gui.add_token(food.get_gui())
+            self._gui.add_token(worker.get_gui())
+            time.sleep(WAIT_TIME)
+
             vitality_change = (int)(math.atan(6*food.get_quality()-2)*25)
             worker.change_vitality(vitality_change)
 
             logging.debug("%s feeding worker %s, energy %s", self, worker, vitality_change)
+            self._gui.remove_token(food.get_gui())
+            self._gui.remove_token(worker.get_gui())
             self._barrack_out.add(worker)
 
 
@@ -247,7 +266,8 @@ class Home(Transition):
                 logging.debug("%s empty: %s", self, self._barrack_in)
                 continue
 
-            self._storage_in.get()
+            product = self._storage_in.get()
+            self._gui.add_token(product.get_gui())
 
             barrack_has_worker_2 = False
             if random() > 0.5:
@@ -257,19 +277,36 @@ class Home(Transition):
                 logging.debug("%s retrieving 2 workers from %s", self, self._barrack_in)
                 worker_1 = self._barrack_in.get()
                 worker_2 = self._barrack_in.get()
+
+                self._gui.add_token(worker_1.get_gui())
+                self._gui.add_token(worker_2.get_gui())
+                time.sleep(WAIT_TIME)
+
                 worker_3 = Worker(self._sim_gui.create_token_gui({"lable": "Worker"}))
+
+                self._gui.add_token(worker_3.get_gui())
+                time.sleep(WAIT_TIME)
 
                 logging.debug("%s: new %s + %s -> %s", self, worker_1, worker_2, worker_3)
                 self._barrack_out.add(worker_1)
                 self._barrack_out.add(worker_2)
                 self._barrack_out.add(worker_3)
+                self._gui.remove_token(worker_1.get_gui())
+                self._gui.remove_token(worker_2.get_gui())
+                self._gui.remove_token(worker_3.get_gui())
+
             else:
                 logging.debug("%s retrieving 1 worker from %s", self, self._barrack_in)
                 worker_1 = self._barrack_in.get()
+                self._gui.add_token(worker_1.get_gui())
+                time.sleep(WAIT_TIME)
+
                 vitality_change = randrange(10,35)
                 worker_1.change_vitality(vitality_change)
                 logging.debug("%s: Resting %s, plus %s", self, worker_1, vitality_change)
                 self._barrack_out.add(worker_1)
+                self._gui.remove_token(worker_1.get_gui())
+            self._gui.remove_token(product.get_gui())
 
 
 class Factory(Transition):
@@ -289,15 +326,22 @@ class Factory(Transition):
                 continue
             logging.debug("%s retrieving 1 worker from %s", self, self._barrack_in)
             worker = self._barrack_in.get()
-            self.get_gui().add_token(worker.get_gui())
+            self._gui.add_token(worker.get_gui())
+            time.sleep(WAIT_TIME)
+
+            product = Product(self._sim_gui.create_token_gui({"color": "#ee3322"}))
+            self._gui.add_token(product.get_gui())
+            time.sleep(WAIT_TIME)
 
             x = random()
             vitality_change = (int)(-90*(x**2) - self._harm_level)
             worker.change_vitality(vitality_change)
 
             logging.debug("%s: product sent to %s), %s harmed %s", self, self._storage_out, worker, vitality_change)
-            self._storage_out.add(Product(self._sim_gui.create_token_gui({"lable": "Product"})))
-            self.get_gui().remove_token(worker.get_gui())
+
+            self._gui.remove_token(worker.get_gui())
+            self._gui.remove_token(product.get_gui())
+            self._storage_out.add(product)
             self._barrack_out.add(worker)
 
 
@@ -347,15 +391,23 @@ class World:
 
         self._gui.start()
 
-    def _connect_transition(self, transition_type:Type[Transition], out_place:Transition, size:int, label:str):
+    def _connect_transition(self, transition_type:Type[Transition], place_others:list[Transition], size:int, label:str):
         for _ in range(size):
-            b1 = self._barracks[randrange(len(self._barracks))]
-            b2 = self._barracks[randrange(len(self._barracks))]
-            out = out_place[randrange(len(out_place))]
-            transit = transition_type(b1,b2,out,self._stop_event, self._gui.create_transition_gui({"lable":label}),self._gui)
+            barrack_1 = self._barracks[randrange(len(self._barracks))]
+            barrack_2 = self._barracks[randrange(len(self._barracks))]
+            place_other = place_others[randrange(len(place_others))]
+            transit = transition_type(barrack_1,barrack_2,place_other,self._stop_event, self._gui.create_transition_gui({"lable":label}),self._gui)
+
+            if transition_type == DiningHall or transition_type == Home:
+                self._gui.connect(place_other.get_gui(), transit.get_gui(),{"arrows": True})
+            else:
+                self._gui.connect(transit.get_gui(), place_other.get_gui(),{"arrows": True})
+            self._gui.connect(barrack_1.get_gui(), transit.get_gui(),{"arrows": True})
+            self._gui.connect(transit.get_gui(),barrack_2.get_gui(),{"arrows": True})
+
             self._transitions.append(transit)
             logging.debug("Connecting %s to %s, %s, %s",
-                    transit, b1, b2, out)
+                    transit, barrack_1, barrack_2, place_other)
 
     def _sim_finished(self):
         b: Barrack
@@ -393,11 +445,11 @@ if __name__=='__main__':
     logging.basicConfig(filename='sim.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s', filemode='w')
     logging.info("Program started")
 
-    console_handler = logging.StreamHandler()
-    console_handler.setLevel(logging.DEBUG)
-    root_logger = logging.getLogger()
-    root_logger.addHandler(console_handler)
+    # console_handler = logging.StreamHandler()
+    # console_handler.setLevel(logging.DEBUG)
+    # root_logger = logging.getLogger()
+    # root_logger.addHandler(console_handler)
 
-    w1 = World(1, 1, 1, 1, 1, 1, 3,10)
+    w1 = World(2, 1, 1, 2, 2, 2, 3,10)
     w1.Simulate()
     logging.info("Program ended")

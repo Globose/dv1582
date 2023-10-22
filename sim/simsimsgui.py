@@ -772,27 +772,27 @@ if __name__ == "__main__":
 
     # A simple threaded example below.
 
-    def moving_token():
-        while gui.is_alive:
-            p1.remove_token(r1)
-            t1.add_token(r1)
-            #p1.properties = {"color":"#000"}
-            time.sleep(0.6)
-            t1.remove_token(r1)
-            p1.add_token(r1)
-            #p1.properties = {"color":"#f00"}
-            time.sleep(0.7)
+    # def moving_token():
+    #     while gui.is_alive:
+    #         p1.remove_token(r1)
+    #         t1.add_token(r1)
+    #         #p1.properties = {"color":"#000"}
+    #         time.sleep(0.6)
+    #         t1.remove_token(r1)
+    #         p1.add_token(r1)
+    #         #p1.properties = {"color":"#f00"}
+    #         time.sleep(0.7)
 
-    def moving_place():
-        i = 0
-        while gui.is_alive:
-            p1.move(200+cos(i*pi*0.01)*60, 200+sin(i*pi*0.01)*60)
-            i += 1
-            time.sleep(0.06)
+    # def moving_place():
+    #     i = 0
+    #     while gui.is_alive:
+    #         p1.move(200+cos(i*pi*0.01)*60, 200+sin(i*pi*0.01)*60)
+    #         i += 1
+    #         time.sleep(0.06)
 
-    thr1 = Thread(target=moving_token)
-    thr1.start()
-    thr2 = Thread(target=moving_place)
-    thr2.start()
+    # thr1 = Thread(target=moving_token)
+    # thr1.start()
+    # thr2 = Thread(target=moving_place)
+    # thr2.start()
 
-    gui.mainloop()
+    # gui.mainloop()
