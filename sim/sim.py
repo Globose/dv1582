@@ -7,8 +7,8 @@ from threading import Thread, Event, Lock
 import time
 from simsimsgui import GUIPlaceComponent as GuiComp, SimSimsGUI
 
-TIME_OUT = 2
-WAIT_TIME = 3
+TIME_OUT = 1
+WAIT_TIME = 1
 
 class GUIObject:
     def __init__(self, gui:GuiComp):
@@ -77,16 +77,14 @@ class Place(GUIObject):
         """Returns False if empty, otherwise returns True and saves a resource to retrieve later"""
         reservation_success = False
         self._lock.acquire()
-        logging.debug("%s Locked", self)
         try:
             if len(self._resources) - self._reserved > 0:
                 self._reserved += 1
                 reservation_success = True
-                logging.debug("%s, Reservation successful for", self)
+                logging.debug("%s Reservation successful", self)
             else:
-                logging.debug("%s, Reservation unsuccessful", self)
+                logging.debug("%s Reservation unsuccessful", self)
         finally:
-            logging.debug("%s Open", self)
             self._lock.release()
 
         return reservation_success
@@ -266,11 +264,13 @@ class Home(Transition):
                 logging.debug("%s empty: %s", self, self._barrack_in)
                 continue
 
+            logging.debug("%s retrieving 1 product from %s", self, self._storage_in)
             product = self._storage_in.get()
             self._gui.add_token(product.get_gui())
 
             barrack_has_worker_2 = False
             if random() > 0.5:
+                logging.debug("%s attempting to reserve 1 worker", self)
                 barrack_has_worker_2 = self._barrack_in.reserve()
 
             if barrack_has_worker_2:
@@ -450,6 +450,6 @@ if __name__=='__main__':
     # root_logger = logging.getLogger()
     # root_logger.addHandler(console_handler)
 
-    w1 = World(2, 1, 1, 2, 2, 2, 3,10)
+    w1 = World(1, 1, 1, 4, 4, 7, 4,20)
     w1.Simulate()
     logging.info("Program ended")
