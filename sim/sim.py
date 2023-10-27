@@ -662,7 +662,7 @@ def main():
     root_logger = logging.getLogger()
     root_logger.addHandler(console_handler)
 
-    w1 = World(3, 2, 2, 7, 7, 7, 5, 50)
+    w1 = World(3, 2, 2, 4, 5, 5, 5, 50)
     w1.simulate()
     logging.info("Program ended")
 
