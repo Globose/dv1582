@@ -8,8 +8,6 @@ import time
 from simsimsgui import GUIPlaceComponent as GuiComp, SimSimsGUI
 from pydb import Analytics
 
-TIME_OUT = 0
-WAIT_TIME = 0
 COLOR_FOOD = "#11aa22"
 COLOR_WORKER = "#1122aa"
 COLOR_PRODUCT = "#ee3322"
@@ -266,7 +264,7 @@ class Field(Transition):
             self._gui.add_token(food.get_gui())
 
             vitality_change = 0
-            if (random() > 0.8):
+            if random() > 0.8:
                 vitality_change = -randrange(30, 80)
             worker.change_vitality(vitality_change)
 
@@ -575,54 +573,22 @@ class World:
                 if isinstance(t, Field) and t.is_closed():
                     field_closed += 1
 
-
-
-            home_closed_target = min(self._home_count-1, max(
-                0, (int)(self._home_count*(
-                    workers_count-TARGET_WORKERS)/TARGET_WORKERS)))
-
-            dining_closed_target = min(self._dining_halls_count-1, max(
-                0, (int)(self._dining_halls_count*(
-                    workers_count-TARGET_WORKERS)/TARGET_WORKERS)))
-
-            field_closed_target = min(self._fields_count-1, max(
-                0, (int)(self._fields_count*(
-                    food_count-TARGET_FOOD)/TARGET_FOOD)))
-
-            factry_closed_target = min(self._factories_count-1, max(
-                0, (int)(self._factories_count*(
-                    product_count-TARGET_PRODUCTS)/TARGET_PRODUCTS)))
-
-            if not home_closed_target == home_closed:
-                for t in self._transitions:
-                    if isinstance(t, Home) and t.is_closed() == (home_closed > home_closed_target):
-                        t.toggle_closed()
-                        break
-
-            if not factry_closed_target == factory_closed:
-                for t in self._transitions:
-                    if isinstance(t, Factory) and t.is_closed() == (factory_closed > factry_closed_target):
-                        t.toggle_closed()
-                        break
-
-            if not field_closed_target == field_closed:
-                for t in self._transitions:
-                    if isinstance(t, Field) and t.is_closed() == (field_closed > field_closed_target):
-                        t.toggle_closed()
-                        break
-
-            if not dining_closed_target == dining_hall_closed:
-                for t in self._transitions:
-                    if isinstance(t, DiningHall) and t.is_closed() == (dining_hall_closed > dining_closed_target):
-                        t.toggle_closed()
-                        break
-
+            self._stabilize_transition(self._home_count, workers_count,
+                                       TARGET_WORKERS, home_closed, Home)
+            self._stabilize_transition(self._dining_halls_count,
+                                       workers_count, TARGET_WORKERS,
+                                       dining_hall_closed, DiningHall)
+            self._stabilize_transition(self._fields_count, food_count,
+                                       TARGET_FOOD, field_closed, Field)
+            self._stabilize_transition(self._factories_count,
+                                       product_count, TARGET_PRODUCTS,
+                                       factory_closed, Factory)
             time.sleep(0.2)
 
-    def _stabilize_transition(self, closed_target: int, tran_count: int,
+    def _stabilize_transition(self, tran_count: int,
                               resources_count: int, target_resources: int,
                               closed_count: int, t_type: Type[Transition]):
-
+        """Turns transitions off and on based on resource count"""
         closed_target = min(tran_count-1, max(0, (int)(
             tran_count*(resources_count-target_resources)/target_resources)))
 
@@ -634,22 +600,20 @@ class World:
                     t.toggle_closed()
                     break
 
-
-    def _gui_update(self):
-        i = 0
-        while self._gui.is_alive:
-            time.sleep(0.06)
-
-    def Simulate(self):
-        if self.stop:
+    def simulate(self):
+        """Starts the world simulation"""
+        if self.stop:  # If <1 barrack, barn and storage
             return
 
-        threads = [Thread(target=self._gui_update),Thread(target=self._sim_finished),
-                   Thread(target=self._observer), Thread(target=self._stabilizer) ]
-        t:Thread
+        threads = [Thread(target=self._sim_finished),
+                   Thread(target=self._observer),
+                   Thread(target=self._stabilizer)]
+
+        t: Thread
         for t in threads:
             t.start()
-        t:Transition
+
+        t: Transition
         for t in self._transitions:
             t.start()
 
@@ -659,7 +623,10 @@ class World:
 
 
 def main():
-    logging.basicConfig(filename='sim.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s', filemode='w')
+    """Main function"""
+    logging.basicConfig(filename='sim.log', level=logging.DEBUG,
+                        format='%(asctime)s - %(levelname)s - %(message)s',
+                        filemode='w')
     logging.info("Program started")
 
     console_handler = logging.StreamHandler()
@@ -668,12 +635,13 @@ def main():
     root_logger.addHandler(console_handler)
 
     w1 = World(1, 1, 1, 5, 5, 5, 5, 40)
-    w1.Simulate()
+    w1.simulate()
     logging.info("Program ended")
 
     logging.info("Creating diagram")
     analytics = Analytics(SQL_FILE, TABLE_NAME)
     analytics.to_figure()
 
-if __name__=='__main__':
+
+if __name__ == '__main__':
     main()
