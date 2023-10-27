@@ -672,13 +672,16 @@ class GUIArcComponent(GUIComponent):
         coord1 = Coords(0.0, 0.0)
         coord2 = Coords(0.0, 0.0)
         arrow = None
-        if self.properties["arrows"]:
-            arrow = self._arrows
-        else:
-            arrow = None
-        s = self.canvas.create_line(
-            coord1[0], coord1[1], coord2[0], coord2[1], fill=self.properties["color"], width=3, arrow=arrow)
-        self.shapes.append((s, None))
+        try:
+            if self.properties["arrows"]:
+                arrow = self._arrows
+            else:
+                arrow = None
+            s = self.canvas.create_line(
+                coord1[0], coord1[1], coord2[0], coord2[1], fill=self.properties["color"], width=3, arrow=arrow)
+            self.shapes.append((s, None))
+        except:
+            pass
 
     def _update(self):
         if not self.shapes:

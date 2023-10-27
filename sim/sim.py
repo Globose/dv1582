@@ -14,9 +14,9 @@ COLOR_PRODUCT = "#ee3322"
 SQL_FILE = "sqldb.db"
 XLSX_PATH = "resources.xlsx"
 TABLE_NAME = "Resources"
-TARGET_FOOD = 30
-TARGET_WORKERS = 30
-TARGET_PRODUCTS = 30
+TARGET_FOOD = 40
+TARGET_WORKERS = 40
+TARGET_PRODUCTS = 50
 
 
 class GUIObject:
@@ -87,7 +87,6 @@ class Place(GUIObject):
         self._resources = deque()
         self._reserved = 0
         self._lock = Lock()
-        self._incoming = 0
 
     def reserve(self) -> bool:
         """Returns False if empty, otherwise returns True
@@ -124,7 +123,9 @@ class Place(GUIObject):
             logging.debug("%s sends one resource", self)
             resource = self._resources.popleft()
             self._gui.remove_token(resource.get_gui())
+            logging.debug("%s has removed token")
             self.unreserve()
+            logging.debug("%s has unreserved")
 
             return resource
         logging.debug("%s is empty, returns None", self)
@@ -163,16 +164,9 @@ class Barrack(Place):
     """Class for storing Workers in a queue"""
     def __init__(self, gui: GuiComp):
         super().__init__(gui)
-        self._incoming = 0
 
-    def promise_worker(self):
-        """Inform Barrack about an incoming worker"""
-        self._incoming += 1
-
-    def add(self, worker: Worker, old_worker: bool = True):
+    def add(self, worker: Worker):
         """Add a worker to the barrack"""
-        if old_worker:
-            self._incoming -= 1
         if worker.vitality > 0:
             self._resources.append(worker)
             self._gui.add_token(worker.get_gui())
@@ -180,13 +174,8 @@ class Barrack(Place):
         else:
             logging.debug("%s, %s dead", self, worker)
 
-    def workers_size(self) -> int:
-        """Returns the amount of workers in the barrak plus the
-        additional workers that are incoming from transitions"""
-        return len(self)+self._incoming
-
     def __str__(self) -> str:
-        result = f"{self.__class__.__name__}[{len(self._resources)},{self._incoming}, {self._reserved}, {hex(id(self))}]"
+        result = f"{self.__class__.__name__}[{len(self._resources)}, {self._reserved}, {hex(id(self))}]"
         return result
 
 
@@ -196,8 +185,8 @@ class Transition(Thread, GUIObject):
                  gui: GuiComp, sim_gui: SimSimsGUI):
         Thread.__init__(self)
         GUIObject.__init__(self, gui)
-        self._barrack_in = barrack_in
-        self._barrack_out = barrack_out
+        self.barrack_in = barrack_in
+        self.barrack_out = barrack_out
         self._gui = gui
         self._sim_gui = sim_gui
         self._closed = False
@@ -215,19 +204,16 @@ class Transition(Thread, GUIObject):
 
     def _retrieve(self, place: Place) -> Resource:
         logging.debug("%s retrieving 1 from %s", self, place)
-        if isinstance(place, Barrack):
-            logging.debug("%s retrieving worker", self)
-            self._barrack_out.promise_worker()
         resource = place.get()
-
-        self._gui.add_token(resource.get_gui())
+        if resource is not None:
+            self._gui.add_token(resource.get_gui())
         return resource
 
     def _reserve(self, place: Place) -> bool:
         logging.debug("%s attempts to reserve 1 from %s", self, place)
         reservation = place.reserve()
         if not reservation:
-            logging.debug("%s empty: %s", self, self._barrack_in)
+            logging.debug("%s empty: %s", self, self.barrack_in)
         return reservation
 
     def _send_resource(self, resource: Resource, place: Place):
@@ -242,7 +228,7 @@ class Field(Transition):
                  barn_out: Barn, stop_event: Event, gui: GuiComp,
                  sim_gui: SimSimsGUI):
         super().__init__(barrack_in, barrack_out, gui, sim_gui)
-        self._barn_out = barn_out
+        self.barn_out = barn_out
         self._stop_event = stop_event
 
     def run(self):
@@ -252,9 +238,13 @@ class Field(Transition):
                 time.sleep(0.5)
                 continue
 
-            if not self._reserve(self._barrack_in):
+            if not self._reserve(self.barrack_in):
                 continue
-            worker = self._retrieve(self._barrack_in)
+            worker = self._retrieve(self.barrack_in)
+
+            if worker is None:
+                continue
+
             food = Food(random(), self._sim_gui.create_token_gui
                         ({"color": COLOR_FOOD}))
             self._gui.add_token(food.get_gui())
@@ -264,8 +254,8 @@ class Field(Transition):
                 vitality_change = -randrange(30, 80)
             worker.change_vitality(vitality_change)
 
-            self._send_resource(worker, self._barrack_out)
-            self._send_resource(food, self._barn_out)
+            self._send_resource(worker, self.barrack_out)
+            self._send_resource(food, self.barn_out)
 
 
 class DiningHall(Transition):
@@ -274,7 +264,7 @@ class DiningHall(Transition):
                  barn_in: Barn, stop_event: Event, gui: GuiComp,
                  sim_gui: SimSimsGUI):
         super().__init__(barrack_in, barrack_out, gui, sim_gui)
-        self._barn_in = barn_in
+        self.barn_in = barn_in
         self._stop_event = stop_event
 
     def run(self):
@@ -284,22 +274,24 @@ class DiningHall(Transition):
                 time.sleep(0.5)
                 continue
 
-            if not self._reserve(self._barrack_in):
+            if not self._reserve(self.barrack_in):
                 continue
 
-            if not self._reserve(self._barn_in):
-                self._barrack_in.unreserve()
+            if not self._reserve(self.barn_in):
+                self.barrack_in.unreserve()
                 continue
 
-            food = self._retrieve(self._barn_in)
-            worker = self._retrieve(self._barrack_in)
+            food = self._retrieve(self.barn_in)
+            worker = self._retrieve(self.barrack_in)
+            if worker is None:
+                continue
 
             logging.debug("%s food %s, worker %s", self, food, worker)
 
             vitality_change = (int)(math.atan(6*food.get_quality()-2)*25)
             worker.change_vitality(vitality_change)
             self._gui.remove_token(food.get_gui())
-            self._send_resource(worker, self._barrack_out)
+            self._send_resource(worker, self.barrack_out)
 
 
 class Home(Transition):
@@ -308,7 +300,7 @@ class Home(Transition):
                  storage_in: Storage, stop_event: Event, gui: GuiComp,
                  sim_gui: SimSimsGUI):
         super().__init__(barrack_in, barrack_out, gui, sim_gui)
-        self._storage_in = storage_in
+        self.storage_in = storage_in
         self._stop_event = stop_event
         self._priority = 0.5
 
@@ -329,22 +321,29 @@ class Home(Transition):
                 time.sleep(0.5)
                 continue
 
-            if not self._reserve(self._storage_in):
+            if not self._reserve(self.storage_in):
                 continue
 
-            if not self._reserve(self._barrack_in):
-                self._storage_in.unreserve()
+            if not self._reserve(self.barrack_in):
+                self.storage_in.unreserve()
                 continue
 
-            product = self._retrieve(self._storage_in)
+            product = self._retrieve(self.storage_in)
 
             barrack_has_worker_2 = False
             if random() > self._priority:
-                barrack_has_worker_2 = self._barrack_in.reserve()
+                barrack_has_worker_2 = self.barrack_in.reserve()
 
             if barrack_has_worker_2:
-                worker_1 = self._retrieve(self._barrack_in)
-                worker_2 = self._retrieve(self._barrack_in)
+                worker_1 = self._retrieve(self.barrack_in)
+                worker_2 = self._retrieve(self.barrack_in)
+
+                if worker_1 is None:
+                    self._send_resource(worker_2, self.barrack_out)
+                    continue
+                if worker_2 is None:
+                    self._send_resource(worker_1, self.barrack_out)
+                    continue
 
                 worker_3 = Worker(self._sim_gui.create_token_gui
                                   ({"color": COLOR_WORKER}))
@@ -352,19 +351,21 @@ class Home(Transition):
                 logging.debug("%s: new %s + %s -> %s", self,
                               worker_1, worker_2, worker_3)
 
-                self._send_resource(worker_1, self._barrack_out)
-                self._send_resource(worker_2, self._barrack_out)
+                self._send_resource(worker_1, self.barrack_out)
+                self._send_resource(worker_2, self.barrack_out)
 
-                self._barrack_out.add(worker_3, False)
+                self.barrack_out.add(worker_3)
                 self._gui.remove_token(worker_3.get_gui())
             else:
-                worker_1 = self._retrieve(self._barrack_in)
+                worker_1 = self._retrieve(self.barrack_in)
+                if worker_1 is None:
+                    continue
 
                 vitality_change = randrange(10, 35)
                 worker_1.change_vitality(vitality_change)
                 logging.debug("%s: Resting %s, plus %s", self,
                               worker_1, vitality_change)
-                self._send_resource(worker_1, self._barrack_out)
+                self._send_resource(worker_1, self.barrack_out)
             self._gui.remove_token(product.get_gui())
 
 
@@ -374,7 +375,7 @@ class Factory(Transition):
                  storage_out: Storage, stop_event: Event,
                  gui: GuiComp, sim_gui: SimSimsGUI):
         super().__init__(barrack_in, barrack_out, gui, sim_gui)
-        self._storage_out = storage_out
+        self.storage_out = storage_out
         self._harm_level = randrange(0, 10)
         self._stop_event = stop_event
 
@@ -385,10 +386,13 @@ class Factory(Transition):
                 time.sleep(0.5)
                 continue
 
-            if not self._reserve(self._barrack_in):
+            if not self._reserve(self.barrack_in):
                 continue
 
-            worker = self._retrieve(self._barrack_in)
+            worker = self._retrieve(self.barrack_in)
+            if worker is None:
+                continue
+
             product = Product(self._sim_gui.create_token_gui
                               ({"color": COLOR_PRODUCT}))
             self._gui.add_token(product.get_gui())
@@ -396,8 +400,8 @@ class Factory(Transition):
             vitality_change = (int)(-40*(random()**2) - self._harm_level)
             worker.change_vitality(vitality_change)
 
-            self._send_resource(worker, self._barrack_out)
-            self._send_resource(product, self._storage_out)
+            self._send_resource(worker, self.barrack_out)
+            self._send_resource(product, self.storage_out)
 
 
 class World:
@@ -440,8 +444,7 @@ class World:
 
         for _ in range(workers_size):
             self._barracks[randrange(len(self._barracks))].add(
-                Worker(self._gui.create_token_gui({"color": COLOR_WORKER})),
-                False)
+                Worker(self._gui.create_token_gui({"color": COLOR_WORKER})))
         self._init_gui()
 
     def _init_gui(self):
@@ -493,7 +496,7 @@ class World:
             stop_sim = True
             b: Barrack
             for b in self._barracks:
-                if b.workers_size() > 0:
+                if len(b) > 0:
                     stop_sim = False
                     break
 
@@ -510,7 +513,7 @@ class World:
         workers_count = 0
         b: Barrack
         for b in self._barracks:
-            workers_count += b.workers_size()
+            workers_count += len(b)
 
         product_count = 0
         s: Storage
@@ -578,6 +581,7 @@ class World:
             self._stabilize_transition(self._factories_count,
                                        product_count, TARGET_PRODUCTS,
                                        factory_closed, Factory)
+            self._rearrange_connections()
             time.sleep(0.2)
 
     def _stabilize_transition(self, tran_count: int,
@@ -594,6 +598,35 @@ class World:
                         and t.is_closed() == (closed_count > closed_target)):
                     t.toggle_closed()
                     break
+
+    def _rearrange_connections(self):
+        """Rearrages transition connections for
+        more evenly distributed resources"""
+        t: Transition
+        t = self._transitions[randrange(len(self._transitions))]
+        self._gui.disconnect(t.get_gui(), t.barrack_out.get_gui())
+        self._gui.disconnect(t.barrack_in.get_gui(), t.get_gui())
+        t.barrack_in = max(self._barracks, key=len)
+        t.barrack_out = min(self._barracks, key=len)
+        self._gui.connect(t.barrack_in.get_gui(), t.get_gui())
+        self._gui.connect(t.get_gui(), t.barrack_out.get_gui())
+
+        if isinstance(t, Home):
+            self._gui.disconnect(t.storage_in.get_gui(), t.get_gui())
+            t.storage_in = max(self._storage, key=len)
+            self._gui.connect(t.storage_in.get_gui(), t.get_gui())
+        elif isinstance(t, DiningHall):
+            self._gui.disconnect(t.barn_in.get_gui(), t.get_gui())
+            t.barn_in = max(self._barns, key=len)
+            self._gui.connect(t.barn_in.get_gui(), t.get_gui())
+        elif isinstance(t, Factory):
+            self._gui.disconnect(t.get_gui(), t.storage_out.get_gui())
+            t.storage_out = min(self._storage, key=len)
+            self._gui.connect(t.get_gui(), t.storage_out.get_gui())
+        elif isinstance(t, Field):
+            self._gui.disconnect(t.get_gui(), t.barn_out.get_gui())
+            t.barn_out = min(self._barns, key=len)
+            self._gui.connect(t.get_gui(), t.barn_out.get_gui())
 
     def simulate(self):
         """Starts the world simulation"""
@@ -629,7 +662,7 @@ def main():
     root_logger = logging.getLogger()
     root_logger.addHandler(console_handler)
 
-    w1 = World(1, 1, 1, 5, 5, 5, 5, 50)
+    w1 = World(3, 2, 2, 7, 7, 7, 5, 50)
     w1.simulate()
     logging.info("Program ended")
 
