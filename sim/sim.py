@@ -14,9 +14,9 @@ COLOR_PRODUCT = "#ee3322"
 SQL_FILE = "sqldb.db"
 XLSX_PATH = "resources.xlsx"
 TABLE_NAME = "Resources"
-TARGET_FOOD = 50
-TARGET_WORKERS = 50
-TARGET_PRODUCTS = 50
+TARGET_FOOD = 30
+TARGET_WORKERS = 30
+TARGET_PRODUCTS = 30
 
 
 class GUIObject:
@@ -133,8 +133,7 @@ class Place(GUIObject):
         return len(self._resources)
 
     def __str__(self) -> str:
-        result = f"{self.__class__.__name__}[{len(self._resources)},\
-            {self._reserved}, {hex(id(self))}]"
+        result = f"{self.__class__.__name__}[{len(self._resources)}, {self._reserved}, {hex(id(self))}]"
         return result
 
 
@@ -187,8 +186,7 @@ class Barrack(Place):
         return len(self)+self._incoming
 
     def __str__(self) -> str:
-        result = f"{self.__class__.__name__}[{len(self._resources)},\
-            {self._incoming}, {self._reserved}, {hex(id(self))}]"
+        result = f"{self.__class__.__name__}[{len(self._resources)},{self._incoming}, {self._reserved}, {hex(id(self))}]"
         return result
 
 
@@ -221,8 +219,6 @@ class Transition(Thread, GUIObject):
             logging.debug("%s retrieving worker", self)
             self._barrack_out.promise_worker()
         resource = place.get()
-        if resource is None:
-            logging.debug("RESOURCES IS NONE")
 
         self._gui.add_token(resource.get_gui())
         return resource
@@ -253,7 +249,7 @@ class Field(Transition):
         """Run method that creates food"""
         while not self._stop_event.is_set():
             if self._closed:
-                time.sleep(1)
+                time.sleep(0.5)
                 continue
 
             if not self._reserve(self._barrack_in):
@@ -285,7 +281,7 @@ class DiningHall(Transition):
         """Run method that repeats the dining process"""
         while not self._stop_event.is_set():
             if self._closed:
-                time.sleep(1)
+                time.sleep(0.5)
                 continue
 
             if not self._reserve(self._barrack_in):
@@ -330,7 +326,7 @@ class Home(Transition):
         """Run method that repeats the resting process"""
         while not self._stop_event.is_set():
             if self._closed:
-                time.sleep(1)
+                time.sleep(0.5)
                 continue
 
             if not self._reserve(self._storage_in):
@@ -386,14 +382,13 @@ class Factory(Transition):
         """Run method that repeats the manufacturing process"""
         while not self._stop_event.is_set():
             if self._closed:
-                time.sleep(1)
+                time.sleep(0.5)
                 continue
 
             if not self._reserve(self._barrack_in):
                 continue
 
             worker = self._retrieve(self._barrack_in)
-
             product = Product(self._sim_gui.create_token_gui
                               ({"color": COLOR_PRODUCT}))
             self._gui.add_token(product.get_gui())
@@ -551,11 +546,11 @@ class World:
         """Adjusts the transitions to that the resources are balanced"""
         while not self._stop_event.is_set():
             workers_count, product_count, food_count = self._resource_count()
-            alter = 0
+            alter_home = 0
             if workers_count > TARGET_WORKERS*1.2:
-                alter = 0.2
+                alter_home = 0.2
             elif workers_count < TARGET_WORKERS*.8:
-                alter = -0.2
+                alter_home = -0.2
 
             factory_closed = dining_hall_closed = 0
             field_closed = home_closed = 0
@@ -563,7 +558,7 @@ class World:
             t: Transition
             for t in self._transitions:
                 if isinstance(t, Home):
-                    t.change_priority(alter*random())
+                    t.change_priority(alter_home*random())
                     if t.is_closed():
                         home_closed += 1
                 if isinstance(t, Factory) and t.is_closed():
@@ -602,7 +597,7 @@ class World:
 
     def simulate(self):
         """Starts the world simulation"""
-        if self.stop:  # If <1 barrack, barn and storage
+        if self.stop:  # If less than one barrack, barn and storage
             return
 
         threads = [Thread(target=self._sim_finished),
@@ -634,7 +629,7 @@ def main():
     root_logger = logging.getLogger()
     root_logger.addHandler(console_handler)
 
-    w1 = World(1, 1, 1, 5, 5, 5, 5, 40)
+    w1 = World(1, 1, 1, 5, 5, 5, 5, 50)
     w1.simulate()
     logging.info("Program ended")
 
